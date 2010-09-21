@@ -56,4 +56,4 @@ if has("gui_running")
 endif
 
 "" Remove trailing whitespace on save for certain files.
-autocmd FileType css,html,js,php autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType css,html,js,php,rb,erb autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
