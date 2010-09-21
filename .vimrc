@@ -6,6 +6,7 @@ filetype plugin indent on
 set autochdir
 set backspace=indent,eol,start
 set backup
+set backupdir=~/.vim/backup
 set clipboard+=unnamed
 set directory=~/.vim/tmp
 set fileformats=unix,dos,mac
