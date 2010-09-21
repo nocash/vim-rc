@@ -2,6 +2,9 @@ set nocompatible
 set background=dark
 syntax on
 
+"" Run Pathogen
+call pathogen#runtime_append_all_bundles()
+
 filetype plugin indent on
 set autochdir
 set backspace=indent,eol,start
