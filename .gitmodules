@@ -1,21 +1,21 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
-	url = http://github.com/tpope/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
-	url = http://github.com/mattn/gist-vim.git
+	url = git://github.com/mattn/gist-vim.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = http://github.com/msanders/snipmate.vim.git
+	url = git://github.com/msanders/snipmate.vim.git
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
-	url = http://github.com/tpope/vim-rails.git
+	url = git://github.com/tpope/vim-rails.git
 [submodule "bundle/ir_black"]
 	path = bundle/ir_black
-	url = http://github.com/wgibbs/vim-irblack.git
+	url = git://github.com/wgibbs/vim-irblack.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = http://github.com/scrooloose/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule "bundle/surround"]
 	path = bundle/surround
-	url = http://github.com/tpope/vim-surround.git
+	url = git://github.com/tpope/vim-surround.git
