@@ -10,3 +10,6 @@
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
 	url = http://github.com/tpope/vim-rails.git
+[submodule "bundle/ir_black"]
+	path = bundle/ir_black
+	url = http://github.com/wgibbs/vim-irblack.git
