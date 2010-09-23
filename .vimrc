@@ -15,6 +15,7 @@ set directory=~/.vim/tmp
 set fileformats=unix,dos,mac
 set noerrorbells
 set wildmenu
+set wildmode=longest:full,full
 
 set incsearch
 set laststatus=2
