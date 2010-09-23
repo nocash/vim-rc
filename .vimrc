@@ -63,9 +63,9 @@ if ! exists('autocommands_loaded')
     let autocommands_loaded = 1
 
     "" Remove trailing whitespace on save for certain files.
-    autocmd FileType css,html,js,php,ruby autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
     "" Change indenting for Ruby files
-    autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType ruby,eruby setlocal shiftwidth=2 softtabstop=2
 
 endif
