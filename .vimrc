@@ -46,10 +46,6 @@ set tabstop=8
 set foldenable
 set foldmethod=manual
 
-" set autoindent
-" set smartindent
-" set cindent
-
 colorscheme ir_black
 
 if has("gui_running")
