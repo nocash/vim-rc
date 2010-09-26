@@ -22,3 +22,6 @@
 [submodule "snippets"]
 	path = snippets
 	url = git@github.com:nocash/snipmate-snippets
+[submodule "bundle/cucumber"]
+	path = bundle/cucumber
+	url = http://github.com/tpope/vim-cucumber.git
