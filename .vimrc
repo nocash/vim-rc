@@ -1,5 +1,4 @@
 set nocompatible
-set background=dark
 syntax on
 
 "" Run Pathogen
