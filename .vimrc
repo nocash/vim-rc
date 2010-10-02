@@ -55,7 +55,8 @@ if has("gui_running")
 endif
 
 "" Keymaps
-nmap <F3> :Rgrep<CR>
+nnoremap <F3> :Rgrep<CR>
+nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
 "" Autocommands
 if ! exists('autocommands_loaded')
@@ -66,5 +67,8 @@ if ! exists('autocommands_loaded')
 
     "" Change indenting for Ruby files
     autocmd FileType ruby,eruby setlocal shiftwidth=2 softtabstop=2
+
+    "" Use :Rtree instead of :NERDTree in Rails projects.
+    autocmd User Rails nnoremap <buffer> <silent> <F4> :Rtree<CR>
 
 endif
