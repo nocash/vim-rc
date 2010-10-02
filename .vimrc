@@ -65,8 +65,8 @@ if ! exists('autocommands_loaded')
     "" Remove trailing whitespace on save for certain files.
     autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
-    "" Change indenting for Ruby files
-    autocmd FileType ruby,eruby setlocal shiftwidth=2 softtabstop=2
+    "" Modify indenting for certain filetypes
+    autocmd FileType ruby,eruby,vim setlocal shiftwidth=2 softtabstop=2
 
     "" Use :Rtree instead of :NERDTree in Rails projects.
     autocmd User Rails nnoremap <buffer> <silent> <F4> :Rtree<CR>
