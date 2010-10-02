@@ -48,10 +48,10 @@ set foldmethod=manual
 colorscheme ir_black
 
 if has("gui_running")
-    set guifont=Monospace\ 13
-    set guioptions=ce
-    set guioptions-=T
-    set mousehide
+  set guifont=Monospace\ 13
+  set guioptions=ce
+  set guioptions-=T
+  set mousehide
 endif
 
 "" Keymaps
@@ -60,15 +60,15 @@ nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
 "" Autocommands
 if ! exists('autocommands_loaded')
-    let autocommands_loaded = 1
+  let autocommands_loaded = 1
 
-    "" Remove trailing whitespace on save for certain files.
-    autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+  "" Remove trailing whitespace on save for certain files.
+  autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
-    "" Modify indenting for certain filetypes
-    autocmd FileType ruby,eruby,vim setlocal shiftwidth=2 softtabstop=2
+  "" Modify indenting for certain filetypes
+  autocmd FileType ruby,eruby,vim setlocal shiftwidth=2 softtabstop=2
 
-    "" Use :Rtree instead of :NERDTree in Rails projects.
-    autocmd User Rails nnoremap <buffer> <silent> <F4> :Rtree<CR>
+  "" Use :Rtree instead of :NERDTree in Rails projects.
+  autocmd User Rails nnoremap <buffer> <silent> <F4> :Rtree<CR>
 
 endif
