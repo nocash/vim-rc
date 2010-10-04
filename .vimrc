@@ -62,11 +62,14 @@ nnoremap <silent> <F4> :NERDTreeToggle<CR>
 if ! exists('autocommands_loaded')
   let autocommands_loaded = 1
 
+  "" Cucumber (The ft detection in the plugin doesn't seem to work for me)
+  autocmd BufNewFile,BufReadPost *.feature,*.story set filetype=cucumber
+
   "" Remove trailing whitespace on save for certain files.
   autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
   "" Modify indenting for certain filetypes
-  autocmd FileType ruby,eruby,vim setlocal shiftwidth=2 softtabstop=2
+  autocmd FileType ruby,eruby,vim,cucumber setlocal shiftwidth=2 softtabstop=2
 
   "" Use :Rtree instead of :NERDTree in Rails projects.
   autocmd User Rails nnoremap <buffer> <silent> <F4> :Rtree<CR>
