@@ -38,8 +38,8 @@ set ignorecase
 set nowrap
 set shiftround
 set smartcase
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set tabstop=8
 
 set foldenable
@@ -67,9 +67,6 @@ if ! exists('autocommands_loaded')
 
   "" Remove trailing whitespace on save for certain files.
   autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-
-  "" Modify indenting for certain filetypes
-  autocmd FileType ruby,eruby,vim,cucumber setlocal shiftwidth=2 softtabstop=2
 
   "" Use :Rtree instead of :NERDTree in Rails projects.
   autocmd User Rails nnoremap <buffer> <silent> <F4> :Rtree<CR>
