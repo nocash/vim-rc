@@ -162,4 +162,6 @@ augroup miscellaneous
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
 augroup END
 
+"1}}}
+"==========================================================================
 " vim:sts=2:sw=2:tw=78:fdm=marker:
