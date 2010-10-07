@@ -123,12 +123,13 @@ let mapleader=","
 
 "2}}}
 "-- Misc. Non-Leader Mappings -----------------------------------------{{{2
+nnoremap <Space> :
 nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
 "2}}}
 "-- Misc. Leader Mappings ---------------------------------------------{{{2
-nnoremap <silent> ,cd :cd %:p:h<CR>
+nnoremap <silent> ,cd :lcd %:p:h<CR>
 nnoremap <silent> ,o :normal o<CR>
 nnoremap <silent> ,O :normal O<CR>
 
@@ -141,10 +142,11 @@ nnoremap <silent> ,fl :FufLine<CR>
 
 "2}}}
 "-- Fugitive (Git) ----------------------------------------------------{{{2
-nnoremap <silent> ,gs :Gstatus<CR>
+nnoremap <silent> ,gb :Gblame<CR>
 nnoremap <silent> ,gc :Gcommit<CR>
-nnoremap <silent> ,gl :Glog<CR>
 nnoremap <silent> ,gd :Gdiff<CR>
+nnoremap <silent> ,gl :Glog<CR>
+nnoremap <silent> ,gs :Gstatus<CR>
 
 "2}}}
 "1}}}
