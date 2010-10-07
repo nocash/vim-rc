@@ -85,8 +85,10 @@ set showmatch
 "==========================================================================
 
 "-- Color Scheme ------------------------------------------------------{{{2
-if filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
+if has("gui_running") && filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
   colorscheme ir_black
+else
+  colorscheme default
 endif
 
 "2}}}
