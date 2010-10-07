@@ -1,7 +1,10 @@
 "==========================================================================
-" Behavior                                                             {{{1
+" Behavior                                                              {{{
 "==========================================================================
 
+"-- Initialize ---------------------------------------------------------{{{
+" I couldn't think of a better word than 'initialize' for all the important
+" stuff that everyone tells you to put at the top of your .vimrc.
 set nocompatible
 
 " Run Pathogen
@@ -10,44 +13,45 @@ call pathogen#runtime_append_all_bundles()
 syntax on
 filetype plugin indent on
 
-"-- Temp Files & Backups ----------------------------------------------{{{2
+"}}}
+"-- Temp Files & Backups -----------------------------------------------{{{
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp"
 
-"2}}}
-"-- Indenting ---------------------------------------------------------{{{2
+"}}}
+"-- Indenting ----------------------------------------------------------{{{
 set expandtab
 set shiftround
 set shiftwidth=2
 set softtabstop=2
 set tabstop=8
 
-"2}}}
-"-- Searching ---------------------------------------------------------{{{2
+"}}}
+"-- Searching ----------------------------------------------------------{{{
 set hlsearch
 set ignorecase
 set incsearch
 set smartcase
 set wrapscan
 
-"2}}}
-"-- Folding -----------------------------------------------------------{{{2
+"}}}
+"-- Folding ------------------------------------------------------------{{{
 set foldenable
 set foldmethod=manual
 
-"2}}}
-"-- Wildmenu ----------------------------------------------------------{{{2
+"}}}
+"-- Wildmenu -----------------------------------------------------------{{{
 set wildmenu
 set wildmode=longest:full
 
-"2}}}
-"-- Scrolling ---------------------------------------------------------{{{2
+"}}}
+"-- Scrolling ----------------------------------------------------------{{{
 set scrolloff=2
 set sidescrolloff=10
 
-"2}}}
-"-- Wrapping ----------------------------------------------------------{{{2
+"}}}
+"-- Wrapping -----------------------------------------------------------{{{
 "                 |---> Auto-wrap comments using textwidth
 "                 ||--> Automatically insert the comment leader after <Enter>
 "                 |||-> Allow formatting of comments with 'gq'.
@@ -56,12 +60,12 @@ set textwidth=78
 set nowrap
 set linebreak
 
-"2}}}
-"-- Mousing (as if) ---------------------------------------------------{{{2
+"}}}
+"-- Mousing (as if) ----------------------------------------------------{{{
 set mousehide
 
-"2}}}
-"-- Misc / Unsorted ---------------------------------------------------{{{2
+"}}}
+"-- Misc / Unsorted ----------------------------------------------------{{{
 set backspace=indent,eol,start
 set fileformats=unix,dos,mac
 set hidden
@@ -71,28 +75,26 @@ set matchtime=5
 set noerrorbells
 set nostartofline
 set novisualbell
-set number
-set numberwidth=4
 set report=0
 set ruler
 set showcmd
 set showmatch
 
-"2}}}
-"1}}}
+"}}}
+"}}}
 "==========================================================================
-" Appearance                                                           {{{1
+" Appearance                                                            {{{
 "==========================================================================
 
-"-- Color Scheme ------------------------------------------------------{{{2
+"-- Color Scheme -------------------------------------------------------{{{
 if has("gui_running") && filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
   colorscheme ir_black
 else
   colorscheme default
 endif
 
-"2}}}
-"-- GUI Options -------------------------------------------------------{{{2
+"}}}
+"-- GUI Options --------------------------------------------------------{{{
 if has("gui_running")
   set guifont=Monospace\ 13
 " Clobber all GUI settings except for one...
@@ -100,74 +102,84 @@ if has("gui_running")
   set guioptions=c
 endif
 
-"2}}}
-"1}}}
+"}}}
+"-- Line Numbers -------------------------------------------------------{{{
+set number
+set numberwidth=4
+
+"}}}
+"}}}
 "==========================================================================
-" Plugin Options                                                       {{{1
+" Plugin Options                                                        {{{
 "==========================================================================
 
-"-- SnipMate ----------------------------------------------------------{{{2
+"-- SnipMate -----------------------------------------------------------{{{
 " Set explicit snippets directory (to prevent examples from loading)
 let g:snippets_dir="~/.vim/snippets"
 
-"2}}}
-"1}}}
+"}}}
+"}}}
 "==========================================================================
-" Key Mapping                                                          {{{1
+" Key Mapping                                                           {{{
 "==========================================================================
 
-"-- Leader Key --------------------------------------------------------{{{2
+"-- Leader Key ---------------------------------------------------------{{{
 " I don't actually use <leader> in my mappings, but I thought it'd be a
 " good idea to explicitly declare it anyway.
 nnoremap \ ,
 vnoremap \ ,
 let mapleader=","
 
-"2}}}
-"-- Misc. Non-Leader Mappings -----------------------------------------{{{2
-nnoremap <Space> :
+"}}}
+"-- Misc. Non-Leader Mappings ------------------------------------------{{{
+noremap <Space> :
+
 nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
-"2}}}
-"-- Misc. Leader Mappings ---------------------------------------------{{{2
+"}}}
+"-- Misc. Leader Mappings ----------------------------------------------{{{
 nnoremap <silent> ,cd :lcd %:p:h<CR>
 nnoremap <silent> ,o :normal o<CR>
 nnoremap <silent> ,O :normal O<CR>
 
-"2}}}
-"-- FuzzyFinder -------------------------------------------------------{{{2
+"}}}
+"-- FuzzyFinder --------------------------------------------------------{{{
 nnoremap <silent> ,fb :FufBuffer<CR>
 nnoremap <silent> ,ff :FufFile<CR>
 nnoremap <silent> ,fh :FufHelp<CR>
 nnoremap <silent> ,fl :FufLine<CR>
 
-"2}}}
-"-- Fugitive (Git) ----------------------------------------------------{{{2
+"}}}
+"-- Fugitive (Git) -----------------------------------------------------{{{
 nnoremap <silent> ,gb :Gblame<CR>
 nnoremap <silent> ,gc :Gcommit<CR>
 nnoremap <silent> ,gd :Gdiff<CR>
 nnoremap <silent> ,gl :Glog<CR>
 nnoremap <silent> ,gs :Gstatus<CR>
 
-"2}}}
-"1}}}
+"}}}
+"}}}
 "==========================================================================
-" Autocommands                                                         {{{1
+" Autocommands                                                          {{{
 "==========================================================================
 
+"-- Formatting ---------------------------------------------------------{{{
 augroup formatting
   au!
   " Remove trailing whitespace on save
   autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 augroup END
 
+"}}}
+"-- Miscellaneous ------------------------------------------------------{{{
 augroup miscellaneous
   au!
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
 augroup END
 
-"1}}}
+"}}}
+"}}}
 "==========================================================================
 " vim:sts=2:sw=2:tw=78:fdm=marker:
