@@ -114,18 +114,20 @@ let g:snippets_dir="~/.vim/snippets"
 " Key Mapping                                                          {{{1
 "==========================================================================
 
-"-- Swap Leader Key ---------------------------------------------------{{{2
+"-- Leader Key --------------------------------------------------------{{{2
+" I don't actually use <leader> in my mappings, but I thought it'd be a
+" good idea to explicitly declare it anyway.
 nnoremap \ ,
 vnoremap \ ,
 let mapleader=","
 
 "2}}}
-"-- Function Keys -----------------------------------------------------{{{2
+"-- Misc. Non-Leader Mappings -----------------------------------------{{{2
 nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
 "2}}}
-"-- Misc. Mappings ----------------------------------------------------{{{2
+"-- Misc. Leader Mappings ---------------------------------------------{{{2
 nnoremap <silent> ,cd :cd %:p:h<CR>
 nnoremap <silent> ,o :normal o<CR>
 nnoremap <silent> ,O :normal O<CR>
