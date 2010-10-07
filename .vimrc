@@ -48,11 +48,13 @@ set sidescrolloff=10
 
 "2}}}
 "-- Wrapping ----------------------------------------------------------{{{2
-set textwidth=78
 "                 |---> Auto-wrap comments using textwidth
 "                 ||--> Automatically insert the comment leader after <Enter>
 "                 |||-> Allow formatting of comments with 'gq'.
 set formatoptions=crq
+set textwidth=78
+set nowrap
+set linebreak
 
 "2}}}
 "-- Mousing (as if) ---------------------------------------------------{{{2
@@ -69,7 +71,6 @@ set matchtime=5
 set noerrorbells
 set nostartofline
 set novisualbell
-set nowrap
 set number
 set numberwidth=4
 set report=0
@@ -92,6 +93,8 @@ endif
 "-- GUI Options -------------------------------------------------------{{{2
 if has("gui_running")
   set guifont=Monospace\ 13
+" Clobber all GUI settings except for one...
+"                |-> Use console-style drop-downs
   set guioptions=c
 endif
 
