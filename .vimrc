@@ -5,6 +5,7 @@
 set nocompatible
 
 " Pathogen initialization
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 syntax on
