@@ -66,6 +66,7 @@ set novisualbell
 set report=0
 set ruler
 set shellslash
+set shortmess+=I
 set showcmd
 set showmatch
 
@@ -113,7 +114,7 @@ set statusline+=%#warningmsg#%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}%*
 set statusline+=%#warningmsg#%{StatuslineTabWarning()}%*
 set statusline+=%#warningmsg#%{StatuslineTrailingSpaceWarning()}%*
 
-" Warn if &paste is enabled
+" Warn if paste is enabled
 set statusline+=%#warningmsg#%{&paste?'[paste]':''}%*
 
 "                  +-> Column number
@@ -244,4 +245,5 @@ endfunction
 "
 "}}}
 "==========================================================================
+" Scared by folding? Use 'zR' to open everything up.
 " vim:sts=2:sw=2:tw=78:fdm=marker:
