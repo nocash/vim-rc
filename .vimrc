@@ -207,10 +207,15 @@ augroup END
 
 augroup Miscellaneous
   au!
-  " Remove trailing whitespace on save
+  " Remove trailing whitespace on save. Using an autocommand to create an
+  " autocommand like this is probably a bit redundant when I'm doing it to all
+  " filetypes, but it'll allow me to limit it down the road if need be.
   autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
+  " Change PHP indenting (I just can't get used to two spaces with all of
+  " those brackets).
+  autocmd Filetype php setlocal sts=4 sw=4
 augroup END
 
 "}}}
