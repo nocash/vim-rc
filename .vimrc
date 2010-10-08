@@ -199,34 +199,34 @@ augroup END
 "==========================================================================
 
 function! StatuslineTrailingSpaceWarning()
-    if !exists("b:statusline_trailing_space_warning")
-        if search('\s\+$', 'nw') != 0
-            let b:statusline_trailing_space_warning = '[trail]'
-        else
-            let b:statusline_trailing_space_warning = ''
-        endif
+  if !exists("b:statusline_trailing_space_warning")
+    if search('\s\+$', 'nw') != 0
+      let b:statusline_trailing_space_warning = '[trail]'
+    else
+      let b:statusline_trailing_space_warning = ''
     endif
+  endif
 
-    return b:statusline_trailing_space_warning
+  return b:statusline_trailing_space_warning
 endfunction
 
 function! StatuslineTabWarning()
-    if !exists("b:statusline_tab_warning")
-        let tabs = search('^\t', 'nw') != 0
-        let spaces = search('^ ', 'nw') != 0
+  if !exists("b:statusline_tab_warning")
+    let tabs = search('^\t', 'nw') != 0
+    let spaces = search('^ ', 'nw') != 0
 
-        if tabs && spaces
-            let b:statusline_tab_warning = '[mixed-indenting]'
-        elseif (spaces && !&et)
-            let b:statusline_tab_warning = '[expandtab]'
-        elseif (tabs && &et)
-            let b:statusline_tab_warning = '[noexpandtab]'
-        else
-            let b:statusline_tab_warning = ''
-        endif
+    if tabs && spaces
+      let b:statusline_tab_warning = '[mixed-indenting]'
+    elseif (spaces && !&et)
+      let b:statusline_tab_warning = '[expandtab]'
+    elseif (tabs && &et)
+      let b:statusline_tab_warning = '[noexpandtab]'
+    else
+      let b:statusline_tab_warning = ''
     endif
+  endif
 
-    return b:statusline_tab_warning
+  return b:statusline_tab_warning
 endfunction
 
 "}}}
