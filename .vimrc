@@ -4,7 +4,7 @@
 
 set nocompatible
 
-" Run Pathogen
+" Pathogen initialization
 call pathogen#runtime_append_all_bundles()
 
 syntax on
@@ -42,15 +42,16 @@ set scrolloff=2
 set sidescrolloff=10
 
 "-- Wrapping --------------------------------------------------------------
-"                 |---> Auto-wrap comments using textwidth
-"                 ||--> Automatically insert the comment leader after <Enter>
-"                 |||-> Allow formatting of comments with 'gq'.
+"                 +---> Auto-wrap comments using textwidth
+"                 |+--> Automatically insert the comment leader after <Enter>
+"                 ||+-> Allow formatting of comments with 'gq'.
 set formatoptions=crq
 set textwidth=78
 set nowrap
 set linebreak
 
 "-- Other / Unsorted ------------------------------------------------------
+set autochdir
 set backspace=indent,eol,start
 set fileformats=unix,dos,mac
 set hidden
@@ -63,6 +64,7 @@ set nostartofline
 set novisualbell
 set report=0
 set ruler
+set shellslash
 set showcmd
 set showmatch
 
@@ -82,9 +84,8 @@ endif
 
 "-- GUI Options -----------------------------------------------------------
 if has("gui_running")
-  set guifont=Monospace\ 13
 " Clobber all GUI settings except for one...
-"                |-> Use console-style drop-downs
+"                +-> Use console-style drop-downs
   set guioptions=c
 endif
 
@@ -93,12 +94,12 @@ set number
 set numberwidth=4
 
 "-- Status Line -----------------------------------------------------------
-"               |-> Relative file path
-"               |   |-> Help buffer flag
-"               |   | |-> Filetype
-"               |   | | |-> Readonly flag
-"               |   | | | |-> Modified flag
-"               |   | | | | |-> Left/right alignment separator
+"               +-> Relative file path
+"               |   +-> Help buffer flag
+"               |   | +-> Filetype
+"               |   | | +-> Readonly flag
+"               |   | | | +-> Modified flag
+"               |   | | | | +-> Left/right alignment separator
 set statusline=%f\ %h%y%r%m%=
 
 " Warn if fileformat isn't Unix
@@ -114,9 +115,9 @@ set statusline+=%#warningmsg#%{StatuslineTrailingSpaceWarning()}%*
 " Warn if &paste is enabled
 set statusline+=%#warningmsg#%{&paste?'[paste]':''}%*
 
-"                  |-> Column number
-"                  |  |-> Line number
-"                  |  |   |-> Percentage through file
+"                  +-> Column number
+"                  |  +-> Line number
+"                  |  |   +-> Percentage through file
 set statusline+=\ %c,%l\ %P
 
 "}}}
@@ -125,7 +126,7 @@ set statusline+=\ %c,%l\ %P
 "==========================================================================
 
 "-- SnipMate --------------------------------------------------------------
-" Set explicit snippets directory (to prevent examples from loading)
+" Set explicit snippets directory to prevent examples from loading.
 let g:snippets_dir="~/.vim/snippets"
 
 "}}}
@@ -179,14 +180,10 @@ augroup ResetStatuslineWarnings
   autocmd CursorHold,BufWritePost * unlet! b:statusline_long_line_warning
 augroup END
 
-augroup formatting
+augroup Miscellaneous
   au!
   " Remove trailing whitespace on save
   autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-augroup END
-
-augroup miscellaneous
-  au!
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
 augroup END
