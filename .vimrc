@@ -92,6 +92,33 @@ endif
 set number
 set numberwidth=4
 
+"-- Status Line -----------------------------------------------------------
+"               |-> Relative file path
+"               |   |-> Help buffer flag
+"               |   | |-> Filetype
+"               |   | | |-> Readonly flag
+"               |   | | | |-> Modified flag
+"               |   | | | | |-> Left/right alignment separator
+set statusline=%f\ %h%y%r%m%=
+
+" Warn if fileformat isn't Unix
+set statusline+=%#warningmsg#%{&ff!='unix'?'['.&ff.']':''}%*
+
+" Warn if file encoding isn't UTF-8
+set statusline+=%#warningmsg#%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}%*
+
+" Warn if expandtab is wrong or there is mixed indenting
+set statusline+=%#warningmsg#%{StatuslineTabWarning()}%*
+set statusline+=%#warningmsg#%{StatuslineTrailingSpaceWarning()}%*
+
+" Warn if &paste is enabled
+set statusline+=%#warningmsg#%{&paste?'[paste]':''}%*
+
+"                  |-> Column number
+"                  |  |-> Line number
+"                  |  |   |-> Percentage through file
+set statusline+=\ %c,%l\ %P
+
 "}}}
 "==========================================================================
 " Plugin Options                                                        {{{
@@ -142,6 +169,16 @@ nnoremap <silent> ,gs :Gstatus<CR>
 " Autocommands                                                          {{{
 "==========================================================================
 
+augroup ResetStatuslineWarnings
+  au!
+  " Recalculate the trailing whitespace warning when idle and after saving
+  autocmd CursorHold,BufWritePost * unlet! b:statusline_trailing_space_warning
+  " Recalculate the tab warning flag when idle and after writing
+  autocmd CursorHold,BufWritePost * unlet! b:statusline_tab_warning
+  " Recalculate the long line warning when idle and after saving
+  autocmd CursorHold,BufWritePost * unlet! b:statusline_long_line_warning
+augroup END
+
 augroup formatting
   au!
   " Remove trailing whitespace on save
@@ -153,6 +190,42 @@ augroup miscellaneous
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
 augroup END
+
+"}}}
+"==========================================================================
+" Functions                                                             {{{
+"==========================================================================
+
+function! StatuslineTrailingSpaceWarning()
+    if !exists("b:statusline_trailing_space_warning")
+        if search('\s\+$', 'nw') != 0
+            let b:statusline_trailing_space_warning = '[trail]'
+        else
+            let b:statusline_trailing_space_warning = ''
+        endif
+    endif
+
+    return b:statusline_trailing_space_warning
+endfunction
+
+function! StatuslineTabWarning()
+    if !exists("b:statusline_tab_warning")
+        let tabs = search('^\t', 'nw') != 0
+        let spaces = search('^ ', 'nw') != 0
+
+        if tabs && spaces
+            let b:statusline_tab_warning = '[mixed-indenting]'
+        elseif (spaces && !&et)
+            let b:statusline_tab_warning = '[expandtab]'
+        elseif (tabs && &et)
+            let b:statusline_tab_warning = '[noexpandtab]'
+        else
+            let b:statusline_tab_warning = ''
+        endif
+    endif
+
+    return b:statusline_tab_warning
+endfunction
 
 "}}}
 "==========================================================================
