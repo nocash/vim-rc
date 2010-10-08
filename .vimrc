@@ -171,8 +171,8 @@ nnoremap <silent> ,sv :so $MYVIMRC<CR>
 nnoremap <silent> ,cd :lcd %:h<CR>
 nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
 
-" Insert a line above/below and return to normal mode. There has to be a
-" better way to do this...
+" Insert a line above/below current and return to normal mode. There has to be
+" a better way to do this...
 nnoremap <silent> ,o o<ESC>k
 nnoremap <silent> ,O O<ESC>j
 
@@ -273,4 +273,4 @@ endfunction
 "}}}
 "==========================================================================
 " Scared by folding? Use 'zR' to open everything up.
-" vim:sts=2:sw=2:tw=78:fdm=marker:
+" vim:et:sts=2:sw=2:tw=78:fdm=marker:
