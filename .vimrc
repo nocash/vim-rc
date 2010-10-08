@@ -12,9 +12,9 @@ syntax on
 filetype plugin indent on
 
 "-- Temp Files & Backups --------------------------------------------------
-set backup
+set nobackup
 set backupdir=~/.vim/backup
-set directory=~/.vim/tmp"
+set directory=~/.vim/tmp
 
 "-- Indenting -------------------------------------------------------------
 set expandtab
