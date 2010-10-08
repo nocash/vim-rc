@@ -130,6 +130,9 @@ set statusline+=\ %c,%l\ %P
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
 
+"-- NERDTree --------------------------------------------------------------
+let NERDTreeShowBookmarks=1
+
 "-- SnipMate --------------------------------------------------------------
 " Set explicit snippets directory to prevent examples from loading.
 let g:snippets_dir="~/.vim/snippets"
