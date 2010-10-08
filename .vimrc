@@ -127,6 +127,9 @@ set statusline+=\ %c,%l\ %P
 " Plugin Options                                                        {{{
 "==========================================================================
 
+"-- Gist ------------------------------------------------------------------
+let g:gist_detect_filetype=1
+
 "-- SnipMate --------------------------------------------------------------
 " Set explicit snippets directory to prevent examples from loading.
 let g:snippets_dir="~/.vim/snippets"
