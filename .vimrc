@@ -155,16 +155,33 @@ noremap <Space> :
 nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
+" Emacs style movement on command line
+cnoremap <C-b> <Left>
+cnoremap <A-b> <S-Left>
+cnoremap <C-a> <Home>
+cnoremap <C-f> <Right>
+cnoremap <A-f> <S-Right>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 "-- Misc. Leader Mappings -------------------------------------------------
-nnoremap <silent> ,cd :lcd %:p:h<CR>
-nnoremap <silent> ,o :normal o<CR>
-nnoremap <silent> ,O :normal O<CR>
+nnoremap <silent> ,ev :ed $MYVIMRC<CR>
+nnoremap <silent> ,sv :so $MYVIMRC<CR>
+
+nnoremap <silent> ,cd :lcd %:h<CR>
+nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
+
+" Insert a line above/below and return to normal mode. There has to be a
+" better way to do this...
+nnoremap <silent> ,o o<ESC>k
+nnoremap <silent> ,O O<ESC>j
 
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> ,fb :FufBuffer<CR>
 nnoremap <silent> ,ff :FufFile<CR>
 nnoremap <silent> ,fh :FufHelp<CR>
-nnoremap <silent> ,fl :FufLine<CR>
+nnoremap <silent> ,ft :FufTag<CR>
 
 "-- Fugitive (Git) --------------------------------------------------------
 nnoremap <silent> ,gb :Gblame<CR>
