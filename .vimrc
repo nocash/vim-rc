@@ -226,4 +226,21 @@ endfunction
 
 "}}}
 "==========================================================================
+" Acknowledgements                                                      {{{
+"==========================================================================
+"
+" Derek Wyatt for Vim and .vimrc tips
+" - http://derekwyatt.org/vim/the-vimrc-file/my-vimrc-file
+"
+" Scrooloose for status line stuff
+" - http://github.com/scrooloose/vimfiles/blob/3cc6832ef77515f76d8d/vimrc
+"
+" Column-comment style and various settings
+" - http://vi-improved.org/vimrc.php
+"
+" Takeshi Nishida (FuzzyFinder) for section folding inspiration
+" - http://www.vim.org/scripts/script.php?script_id=1984
+"
+"}}}
+"==========================================================================
 " vim:sts=2:sw=2:tw=78:fdm=marker:
