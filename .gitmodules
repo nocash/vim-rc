@@ -25,3 +25,6 @@
 [submodule "bundle/cucumber"]
 	path = bundle/cucumber
 	url = http://github.com/tpope/vim-cucumber.git
+[submodule "bundle/ragtag"]
+	path = bundle/ragtag
+	url = http://github.com/tpope/vim-ragtag.git
