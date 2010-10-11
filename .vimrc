@@ -163,6 +163,7 @@ cnoremap <A-f> <S-Right>
 cnoremap <C-e> <End>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+cnoremap <A-BS> <C-W>
 
 "-- Misc. Leader Mappings -------------------------------------------------
 nnoremap <silent> ,ev :ed $MYVIMRC<CR>
