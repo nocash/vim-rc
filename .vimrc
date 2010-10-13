@@ -172,11 +172,6 @@ nnoremap <silent> ,sv :so $MYVIMRC<CR>
 nnoremap <silent> ,cd :lcd %:h<CR>
 nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
 
-" Insert a line above/below current and return to normal mode. There has to be
-" a better way to do this...
-nnoremap <silent> ,o o<ESC>k
-nnoremap <silent> ,O O<ESC>j
-
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> ,fb :FufBuffer<CR>
 nnoremap <silent> ,ff :FufFile<CR>
