@@ -11,31 +11,32 @@ call pathogen#runtime_append_all_bundles()
 syntax on
 filetype plugin indent on
 
-"-- Temp Files & Backups --------------------------------------------------
-set directory=~/.vim/tmp
-set nobackup
+"-- Files & Directories ---------------------------------------------------
+set autochdir            " automatically change working directory
+set directory=~/.vim/tmp " store swap files in a single directory
+set nobackup             " do not make backups
+set tags+=tags;          " search recursively upwards for tags file
 
 "-- Indenting -------------------------------------------------------------
-set expandtab
-set shiftround
-set shiftwidth=2
-set softtabstop=2
-set tabstop=8
+set expandtab            " use spaces instead of tabs
+set shiftround           " round indent to multiple of 'shiftwidth'
+set shiftwidth=2         " match shifting to indenting
+set softtabstop=2        " indent two spaces by default
 
 "-- Searching -------------------------------------------------------------
-set hlsearch
-set ignorecase
-set incsearch
-set smartcase
-set wrapscan
+set hlsearch             " highlight search results
+set ignorecase           " case-insensitive searching by default
+set incsearch            " search as I type
+set smartcase            " case-sensitive if I use a capital letter
+set wrapscan             " wrap around the file when searching
 
 "-- Folding ---------------------------------------------------------------
-set foldenable
-set foldmethod=manual
+set foldenable           " enable folding...
+set foldmethod=manual    " ...but don't do it automatically
 
 "-- Wildmenu --------------------------------------------------------------
 set wildmenu
-set wildmode=longest:full
+set wildmode=longest:list
 
 "-- Scrolling -------------------------------------------------------------
 set scrolloff=2
@@ -51,9 +52,8 @@ set nowrap
 set linebreak
 
 "-- Other / Unsorted ------------------------------------------------------
-set autochdir
 set backspace=indent,eol,start
-set fileformats=unix,dos,mac
+set fileformats=unix,dos
 set hidden
 set history=100
 set laststatus=2
@@ -155,6 +155,7 @@ nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
 " Emacs style movement on command line
+" <C-n> and <C-p> wipe out my command line cycling, but I rarely use it.
 cnoremap <C-b> <Left>
 cnoremap <A-b> <S-Left>
 cnoremap <C-a> <Home>
