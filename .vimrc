@@ -176,6 +176,8 @@ nnoremap <silent> ,sv :so $MYVIMRC<CR>
 nnoremap <silent> ,cd :lcd %:h<CR>
 nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
 
+nnoremap <silent> ,hl :silent nohlsearch<CR>
+
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> ,fb :FufBuffer<CR>
 nnoremap <silent> ,ff :FufFile<CR>
