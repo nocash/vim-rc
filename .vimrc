@@ -151,6 +151,9 @@ let mapleader=","
 "-- Misc. Non-Leader Mappings ---------------------------------------------
 noremap <Space> :
 
+" Make Y behave consistently with D and C
+nnoremap Y y$
+
 nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
