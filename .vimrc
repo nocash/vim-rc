@@ -50,8 +50,8 @@ set scrolloff=2
 set sidescrolloff=10
 
 "-- Wrapping --------------------------------------------------------------
-"                 +---> Auto-wrap comments using textwidth
-"                 |+--> Automatically insert the comment leader after <Enter>
+"                 +-> Auto-wrap comments using textwidth
+"                 |+-> Automatically insert the comment leader after <Enter>
 "                 ||+-> Allow formatting of comments with 'gq'.
 set formatoptions=crq
 set textwidth=78
