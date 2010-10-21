@@ -12,6 +12,13 @@ syntax on
 filetype plugin indent on
 
 "-- Files & Directories ---------------------------------------------------
+" Tell vim to remember certain things when we exit
+"           +-> Remember marks for up to # previously edited files
+"           |   +-> Save up to # lines for each register
+"           |   |     +-> Remember up to # lines of command-line history
+"           |   |     |   +-> Saves and restores the buffer list
+"           |   |     |   | +-> Where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.vim/.viminfo
 set autochdir            " automatically change working directory
 set directory=~/.vim/tmp " store swap files in a single directory
 set nobackup             " do not make backups
@@ -217,6 +224,9 @@ augroup Miscellaneous
   " Change PHP indenting (I just can't get used to two spaces with all of
   " those brackets).
   autocmd Filetype php setlocal sts=4 sw=4
+  " Restore cursor to last known position when opening a previously edited
+  " file.
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
 "}}}
