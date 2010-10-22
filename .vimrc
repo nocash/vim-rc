@@ -162,6 +162,8 @@ noremap <Space> :
 
 " Make Y behave consistently with D and C
 nnoremap Y y$
+vnoremap > >gv
+vnoremap < <gv
 
 nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
