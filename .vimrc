@@ -5,8 +5,8 @@
 set nocompatible
 
 " Pathogen initialization
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 syntax on
 filetype plugin indent on
@@ -168,8 +168,9 @@ vnoremap < <gv
 nnoremap <F3> :Rgrep<CR>
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 
-" Emacs style movement on command line
-" <C-n> and <C-p> wipe out my command line cycling, but I rarely use it.
+" Emacs style movement on command line. <C-n> and <C-p> wipe out my command
+" line cycling for things like the wildmenu, but it's well worth it
+" (especially since I primarily use FuzzyFinder).
 cnoremap <C-b> <Left>
 cnoremap <A-b> <S-Left>
 cnoremap <C-a> <Home>
