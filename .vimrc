@@ -158,36 +158,52 @@ vnoremap \ ,
 let mapleader=","
 
 "-- Misc. Non-Leader Mappings ---------------------------------------------
-noremap <Space> :
+map <Space> :
 
 " Make Y behave consistently with D and C
-nnoremap Y y$
-vnoremap > >gv
-vnoremap < <gv
+map Y y$
 
-nnoremap <F3> :Rgrep<CR>
-nnoremap <silent> <F4> :NERDTreeToggle<CR>
+" Re-select visual area after indenting
+vmap > >gv
+vmap < <gv
+
+" Easier window/tab navigation
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+map <m-l> gt
+map <m-h> gT
+
+" Redraw screen, or reload file with CTRL
+noremap <silent> <F5> :redraw!<CR>
+noremap <silent> <C-F5> :e!<CR>
+
+" Shortcuts for plugins
+nmap <F3> :Rgrep<CR>
+nmap <silent> <F4> :NERDTreeToggle<CR>
 
 " Emacs style movement on command line. <C-n> and <C-p> wipe out my command
 " line cycling for things like the wildmenu, but it's well worth it
 " (especially since I primarily use FuzzyFinder).
-cnoremap <C-b> <Left>
-cnoremap <A-b> <S-Left>
-cnoremap <C-a> <Home>
-cnoremap <C-f> <Right>
-cnoremap <A-f> <S-Right>
-cnoremap <C-e> <End>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <A-BS> <C-W>
+cmap <c-b> <Left>
+cmap <m-b> <S-Left>
+cmap <c-a> <Home>
+cmap <c-f> <Right>
+cmap <m-f> <S-Right>
+cmap <c-e> <End>
+cmap <c-p> <Up>
+cmap <c-n> <Down>
+cmap <m-bs> <C-W>
 
 "-- Misc. Leader Mappings -------------------------------------------------
-nnoremap <silent> ,ev :ed $MYVIMRC<CR>
-nnoremap <silent> ,sv :so $MYVIMRC<CR>
+nmap <silent> ,v :ed $MYVIMRC<CR>
+nmap <silent> ,V :so $MYVIMRC<CR>
 
 nnoremap <silent> ,cd :lcd %:h<CR>
 nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
 
+" Un-highlight last search
 nnoremap <silent> ,hl :silent nohlsearch<CR>
 
 "-- FuzzyFinder -----------------------------------------------------------
