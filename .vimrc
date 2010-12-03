@@ -83,12 +83,13 @@ set showmatch
 " Appearance                                                            {{{
 "==========================================================================
 
+set t_Co=256
+
 "-- Color Scheme ----------------------------------------------------------
-" I love ir_black, but I've never gotten it to look very good in a terminal.
 " 'filereadable' is primarily for portability.
-if has("gui_running") && filereadable(expand("$HOME/.vim/bundle/zenburn/colors/zenburn.vim"))
+if filereadable(expand("$HOME/.vim/bundle/zenburn/colors/zenburn.vim"))
   colorscheme zenburn
-elseif has("gui_running") && filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
+elseif filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
   colorscheme ir_black
 else
   colorscheme default
