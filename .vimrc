@@ -14,11 +14,14 @@ filetype plugin indent on
 "-- Files & Directories ---------------------------------------------------
 " Tell vim to remember certain things when we exit
 "           +-> Remember marks for up to # previously edited files
-"           |   +-> Save up to # lines for each register
-"           |   |     +-> Remember up to # lines of command-line history
-"           |   |     |   +-> Saves and restores the buffer list
-"           |   |     |   | +-> Where to save the viminfo files
-set viminfo='10,\"100,:20,%,n~/.vim/.viminfo
+"           |   +-> Remember global marks
+"           |   |  +-> Save up to # lines for each register
+"           |   |  |    +-> Remember up to # lines of command-line history
+"           |   |  |    |   +-> Number of lines to save from the input line history
+"           |   |  |    |   |   +-> Number of lines to save from the search history
+"           |   |  |    |   |   |   +-> Disable 'hlsearch' highlighting when starting
+"           |   |  |    |   |   |   | +-> Where to save the viminfo files
+set viminfo='10,f1,<100,:20,@20,/20,h,n~/.vim/.viminfo
 set autochdir            " automatically change working directory
 set directory=~/.vim/tmp " store swap files in a single directory
 set nobackup             " do not make backups
