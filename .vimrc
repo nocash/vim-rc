@@ -90,10 +90,10 @@ set t_Co=256
 
 "-- Color Scheme ----------------------------------------------------------
 " 'filereadable' is primarily for portability.
-if filereadable(expand("$HOME/.vim/bundle/zenburn/colors/zenburn.vim"))
-  colorscheme zenburn
-elseif filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
+if has("gui_running") && filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
   colorscheme ir_black
+elseif filereadable(expand("$HOME/.vim/bundle/zenburn/colors/zenburn.vim"))
+  colorscheme zenburn
 else
   colorscheme default
 endif
