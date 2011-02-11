@@ -40,3 +40,6 @@
 [submodule "bundle/csapprox"]
 	path = bundle/csapprox
 	url = git://github.com/vim-scripts/CSApprox.git
+[submodule "bundle/mgutz-vim-colors"]
+	path = bundle/mgutz-vim-colors
+	url = git://github.com/mgutz/vim-colors.git
