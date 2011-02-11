@@ -24,16 +24,16 @@
 	url = git@github.com:nocash/snipmate-snippets
 [submodule "bundle/cucumber"]
 	path = bundle/cucumber
-	url = http://github.com/tpope/vim-cucumber.git
+	url = git://github.com/tpope/vim-cucumber.git
 [submodule "bundle/ragtag"]
 	path = bundle/ragtag
-	url = http://github.com/tpope/vim-ragtag.git
+	url = git://github.com/tpope/vim-ragtag.git
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
-	url = http://github.com/tpope/vim-unimpaired.git
+	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/markdown"]
 	path = bundle/markdown
-	url = http://github.com/tpope/vim-markdown.git
+	url = git://github.com/tpope/vim-markdown.git
 [submodule "bundle/endwise"]
 	path = bundle/endwise
-	url = http://github.com/tpope/vim-endwise.git
+	url = git://github.com/tpope/vim-endwise.git
