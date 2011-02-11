@@ -86,17 +86,8 @@ set showmatch
 " Appearance                                                            {{{
 "==========================================================================
 
-set t_Co=256
-
 "-- Color Scheme ----------------------------------------------------------
-" 'filereadable' is primarily for portability.
-if has("gui_running") && filereadable(expand("$HOME/.vim/bundle/ir_black/colors/ir_black.vim"))
-  colorscheme ir_black
-elseif filereadable(expand("$HOME/.vim/bundle/zenburn/colors/zenburn.vim"))
-  colorscheme zenburn
-else
-  colorscheme default
-endif
+colorscheme ir_black
 
 "-- GUI Options -----------------------------------------------------------
 if has("gui_running")
