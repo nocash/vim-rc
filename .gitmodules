@@ -43,3 +43,6 @@
 [submodule "bundle/mgutz-vim-colors"]
 	path = bundle/mgutz-vim-colors
 	url = git://github.com/mgutz/vim-colors.git
+[submodule "bundle/void"]
+	path = bundle/void
+	url = git://github.com/vim-scripts/void.git
