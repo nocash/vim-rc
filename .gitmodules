@@ -46,3 +46,6 @@
 [submodule "bundle/void"]
 	path = bundle/void
 	url = git://github.com/vim-scripts/void.git
+[submodule "bundle/vim-align"]
+	path = bundle/vim-align
+	url = git://github.com/tsaleh/vim-align.git
