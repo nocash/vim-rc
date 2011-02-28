@@ -172,10 +172,6 @@ map <c-h> <c-w>h
 map <m-l> gt
 map <m-h> gT
 
-" Redraw screen, or reload file with CTRL
-noremap <silent> <F5> :redraw!<CR>
-noremap <silent> <C-F5> :e!<CR>
-
 " Shortcuts for plugins
 nmap <F3> :Rgrep<CR>
 nmap <silent> <F4> :NERDTreeToggle<CR>
