@@ -176,6 +176,10 @@ map <m-h> gT
 nmap <F3> :Rgrep<CR>
 nmap <silent> <F4> :NERDTreeToggle<CR>
 
+nmap <silent> <F6> :cnext<CR>
+nmap <silent> <F7> :cprev<CR>
+nmap <silent> <F12> :cclose<CR>
+
 " Emacs style movement on command line. <C-n> and <C-p> wipe out my command
 " line cycling for things like the wildmenu, but it's well worth it
 " (especially since I primarily use FuzzyFinder).
