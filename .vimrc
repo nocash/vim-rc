@@ -88,6 +88,7 @@ set shortmess+=I
 set showcmd
 set showmatch
 set autoread
+set ttyfast
 
 "}}}
 "==========================================================================
@@ -102,6 +103,8 @@ if has("gui_running")
 " Clobber all GUI settings except for one...
 "                +-> Use console-style drop-downs
   set guioptions=c
+  set lines=75
+  set columns=80
 endif
 
 "-- Line Numbers ----------------------------------------------------------
