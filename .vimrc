@@ -27,6 +27,11 @@ set directory=~/.vim/tmp " store swap files in a single directory
 set nobackup             " do not make backups
 set tags+=tags;          " search recursively upwards for tags file
 
+if version >= 703        " check for version 7.3 or higher
+  set undodir=~/.vim/tmp " list of directory names for undo files
+  set undofile           " automatically saves undo history to a file
+endif
+
 "-- Indenting -------------------------------------------------------------
 set expandtab            " use spaces instead of tabs
 set shiftround           " round indent to multiple of 'shiftwidth'
