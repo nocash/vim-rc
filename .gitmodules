@@ -46,9 +46,6 @@
 [submodule "bundle/void"]
 	path = bundle/void
 	url = git://github.com/vim-scripts/void.git
-[submodule "bundle/vim-align"]
-	path = bundle/vim-align
-	url = git://github.com/tsaleh/vim-align.git
 [submodule "bundle/vim-extradite"]
 	path = bundle/vim-extradite
 	url = git://github.com/int3/vim-extradite.git
@@ -61,3 +58,6 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://github.com/wincent/Command-T.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
