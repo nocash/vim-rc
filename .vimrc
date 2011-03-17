@@ -30,6 +30,8 @@ set tags+=tags;          " search recursively upwards for tags file
 if version >= 703        " check for version 7.3 or higher
   set undodir=~/.vim/tmp " list of directory names for undo files
   set undofile           " automatically saves undo history to a file
+else
+  let g:gundo_disable=1  " disable Gundo plugin
 endif
 
 "-- Indenting -------------------------------------------------------------
