@@ -22,7 +22,7 @@ filetype plugin indent on
 "           |   |  |    |   |   |   +-> Disable 'hlsearch' highlighting when starting
 "           |   |  |    |   |   |   | +-> Where to save the viminfo files
 set viminfo='10,f1,<100,:20,@20,/20,h,n~/.vim/.viminfo
-set autochdir            " automatically change working directory
+" set autochdir            " automatically change working directory
 set directory=~/.vim/tmp " store swap files in a single directory
 set nobackup             " do not make backups
 set tags+=tags;          " search recursively upwards for tags file
@@ -96,15 +96,15 @@ set ttyfast
 "==========================================================================
 
 "-- Color Scheme ----------------------------------------------------------
-colorscheme ir_black
+if !exists("g:colors_name")
+  colorscheme ir_black
+endif
 
 "-- GUI Options -----------------------------------------------------------
 if has("gui_running")
 " Clobber all GUI settings except for one...
 "                +-> Use console-style drop-downs
   set guioptions=c
-  set lines=75
-  set columns=80
 endif
 
 "-- Line Numbers ----------------------------------------------------------
@@ -184,27 +184,27 @@ map <m-l> gt
 map <m-h> gT
 
 "-- Mappings for Plugins --------------------------------------------------
-nmap <F3> :Rgrep<CR>
-nmap <silent> <F4> :NERDTreeToggle<CR>
+map <F3> :Rgrep<CR>
+map <silent> <F4> :NERDTreeToggle<CR>
+map <silent> <F5> :GundoToggle<CR>
 map <CR> <Plug>SmartSpaceNext
 map <BS> <Plug>SmartSpacePrev
 
-nmap <silent> <F6> :cnext<CR>
-nmap <silent> <F7> :cprev<CR>
-nmap <silent> <F12> :cclose<CR>
+map <silent> <F6> :cnext<CR>
+map <silent> <F7> :cprev<CR>
+map <silent> <F12> :cclose<CR>
 
 " Emacs style movement on command line. <C-n> and <C-p> wipe out my command
 " line cycling for things like the wildmenu, but it's well worth it
 " (especially since I primarily use FuzzyFinder).
 cmap <c-b> <Left>
-cmap <m-b> <S-Left>
-cmap <c-a> <Home>
 cmap <c-f> <Right>
-cmap <m-f> <S-Right>
-cmap <c-e> <End>
 cmap <c-p> <Up>
 cmap <c-n> <Down>
-cmap <m-bs> <C-W>
+cmap <m-b> <S-Left>
+cmap <m-f> <S-Right>
+cmap <c-a> <Home>
+cmap <c-e> <End>
 
 "-- Misc. Leader Mappings -------------------------------------------------
 nmap <silent> ,v :ed $MYVIMRC<CR>
