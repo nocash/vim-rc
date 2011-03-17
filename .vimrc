@@ -85,6 +85,7 @@ set shellslash
 set shortmess+=I
 set showcmd
 set showmatch
+set autoread
 
 "}}}
 "==========================================================================
