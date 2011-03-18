@@ -63,4 +63,4 @@
 	url = git://github.com/godlygeek/tabular.git
 [submodule "bundle/space"]
 	path = bundle/space
-	url = git://github.com/spiiph/vim-space.git
+	url = git@github.com:nocash/vim-space.git
