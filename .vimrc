@@ -183,9 +183,11 @@ map <c-h> <c-w>h
 map <m-l> gt
 map <m-h> gT
 
-" Shortcuts for plugins
+"-- Mappings for Plugins --------------------------------------------------
 nmap <F3> :Rgrep<CR>
 nmap <silent> <F4> :NERDTreeToggle<CR>
+map <CR> <Plug>SmartSpaceNext
+map <BS> <Plug>SmartSpacePrev
 
 nmap <silent> <F6> :cnext<CR>
 nmap <silent> <F7> :cprev<CR>
