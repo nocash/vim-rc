@@ -120,6 +120,9 @@ set numberwidth=4
 "               |   | | | | +-> Left/right alignment separator
 set statusline=%f\ %h%y%r%m%=
 
+" Warn on syntax errors
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+
 " Warn if fileformat isn't Unix
 set statusline+=%#warningmsg#%{&ff!='unix'?'['.&ff.']':''}%*
 
@@ -152,6 +155,12 @@ let NERDTreeShowBookmarks=1
 "-- SnipMate --------------------------------------------------------------
 " Set explicit snippets directory to prevent examples from loading.
 let g:snippets_dir="~/.vim/snippets"
+
+"-- Syntastic -------------------------------------------------------------
+let g:syntastic_enable_signs=0
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
 "}}}
 "==========================================================================
