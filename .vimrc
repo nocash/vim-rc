@@ -196,6 +196,7 @@ map <m-h> gT
 map <F3> :Rgrep<CR>
 map <silent> <F4> :NERDTreeToggle<CR>
 map <silent> <F5> :GundoToggle<CR>
+map <silent> <F8> :TlistToggle<CR>
 map <CR> <Plug>SmartSpaceNext
 map <BS> <Plug>SmartSpacePrev
 
