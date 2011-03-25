@@ -23,15 +23,14 @@ filetype plugin indent on
 "           |   |  |    |   |   |   | +-> Where to save the viminfo files
 set viminfo='10,f1,<100,:20,@20,/20,h,n~/.vim/.viminfo
 " set autochdir            " automatically change working directory
-set directory=~/.vim/tmp " store swap files in a single directory
-set nobackup             " do not make backups
-set tags+=tags;          " search recursively upwards for tags file
+set nobackup               " do not make backups
+set directory=~/.vim/tmp// " store swap files in a single directory
 
-if version >= 703        " check for version 7.3 or higher
-  set undodir=~/.vim/tmp " list of directory names for undo files
-  set undofile           " automatically saves undo history to a file
+if version >= 703          " check for version 7.3 or higher
+  set undodir=~/.vim/tmp   " list of directory names for undo files
+  set undofile             " automatically saves undo history to a file
 else
-  let g:gundo_disable=1  " disable Gundo plugin
+  let g:gundo_disable=1    " disable Gundo plugin
 endif
 
 "-- Indenting -------------------------------------------------------------
@@ -43,19 +42,21 @@ set autoindent
 set smartindent
 
 "-- Searching -------------------------------------------------------------
-set hlsearch             " highlight search results
-set ignorecase           " case-insensitive searching by default
-set incsearch            " search as I type
-set smartcase            " case-sensitive if I use a capital letter
-set wrapscan             " wrap around the file when searching
+set hlsearch          " highlight search results
+set ignorecase        " case-insensitive searching by default
+set incsearch         " search as I type
+set smartcase         " case-sensitive if I use a capital letter
+set wrapscan          " wrap around the file when searching
 
-"-- Folding ---------------------------------------------------------------
-set foldenable           " enable folding...
-set foldmethod=manual    " ...but don't do it automatically
+" -- Folding ---------------------------------------------------------------
+set foldenable        " enable folding
+set foldmethod=syntax " use syntax to determine folds
+set foldlevelstart=99 " all folds open by default
 
 "-- Wildmenu --------------------------------------------------------------
 set wildmenu
 set wildmode=longest:list
+set wildcharm=<C-Z>
 
 "-- Scrolling -------------------------------------------------------------
 set scrolloff=2
@@ -70,6 +71,12 @@ set textwidth=78
 set nowrap
 set linebreak
 
+"-- Tags ------------------------------------------------------------------
+set tags=./tags;     " search recursively upwards for tags file
+set showfulltag
+set cscopetag
+set cscopetagorder=0
+
 "-- Other / Unsorted ------------------------------------------------------
 set backspace=indent,eol,start
 set fileformats=unix,dos
@@ -77,6 +84,7 @@ set hidden
 set history=100
 set laststatus=2
 set matchtime=5
+set mouse=nv " allow mouse in normal and visual mode
 set mousehide
 set noerrorbells
 set nostartofline
@@ -87,8 +95,10 @@ set shellslash
 set shortmess+=I
 set showcmd
 set showmatch
+set virtualedit=block
 set autoread
 set ttyfast
+set confirm
 
 "}}}
 "==========================================================================
@@ -109,7 +119,7 @@ endif
 
 "-- Line Numbers ----------------------------------------------------------
 set number
-set numberwidth=4
+set numberwidth=3
 
 "-- Status Line -----------------------------------------------------------
 "               +-> Relative file path
@@ -150,6 +160,7 @@ set statusline+=\ %c,%l\ %P
 let g:gist_detect_filetype=1
 
 "-- NERDTree --------------------------------------------------------------
+let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
 
 "-- SnipMate --------------------------------------------------------------
