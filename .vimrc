@@ -179,8 +179,6 @@ let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 "==========================================================================
 
 "-- Leader Key ------------------------------------------------------------
-" I don't actually use <leader> in my mappings, but I thought it'd be a
-" good idea to explicitly declare it anyway.
 nnoremap \ ,
 vnoremap \ ,
 let mapleader=","
@@ -205,11 +203,10 @@ map <m-h> gT
 
 "-- Mappings for Plugins --------------------------------------------------
 map <F3> :Rgrep<CR>
-map <silent> <F4> :NERDTreeToggle<CR>
 map <silent> <F5> :GundoToggle<CR>
 map <silent> <F8> :TlistToggle<CR>
-map <CR> <Plug>SmartSpaceNext
-map <BS> <Plug>SmartSpacePrev
+" map <CR> <Plug>SmartSpaceNext
+" map <BS> <Plug>SmartSpacePrev
 
 map <silent> <F6> :cnext<CR>
 map <silent> <F7> :cprev<CR>
@@ -228,27 +225,32 @@ cmap <c-a> <Home>
 cmap <c-e> <End>
 
 "-- Misc. Leader Mappings -------------------------------------------------
-nmap <silent> ,v :ed $MYVIMRC<CR>
-nmap <silent> ,V :so $MYVIMRC<CR>
+nmap <silent> <leader>v :ed $MYVIMRC<CR>
+nmap <silent> <leader>V :so $MYVIMRC<CR>
 
-nnoremap <silent> ,cd :lcd %:h<CR>
-nnoremap <silent> ,md :!mkdir -p %:p:h<CR>
+nnoremap <silent> <leader>cd :lcd %:h<CR>
+nnoremap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
 " Un-highlight last search
-nnoremap <silent> ,hl :silent nohlsearch<CR>
+nnoremap <silent> <leader>hl :silent nohlsearch<CR>
 
 "-- FuzzyFinder -----------------------------------------------------------
-nnoremap <silent> ,fb :FufBuffer<CR>
-nnoremap <silent> ,ff :FufFile<CR>
-nnoremap <silent> ,fh :FufHelp<CR>
-nnoremap <silent> ,ft :FufTag<CR>
+nnoremap <silent> <leader>fb :FufBuffer<CR>
+nnoremap <silent> <leader>fd :FufDir<CR>
+nnoremap <silent> <leader>ff :FufFile<CR>
+nnoremap <silent> <leader>fh :FufHelp<CR>
+nnoremap <silent> <leader>ft :FufTag<CR>
 
 "-- Fugitive (Git) --------------------------------------------------------
-nnoremap <silent> ,gb :Gblame<CR>
-nnoremap <silent> ,gc :Gcommit<CR>
-nnoremap <silent> ,gd :Gdiff<CR>
-nnoremap <silent> ,gl :Glog<CR>
-nnoremap <silent> ,gs :Gstatus<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gs :Gstatus<CR>
+
+"-- NERDTree --------------------------------------------------------------
+map <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
+map <silent> <leader>N :NERDTreeFind<CR>
 
 "}}}
 "==========================================================================
