@@ -105,16 +105,19 @@ set confirm
 " Appearance                                                            {{{
 "==========================================================================
 
-"-- Color Scheme ----------------------------------------------------------
-if !exists("g:colors_name")
-  colorscheme ir_black
-endif
-
 "-- GUI Options -----------------------------------------------------------
 if has("gui_running")
 " Clobber all GUI settings except for one...
 "                +-> Use console-style drop-downs
   set guioptions=c
+  set background=dark
+else
+  set background=light
+endif
+
+"-- Color Scheme ----------------------------------------------------------
+if !exists("g:colors_name")
+  colorscheme solarized
 endif
 
 "-- Line Numbers ----------------------------------------------------------
