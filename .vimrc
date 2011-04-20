@@ -163,8 +163,10 @@ set statusline+=\ %c,%l\ %P
 let g:gist_detect_filetype=1
 
 "-- NERDTree --------------------------------------------------------------
-let NERDTreeMinimalUI=1
-let NERDTreeShowBookmarks=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeMapOpenSplit='s'
+let g:NERDTreeMapOpenVSplit='v'
 
 "-- SnipMate --------------------------------------------------------------
 " Set explicit snippets directory to prevent examples from loading.
