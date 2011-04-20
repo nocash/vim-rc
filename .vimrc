@@ -344,4 +344,4 @@ endfunction
 "}}}
 "==========================================================================
 " Scared by folding? Use 'zR' to open everything up.
-" vim:et:sts=2:sw=2:tw=78:fdm=marker:
+" vim:et:sts=2:sw=2:tw=78:fdm=marker:fdls=0
