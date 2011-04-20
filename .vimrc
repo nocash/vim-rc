@@ -102,6 +102,33 @@ set confirm
 
 "}}}
 "==========================================================================
+" Plugin Options                                                        {{{
+"==========================================================================
+
+"-- Gist ------------------------------------------------------------------
+let g:gist_detect_filetype=1
+
+"-- NERDTree --------------------------------------------------------------
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeMapOpenSplit='s'
+let g:NERDTreeMapOpenVSplit='v'
+
+"-- SnipMate --------------------------------------------------------------
+" Set explicit snippets directory to prevent examples from loading.
+let g:snippets_dir="~/.vim/snippets"
+
+"-- Solarized -------------------------------------------------------------
+let g:solarized_termcolors=256
+
+"-- Syntastic -------------------------------------------------------------
+let g:syntastic_enable_signs=0
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+"}}}
+"==========================================================================
 " Appearance                                                            {{{
 "==========================================================================
 
@@ -153,30 +180,6 @@ set statusline+=%#warningmsg#%{&paste?'[paste]':''}%*
 "                  |  +-> Line number
 "                  |  |   +-> Percentage through file
 set statusline+=\ %c,%l\ %P
-
-"}}}
-"==========================================================================
-" Plugin Options                                                        {{{
-"==========================================================================
-
-"-- Gist ------------------------------------------------------------------
-let g:gist_detect_filetype=1
-
-"-- NERDTree --------------------------------------------------------------
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeShowBookmarks=1
-let g:NERDTreeMapOpenSplit='s'
-let g:NERDTreeMapOpenVSplit='v'
-
-"-- SnipMate --------------------------------------------------------------
-" Set explicit snippets directory to prevent examples from loading.
-let g:snippets_dir="~/.vim/snippets"
-
-"-- Syntastic -------------------------------------------------------------
-let g:syntastic_enable_signs=0
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
 "}}}
 "==========================================================================
