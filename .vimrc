@@ -145,7 +145,8 @@ let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 if has("gui_running")
 " Clobber all GUI settings except for one...
 "                +-> Use console-style drop-downs
-  set guioptions=c
+"                |+-> Use Vim icon
+  set guioptions=ci
   set background=dark
 else
   set background=light
