@@ -307,8 +307,15 @@ augroup END
 
 "}}}
 "==========================================================================
-" Functions                                                             {{{
+" Functions / Commands                                                  {{{
 "==========================================================================
+
+" Use :W to sudo write a file.
+if executable('sudo') && executable('tee')
+  command! W
+        \ execute "w !sudo tee >/dev/null" |
+        \ setlocal nomodified
+endif
 
 function! StatuslineTrailingSpaceWarning()
   if !exists("b:statusline_trailing_space_warning")
