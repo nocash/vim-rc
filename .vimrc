@@ -201,12 +201,12 @@ set statusline+=\ %c,%l\ %P
 "==========================================================================
 
 "-- Leader Key ------------------------------------------------------------
-nnoremap \ ,
-vnoremap \ ,
+nnoremap : ,
+vnoremap : ,
 let mapleader=","
 
 "-- Misc. Non-Leader Mappings ---------------------------------------------
-map <Space> :
+noremap <Space> :
 
 " Make Y behave consistently with D and C
 map Y y$
