@@ -107,6 +107,13 @@ set confirm
 " Plugin Options                                                        {{{
 "==========================================================================
 
+
+"-- Autojump --------------------------------------------------------------
+" This plugin sounds great, but it's causing a lot of issues for me right now.
+" Leaving it installed, though, in the hopes that it gets fixed or I find the
+" time to do it myself.
+let g:loaded_autojump=1
+
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
 
