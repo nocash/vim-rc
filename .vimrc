@@ -40,6 +40,8 @@ set shiftwidth=2         " match shifting to indenting
 set softtabstop=2        " indent two spaces by default
 set autoindent
 set smartindent
+set copyindent
+set preserveindent
 
 "-- Searching -------------------------------------------------------------
 set hlsearch          " highlight search results
