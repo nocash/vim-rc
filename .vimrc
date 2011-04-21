@@ -129,6 +129,7 @@ let g:snippets_dir="~/.vim/snippets"
 
 "-- Solarized -------------------------------------------------------------
 let g:solarized_termcolors=256
+let g:solarized_italic=0
 
 "-- Syntastic -------------------------------------------------------------
 let g:syntastic_enable_signs=0
@@ -147,14 +148,17 @@ if has("gui_running")
 "                +-> Use console-style drop-downs
 "                |+-> Use Vim icon
   set guioptions=ci
-  set background=dark
-else
-  set background=light
 endif
 
 "-- Color Scheme ----------------------------------------------------------
 if !exists("g:colors_name")
-  colorscheme solarized
+  set background=dark
+
+  if has("gui_running")
+    colorscheme solarized
+  else
+    colorscheme ir_black
+  endif
 endif
 
 "-- Line Numbers ----------------------------------------------------------
