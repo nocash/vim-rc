@@ -209,46 +209,46 @@ let mapleader=","
 noremap <Space> :
 
 " Make Y behave consistently with D and C
-map Y y$
+noremap Y y$
 
 " Re-select visual area after indenting
-vmap > >gv
-vmap < <gv
+vnoremap > >gv
+vnoremap < <gv
 
 " Easier window/tab navigation
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-map <m-l> gt
-map <m-h> gT
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
+noremap <m-l> gt
+noremap <m-h> gT
 
 "-- Mappings for Plugins --------------------------------------------------
-map <F3> :Rgrep<CR>
-map <silent> <F5> :GundoToggle<CR>
-map <silent> <F8> :TlistToggle<CR>
+noremap <F3> :Rgrep<CR>
+noremap <silent> <F5> :GundoToggle<CR>
+noremap <silent> <F8> :TlistToggle<CR>
 " map <CR> <Plug>SmartSpaceNext
 " map <BS> <Plug>SmartSpacePrev
 
-map <silent> <F6> :cnext<CR>
-map <silent> <F7> :cprev<CR>
-map <silent> <F12> :cclose<CR>
+noremap <silent> <F6> :cnext<CR>
+noremap <silent> <F7> :cprev<CR>
+noremap <silent> <F12> :cclose<CR>
 
 " Emacs style movement on command line. <C-n> and <C-p> wipe out my command
 " line cycling for things like the wildmenu, but it's well worth it
 " (especially since I primarily use FuzzyFinder).
-cmap <c-b> <Left>
-cmap <c-f> <Right>
-cmap <c-p> <Up>
-cmap <c-n> <Down>
-cmap <m-b> <S-Left>
-cmap <m-f> <S-Right>
-cmap <c-a> <Home>
-cmap <c-e> <End>
+cnoremap <c-b> <Left>
+cnoremap <c-f> <Right>
+cnoremap <c-p> <Up>
+cnoremap <c-n> <Down>
+cnoremap <m-b> <S-Left>
+cnoremap <m-f> <S-Right>
+cnoremap <c-a> <Home>
+cnoremap <c-e> <End>
 
 "-- Misc. Leader Mappings -------------------------------------------------
-nmap <silent> <leader>v :ed $MYVIMRC<CR>
-nmap <silent> <leader>V :so $MYVIMRC<CR>
+nnoremap <silent> <leader>v :ed $MYVIMRC<CR>
+nnoremap <silent> <leader>V :so $MYVIMRC<CR>
 
 nnoremap <silent> <leader>cd :lcd %:h<CR>
 nnoremap <silent> <leader>md :!mkdir -p %:p:h<CR>
@@ -271,8 +271,8 @@ nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
 
 "-- NERDTree --------------------------------------------------------------
-map <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
-map <silent> <leader>N :NERDTreeFind<CR>
+noremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
+noremap <silent> <leader>N :NERDTreeFind<CR>
 
 "}}}
 "==========================================================================
