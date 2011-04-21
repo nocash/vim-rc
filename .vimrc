@@ -81,7 +81,7 @@ set cscopetagorder=0
 
 "-- Other / Unsorted ------------------------------------------------------
 set backspace=indent,eol,start
-set fileformats=unix,dos
+set fileformats=unix,dos,mac
 set hidden
 set history=100
 set laststatus=2
