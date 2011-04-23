@@ -104,7 +104,6 @@ set showmatch
 set virtualedit=block
 set autoread
 set ttyfast
-set confirm
 
 "}}}
 "==========================================================================
