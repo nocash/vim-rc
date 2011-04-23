@@ -117,6 +117,11 @@ set ttyfast
 " time to do it myself.
 let g:loaded_autojump=1
 
+"-- CSApprox --------------------------------------------------------------
+" Hide warnings when terminal does not support enough colors to use CSApprox.
+let g:CSApprox_verbose_level=0
+
+
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
 
@@ -159,8 +164,11 @@ if !exists("g:colors_name")
 
   if has("gui_running")
     colorscheme solarized
-  else
+  elseif &t_Co >= 88
+    " Might be better to check if CSApprox is available. Or both.
     colorscheme ir_black
+  else
+    colorscheme elflord
   endif
 endif
 
