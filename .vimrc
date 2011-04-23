@@ -38,10 +38,11 @@ set expandtab            " use spaces instead of tabs
 set shiftround           " round indent to multiple of 'shiftwidth'
 set shiftwidth=2         " match shifting to indenting
 set softtabstop=2        " indent two spaces by default
+set tabstop=2
 set autoindent
 set smartindent
-set copyindent
-set preserveindent
+" set copyindent
+" set preserveindent
 
 "-- Searching -------------------------------------------------------------
 set hlsearch          " highlight search results
