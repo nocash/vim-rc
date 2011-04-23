@@ -114,7 +114,6 @@ set timeoutlen=250
 " Plugin Options                                                        {{{
 "==========================================================================
 
-
 "-- Autojump --------------------------------------------------------------
 " This plugin sounds great, but it's causing a lot of issues for me right now.
 " Leaving it installed, though, in the hopes that it gets fixed or I find the
