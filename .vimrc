@@ -64,6 +64,10 @@ set wildcharm=<C-Z>
 set scrolloff=2
 set sidescrolloff=10
 
+"-- Spliting --------------------------------------------------------------
+set splitbelow
+set splitright
+
 "-- Wrapping --------------------------------------------------------------
 "                 +-> Auto-wrap comments using textwidth
 "                 |+-> Automatically insert the comment leader after <Enter>
