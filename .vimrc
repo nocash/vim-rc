@@ -82,6 +82,10 @@ set showfulltag
 set cscopetag
 set cscopetagorder=0
 
+"-- Non-Printing Characters -----------------------------------------------
+set nolist
+set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:«
+
 "-- Other / Unsorted ------------------------------------------------------
 set backspace=indent,eol,start
 set fileformats=unix,dos,mac
