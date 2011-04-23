@@ -374,6 +374,9 @@ endfunction
 " Takeshi Nishida (FuzzyFinder) for section folding inspiration
 " - http://www.vim.org/scripts/script.php?script_id=1984
 "
+" Miscellaneous leechery:
+" - https://github.com/gmarik/vimfiles/blob/f956c7d4c684a04f0e876209a1b31b8774871470/vimrc
+"
 "}}}
 "==========================================================================
 " Scared by folding? Use 'zR' to open everything up.
