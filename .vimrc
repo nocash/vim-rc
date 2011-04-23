@@ -162,8 +162,11 @@ if !exists("g:colors_name")
 
   if has("gui_running")
     colorscheme solarized
-  else
+  elseif &t_Co >= 88
     colorscheme ir_black
+  else
+    let g:CSApprox_loaded=1
+    colorscheme elflord
   endif
 endif
 
