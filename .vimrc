@@ -52,8 +52,7 @@ set wrapscan          " wrap around the file when searching
 
 " -- Folding ---------------------------------------------------------------
 set foldenable        " enable folding
-set foldmethod=syntax " use syntax to determine folds
-set foldlevelstart=99 " all folds open by default
+set foldmethod=manual " use syntax to determine folds
 
 "-- Wildmenu --------------------------------------------------------------
 set wildmenu
