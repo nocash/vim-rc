@@ -70,9 +70,8 @@ set splitright
 
 "-- Wrapping --------------------------------------------------------------
 "                 +-> Auto-wrap comments using textwidth
-"                 |+-> Automatically insert the comment leader after <Enter>
-"                 ||+-> Allow formatting of comments with 'gq'.
-set formatoptions=crq
+"                 |+-> Allow formatting of comments with 'gq'.
+set formatoptions=cq
 set textwidth=78
 set nowrap
 set linebreak
