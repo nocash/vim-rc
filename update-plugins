@@ -1,0 +1,17 @@
+#!/bin/bash
+# TODO: allow 'install new' instead of always wiping directory
+# TODO: allow specifying ref (instead of assuming master)
+# TODO: allow specifying target directory and input file
+# TODO: allow sources other than github
+#
+
+bundle='./bundle'
+
+rm -rf $bundle/*
+
+for repo in $( cat ./plugins.yaml | awk '{print $2}' ); do
+  outfile=$bundle/${repo//\//-}.tar.gz
+  wget --no-check-certificate https://github.com/$repo/tarball/master -O $outfile
+  tar xf $outfile -C $bundle/
+  rm $outfile
+done
