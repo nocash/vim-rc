@@ -313,8 +313,8 @@ augroup END
 " Use :W to sudo write a file.
 if executable('sudo') && executable('tee')
   command! W
-        \ execute "w !sudo tee >/dev/null" |
-        \ setlocal nomodified
+        \ execute "w !sudo tee >/dev/null %" |
+        \ e!
 endif
 
 function! StatuslineTrailingSpaceWarning()
