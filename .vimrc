@@ -219,7 +219,7 @@ let mapleader=","
 noremap <Space> :
 
 " Make Y behave consistently with D and C
-noremap Y y$
+nnoremap Y y$
 
 " Re-select visual area after indenting
 vnoremap > >gv
@@ -235,13 +235,7 @@ noremap <m-h> gT
 
 "-- Mappings for Plugins --------------------------------------------------
 noremap <F3> :Rgrep<CR>
-noremap <silent> <F5> :GundoToggle<CR>
-noremap <silent> <F8> :TlistToggle<CR>
-" map <CR> <Plug>SmartSpaceNext
-" map <BS> <Plug>SmartSpacePrev
 
-noremap <silent> <F6> :cnext<CR>
-noremap <silent> <F7> :cprev<CR>
 noremap <silent> <F12> :cclose<CR>
 
 " Emacs style movement on command line. <C-n> and <C-p> wipe out my command
@@ -278,11 +272,19 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gr :Gwrite<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gw :Gread<CR>
+
+"-- Gundo -----------------------------------------------------------------
+nnoremap <silent> <leader>u :GundoToggle<CR>
 
 "-- NERDTree --------------------------------------------------------------
-noremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
-noremap <silent> <leader>N :NERDTreeFind<CR>
+nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
+nnoremap <silent> <leader>N :NERDTreeFind<CR>
+
+"-- Tag List --------------------------------------------------------------
+noremap <silent> <leader>t :TlistToggle<CR>
 
 "}}}
 "==========================================================================
