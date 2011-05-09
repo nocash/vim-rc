@@ -260,6 +260,9 @@ nnoremap <silent> <leader>md :!mkdir -p %:p:h<CR>
 " Un-highlight last search
 nnoremap <silent> <leader>hl :silent nohlsearch<CR>
 
+"-- Command-T -------------------------------------------------------------
+nnoremap <silent> <leader>t :CommandT<CR>
+
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> <leader>fb :FufBuffer<CR>
 nnoremap <silent> <leader>fd :FufDir<CR>
@@ -284,7 +287,7 @@ nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
 nnoremap <silent> <leader>N :NERDTreeFind<CR>
 
 "-- Tag List --------------------------------------------------------------
-noremap <silent> <leader>t :TlistToggle<CR>
+" noremap <silent> <leader>t :TlistToggle<CR>
 
 "}}}
 "==========================================================================
