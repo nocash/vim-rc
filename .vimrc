@@ -233,6 +233,50 @@ noremap <c-h> <c-w>h
 noremap <m-l> gt
 noremap <m-h> gT
 
+" Move around in insert mode
+imap <m-w> <c-o>w
+imap <m-b> <c-o>b
+imap <m-e> <c-o>e
+imap <m-W> <c-o>W
+imap <m-B> <c-o>B
+imap <m-E> <c-o>E
+imap <m-h> <c-o>h
+imap <m-j> <c-o>j
+imap <m-k> <c-o>k
+imap <m-l> <c-o>l
+imap <m-%> <c-o>%
+imap <m-0> <c-o>0
+imap <m-^> <c-o>^
+imap <m-$> <c-o>$
+imap <m-)> <c-o>)
+imap <m-(> <c-o>(
+imap <m-}> <c-o>}
+imap <m-{> <c-o>{
+
+" Jump to character in insert mode
+imap <m-f> <c-o>f
+imap <m-F> <c-o>F
+imap <m-t> <c-o>t
+imap <m-T> <c-o>T
+
+" Yank, delete, etc. in insert mode
+imap <m-d><m-d> <c-o>dd
+imap <m-D> <c-o>D
+imap <m-c><m-c> <c-o>cc
+imap <m-C> <c-o>C
+imap <m-y><m-y> <c-o>yy
+imap <m-Y> <c-o>Y
+imap <m-x> <c-o>x
+imap <m-X> <c-o>X
+imap <m-p> <c-o>p
+imap <m-P> <c-o>P
+
+" Join lines in insert mode
+imap <m-J> <c-o>J
+
+" Undo in insert mode
+imap <m-u> <c-o>u
+
 "-- Mappings for Plugins --------------------------------------------------
 noremap <F3> :Rgrep<CR>
 
