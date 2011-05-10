@@ -224,6 +224,10 @@ nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
 
+" Function Key Mappings
+noremap <F3> :Rgrep<CR>
+noremap <silent> <F12> :cclose<CR>
+
 " Easier window/tab navigation
 noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
@@ -231,6 +235,18 @@ noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
 noremap <m-l> gt
 noremap <m-h> gT
+
+" Emacs style movement on command line. <C-n> and <C-p> wipe out my command
+" line cycling for things like the wildmenu, but it's well worth it
+" (especially since I primarily use FuzzyFinder).
+cnoremap <c-b> <Left>
+cnoremap <c-f> <Right>
+cnoremap <c-p> <Up>
+cnoremap <c-n> <Down>
+cnoremap <m-b> <S-Left>
+cnoremap <m-f> <S-Right>
+cnoremap <c-a> <Home>
+cnoremap <c-e> <End>
 
 " Move around in insert mode
 imap <m-w> <c-o>w
@@ -275,23 +291,6 @@ imap <m-J> <c-o>J
 
 " Undo in insert mode
 imap <m-u> <c-o>u
-
-"-- Mappings for Plugins --------------------------------------------------
-noremap <F3> :Rgrep<CR>
-
-noremap <silent> <F12> :cclose<CR>
-
-" Emacs style movement on command line. <C-n> and <C-p> wipe out my command
-" line cycling for things like the wildmenu, but it's well worth it
-" (especially since I primarily use FuzzyFinder).
-cnoremap <c-b> <Left>
-cnoremap <c-f> <Right>
-cnoremap <c-p> <Up>
-cnoremap <c-n> <Down>
-cnoremap <m-b> <S-Left>
-cnoremap <m-f> <S-Right>
-cnoremap <c-a> <Home>
-cnoremap <c-e> <End>
 
 "-- Misc. Leader Mappings -------------------------------------------------
 nnoremap <silent> <leader>v :ed $MYVIMRC<CR>
