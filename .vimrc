@@ -120,7 +120,6 @@ let g:loaded_autojump=1
 " Hide warnings when terminal does not support enough colors to use CSApprox.
 let g:CSApprox_verbose_level=0
 
-
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
 
