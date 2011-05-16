@@ -304,6 +304,7 @@ nnoremap <silent> <leader>hl :silent nohlsearch<CR>
 
 "-- Command-T -------------------------------------------------------------
 nnoremap <silent> <leader>t :CommandT<CR>
+nnoremap <silent> <leader>b :CommandTBuffer<CR>
 
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> <leader>fb :FufBuffer<CR>
