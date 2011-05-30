@@ -76,3 +76,6 @@
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = git://github.com/tomasr/molokai.git
+[submodule "bundle/js-syntax"]
+	path = bundle/js-syntax
+	url = git://github.com/vim-scripts/JavaScript-syntax.git
