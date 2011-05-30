@@ -354,6 +354,8 @@ augroup Miscellaneous
   autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
+  " Set Ruby for certain non .rb files
+  autocmd BufNewFile,BufReadPost .autotest setfiletype ruby
   " Change PHP indenting (I just can't get used to two spaces with all of
   " those brackets).
   autocmd Filetype php setlocal sts=4 sw=4
