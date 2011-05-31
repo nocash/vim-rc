@@ -65,10 +65,9 @@ set scrolloff=2
 set sidescrolloff=10
 
 "-- Wrapping --------------------------------------------------------------
-"                  +-> Auto-wrap comments using textwidth
-"                  |+-> Allow formatting of comments with 'gq'.
-set formatoptions+=cq
-set formatoptions-=trowan2vblmMB1
+"                 +-> Auto-wrap comments using textwidth
+"                 |+-> Allow formatting of comments with 'gq'.
+set formatoptions=cq
 set textwidth=78
 set nowrap
 set linebreak
