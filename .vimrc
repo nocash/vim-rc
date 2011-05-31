@@ -45,7 +45,7 @@ set smartindent
 " set preserveindent
 
 "-- Searching -------------------------------------------------------------
-set hlsearch          " highlight search results
+set nohlsearch        " do not highlight search results
 set ignorecase        " case-insensitive searching by default
 set incsearch         " search as I type
 set smartcase         " case-sensitive if I use a capital letter
