@@ -374,6 +374,8 @@ if executable('sudo') && executable('tee')
         \ e!
 endif
 
+command! SolarizedInvert let &background = &background == 'dark' ? 'light' : 'dark'
+
 function! StatuslineTrailingSpaceWarning()
   if !exists("b:statusline_trailing_space_warning")
     if search('\s\+$', 'nw') != 0
