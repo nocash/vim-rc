@@ -113,7 +113,7 @@ set ttyfast
 " This plugin sounds great, but it's causing a lot of issues for me right now.
 " Leaving it installed, though, in the hopes that it gets fixed or I find the
 " time to do it myself.
-let g:loaded_autojump=1
+"let g:loaded_autojump=1
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
