@@ -94,6 +94,7 @@ set mousehide
 set noerrorbells
 set nostartofline
 set novisualbell
+set printoptions=paper:letter
 set report=0
 set ruler
 set shellslash
