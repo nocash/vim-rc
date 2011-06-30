@@ -22,7 +22,6 @@ filetype plugin indent on
 "           |   |  |    |   |   |   +-> Disable 'hlsearch' highlighting when starting
 "           |   |  |    |   |   |   | +-> Where to save the viminfo files
 set viminfo='10,f1,<100,:20,@20,/20,h,n~/.vim/.viminfo
-" set autochdir            " automatically change working directory
 set nobackup               " do not make backups
 set directory=~/.vim/tmp// " store swap files in a single directory
 
