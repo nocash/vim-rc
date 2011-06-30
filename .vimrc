@@ -165,7 +165,7 @@ if !exists("g:colors_name")
     " Might be better to check if CSApprox is available. Or both.
     colorscheme ir_black
   else
-    colorscheme elflord
+    colorscheme desert
   endif
 endif
 
