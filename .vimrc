@@ -82,6 +82,7 @@ set nolist
 set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:«
 
 "-- Other / Unsorted ------------------------------------------------------
+set autoread
 set backspace=indent,eol,start
 set fileformats=unix,dos,mac
 set hidden
@@ -99,9 +100,8 @@ set shellslash
 set shortmess+=I
 set showcmd
 set showmatch
-set virtualedit=block
-set autoread
 set ttyfast
+set virtualedit=block
 
 "}}}
 "==========================================================================
