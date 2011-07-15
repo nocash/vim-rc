@@ -356,9 +356,6 @@ augroup Miscellaneous
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
   autocmd BufNewFile,BufReadPost .autotest setfiletype ruby
-  " Change PHP indenting (I just can't get used to two spaces with all of
-  " those brackets).
-  autocmd Filetype php setlocal sts=4 sw=4
   " Restore cursor to last known position when opening a previously edited
   " file.
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
