@@ -232,8 +232,8 @@ noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
-noremap <m-l> gt
-noremap <m-h> gT
+noremap <c-tab> gt
+noremap <c-s-tab> gT
 
 " Emacs style movement on command line. <C-n> and <C-p> wipe out my command
 " line cycling for things like the wildmenu, but it's well worth it
