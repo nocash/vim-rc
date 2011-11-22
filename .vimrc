@@ -119,6 +119,14 @@ set virtualedit=block
 " Hide warnings when terminal does not support enough colors to use CSApprox.
 let g:CSApprox_verbose_level=0
 
+"-- FuzzyFinder -----------------------------------------------------------
+let g:fuf_modesDisable=[]
+let g:fuf_keyOpenSplit='<C-s>'
+let g:fuf_keyOpenVsplit='<C-v>'
+let g:fuf_keyOpenTabpage='<C-t>'
+let g:fuf_keyNextMode='<C-e>'
+let g:fuf_keyPrevPattern='<C-->'
+
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
 
@@ -307,9 +315,12 @@ nnoremap <silent> <leader>b :CommandTBuffer<CR>
 
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> <leader>fb :FufBuffer<CR>
+nnoremap <silent> <leader>fc :FufMruCmd<CR>
 nnoremap <silent> <leader>fd :FufDir<CR>
 nnoremap <silent> <leader>ff :FufFile<CR>
 nnoremap <silent> <leader>fh :FufHelp<CR>
+nnoremap <silent> <leader>fl :FufLine<CR>
+nnoremap <silent> <leader>fr :FufMruFile<CR>
 nnoremap <silent> <leader>ft :FufTag<CR>
 
 "-- Fugitive (Git) --------------------------------------------------------
