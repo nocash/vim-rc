@@ -103,6 +103,7 @@ set showcmd
 set showmatch
 set ttyfast
 set virtualedit=block
+set nojoinspaces
 
 "}}}
 "==========================================================================
