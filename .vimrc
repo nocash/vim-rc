@@ -44,7 +44,7 @@ set smartindent
 " set preserveindent
 
 "-- Searching -------------------------------------------------------------
-set nohlsearch        " do not highlight search results
+set nohlsearch        " highlight search results
 set ignorecase        " case-insensitive searching by default
 set incsearch         " search as I type
 set smartcase         " case-sensitive if I use a capital letter
@@ -307,7 +307,7 @@ nnoremap <silent> <leader>cd :lcd %:h<CR>
 nnoremap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
 " Un-highlight last search
-nnoremap <silent> <leader>hl :silent nohlsearch<CR>
+nnoremap <silent> <leader>hl :silent set hlsearch!<CR>
 
 "-- Command-T -------------------------------------------------------------
 nnoremap <silent> <leader>t :CommandT<CR>
