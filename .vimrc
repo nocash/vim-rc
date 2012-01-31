@@ -312,6 +312,7 @@ nnoremap <silent> <leader>hl :silent set hlsearch!<CR>
 
 "-- Command-T -------------------------------------------------------------
 nnoremap <silent> <leader>t :CommandT<CR>
+nnoremap <silent> <leader>T :CommandTFlush<CR>:CommandT<CR>
 nnoremap <silent> <leader>b :CommandTBuffer<CR>
 
 "-- FuzzyFinder -----------------------------------------------------------
