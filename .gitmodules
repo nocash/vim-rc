@@ -40,18 +40,9 @@
 [submodule "bundle/csapprox"]
 	path = bundle/csapprox
 	url = git://github.com/vim-scripts/CSApprox.git
-[submodule "bundle/mgutz-vim-colors"]
-	path = bundle/mgutz-vim-colors
-	url = git://github.com/mgutz/vim-colors.git
-[submodule "bundle/void"]
-	path = bundle/void
-	url = git://github.com/vim-scripts/void.git
 [submodule "bundle/vim-extradite"]
 	path = bundle/vim-extradite
 	url = git://github.com/int3/vim-extradite.git
-[submodule "bundle/vividchalk"]
-	path = bundle/vividchalk
-	url = git://github.com/tpope/vim-vividchalk
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
@@ -61,24 +52,18 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "bundle/space"]
-	path = bundle/space
-	url = git@github.com:nocash/vim-space.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
 [submodule "bundle/solarized"]
 	path = bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/autojump"]
-	path = bundle/autojump
-	url = git://github.com/trotter/autojump.vim.git
-[submodule "bundle/molokai"]
-	path = bundle/molokai
-	url = git://github.com/tomasr/molokai.git
 [submodule "bundle/js-syntax"]
 	path = bundle/js-syntax
 	url = git://github.com/vim-scripts/JavaScript-syntax.git
 [submodule "bundle/tcomment"]
 	path = bundle/tcomment
 	url = git://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git

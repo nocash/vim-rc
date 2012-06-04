@@ -101,6 +101,7 @@ set shellslash
 set shortmess+=I
 set showcmd
 set showmatch
+set title
 set ttyfast
 set virtualedit=block
 set nojoinspaces
@@ -174,7 +175,7 @@ if !exists("g:colors_name")
     " Might be better to check if CSApprox is available. Or both.
     colorscheme ir_black
   else
-    colorscheme desert
+    colorscheme default
   endif
 endif
 
@@ -232,9 +233,19 @@ nnoremap Y y$
 vnoremap > >gv
 vnoremap < <gv
 
+" Simpler movement in wrapped buffers
+nnoremap j gj
+nnoremap k gk
+
 " Function Key Mappings
 noremap <F3> :Rgrep<CR>
 noremap <silent> <F12> :cclose<CR>
+
+" Yank and paste from system clipboard
+map <leader>y "+y
+map <leader>Y "+Y
+map <leader>p "+p
+map <leader>P "+P
 
 " Easier window/tab navigation
 noremap <c-j> <c-w>j
@@ -244,61 +255,21 @@ noremap <c-h> <c-w>h
 noremap <c-tab> gt
 noremap <c-s-tab> gT
 
-" Emacs style movement on command line. <C-n> and <C-p> wipe out my command
+" Remap increment/decrement keys
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Emacs style insert/command movement. <C-n> and <C-p> wipe out my command
 " line cycling for things like the wildmenu, but it's well worth it
 " (especially since I primarily use FuzzyFinder).
-cnoremap <c-b> <Left>
-cnoremap <c-f> <Right>
+noremap! <c-b> <Left>
+noremap! <c-f> <Right>
 cnoremap <c-p> <Up>
 cnoremap <c-n> <Down>
-cnoremap <m-b> <S-Left>
-cnoremap <m-f> <S-Right>
-cnoremap <c-a> <Home>
-cnoremap <c-e> <End>
-
-" Move around in insert mode
-imap <m-w> <c-o>w
-imap <m-b> <c-o>b
-imap <m-e> <c-o>e
-imap <m-W> <c-o>W
-imap <m-B> <c-o>B
-imap <m-E> <c-o>E
-imap <m-h> <c-o>h
-imap <m-j> <c-o>j
-imap <m-k> <c-o>k
-imap <m-l> <c-o>l
-imap <m-%> <c-o>%
-imap <m-0> <c-o>0
-imap <m-^> <c-o>^
-imap <m-$> <c-o>$
-imap <m-)> <c-o>)
-imap <m-(> <c-o>(
-imap <m-}> <c-o>}
-imap <m-{> <c-o>{
-
-" Jump to character in insert mode
-imap <m-f> <c-o>f
-imap <m-F> <c-o>F
-imap <m-t> <c-o>t
-imap <m-T> <c-o>T
-
-" Yank, delete, etc. in insert mode
-imap <m-d><m-d> <c-o>dd
-imap <m-D> <c-o>D
-imap <m-c><m-c> <c-o>cc
-imap <m-C> <c-o>C
-imap <m-y><m-y> <c-o>yy
-imap <m-Y> <c-o>Y
-imap <m-x> <c-o>x
-imap <m-X> <c-o>X
-imap <m-p> <c-o>p
-imap <m-P> <c-o>P
-
-" Join lines in insert mode
-imap <m-J> <c-o>J
-
-" Undo in insert mode
-imap <m-u> <c-o>u
+noremap! <m-b> <C-Left>
+noremap! <m-f> <C-Right>
+noremap! <c-a> <Home>
+noremap! <c-e> <End>
 
 "-- Misc. Leader Mappings -------------------------------------------------
 nnoremap <silent> <leader>v :ed $MYVIMRC<CR>
@@ -309,6 +280,12 @@ nnoremap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
 " Un-highlight last search
 nnoremap <silent> <leader>hl :silent set hlsearch!<CR>
+
+" Trim trailing whitespace
+nnoremap <silent> <leader>w :%s/\s\+$//e<CR>
+
+" Toggle list characters
+nnoremap <silent> <leader>lc :set list!<CR>
 
 "-- Command-T -------------------------------------------------------------
 nnoremap <silent> <leader>t :CommandT<CR>
@@ -361,14 +338,12 @@ augroup END
 
 augroup Miscellaneous
   au!
-  " Remove trailing whitespace on save. Using an autocommand to create an
-  " autocommand like this is probably a bit redundant when I'm doing it to all
-  " filetypes, but it'll allow me to limit it down the road if need be.
-  autocmd FileType * autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
   autocmd BufNewFile,BufReadPost .autotest setfiletype ruby
+  " Automatically detect tmux config
+  autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
   " Restore cursor to last known position when opening a previously edited
   " file.
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
