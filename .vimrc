@@ -138,10 +138,6 @@ let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMapOpenSplit='s'
 let g:NERDTreeMapOpenVSplit='v'
 
-"-- SnipMate --------------------------------------------------------------
-" Set explicit snippets directory to prevent examples from loading.
-let g:snippets_dir="~/.vim/snippets"
-
 "-- Solarized -------------------------------------------------------------
 let g:solarized_termcolors=256
 let g:solarized_italic=0

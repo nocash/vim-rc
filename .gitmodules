@@ -4,9 +4,6 @@
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
@@ -19,9 +16,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "snippets"]
-	path = snippets
-	url = git@github.com:nocash/snipmate-snippets
 [submodule "bundle/cucumber"]
 	path = bundle/cucumber
 	url = git://github.com/tpope/vim-cucumber.git
