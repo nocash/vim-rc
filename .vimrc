@@ -148,6 +148,12 @@ let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
+"-- UltiSnips -------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<nul>" " aka <c-space>
+" let g:UltiSnipsListSnippets=""
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 "}}}
 "==========================================================================
 " Appearance                                                            {{{
@@ -316,6 +322,9 @@ nnoremap <silent> <leader>N :NERDTreeFind<CR>
 
 "-- Tag List --------------------------------------------------------------
 " noremap <silent> <leader>t :TlistToggle<CR>
+
+"-- UltiSnips -------------------------------------------------------------
+" See the section under "Plugin Options"
 
 "}}}
 "==========================================================================
