@@ -120,7 +120,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co']
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
-let g:CSApprox_verbose_level=0
+" let g:CSApprox_verbose_level=0
 
 "-- FuzzyFinder -----------------------------------------------------------
 let g:fuf_modesDisable=[]
@@ -238,6 +238,7 @@ let mapleader=","
 
 "-- Misc. Non-Leader Mappings ---------------------------------------------
 noremap <Space> :
+nnoremap <leader><tab> :tab sp<CR>
 
 " Make Y behave consistently with D and C
 nnoremap Y y$
@@ -247,8 +248,8 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Simpler movement in wrapped buffers
-nnoremap j gj
-nnoremap k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " Function Key Mappings
 noremap <F3> :Rgrep<CR>
@@ -347,7 +348,6 @@ nnoremap <silent> <leader>u :GundoToggle<CR>
 nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
 nnoremap <silent> <leader>N :NERDTreeFind<CR>
 
-
 "-- UltiSnips -------------------------------------------------------------
 " See the section under "Plugin Options"
 
@@ -371,7 +371,7 @@ augroup Miscellaneous
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
-  autocmd BufNewFile,BufReadPost .autotest setfiletype ruby
+  autocmd BufNewFile,BufReadPost .autotest,.watchr setfiletype ruby
   " Automatically detect tmux config
   autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
   " Restore cursor to last known position when opening a previously edited
