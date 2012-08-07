@@ -58,7 +58,7 @@ set foldmethod=manual " use syntax to determine folds
 "-- Wildmenu --------------------------------------------------------------
 set wildmenu
 set wildmode=longest:list
-set wildcharm=<C-Z>
+set wildcharm=<c-z>
 
 "-- Scrolling -------------------------------------------------------------
 set scrolloff=2
@@ -124,11 +124,11 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co']
 
 "-- FuzzyFinder -----------------------------------------------------------
 let g:fuf_modesDisable=[]
-let g:fuf_keyOpenSplit='<C-s>'
-let g:fuf_keyOpenVsplit='<C-v>'
-let g:fuf_keyOpenTabpage='<C-t>'
-let g:fuf_keyNextMode='<C-e>'
-let g:fuf_keyPrevPattern='<C-->'
+let g:fuf_keyOpenSplit='<c-s>'
+let g:fuf_keyOpenVsplit='<c-v>'
+let g:fuf_keyOpenTabpage='<c-t>'
+let g:fuf_keyNextMode='<c-e>'
+let g:fuf_keyPrevPattern='<c-->'
 
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
@@ -240,8 +240,8 @@ vnoremap : ,
 let mapleader=","
 
 "-- Misc. Non-Leader Mappings ---------------------------------------------
-noremap <Space> :
-nnoremap <leader><tab> :tab sp<CR>
+noremap <space> :
+nnoremap <leader><tab> :tab sp<cr>
 
 " Make Y behave consistently with D and C
 nnoremap Y y$
@@ -255,8 +255,8 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 
 " Function Key Mappings
-noremap <F3> :Rgrep<CR>
-noremap <silent> <F12> :cclose<CR>
+noremap <f3> :Rgrep<cr>
+noremap <silent> <f12> :cclose<cr>
 
 " Yank and paste from system clipboard
 map <leader>y "+y
@@ -271,15 +271,15 @@ noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
 
 " Remap increment/decrement keys
-nnoremap + <C-a>
-nnoremap - <C-x>
+nnoremap + <c-a>
+nnoremap - <c-x>
 
 " Emacs style insert/command movement
-noremap! <c-b> <Left>
-noremap! <c-f> <Right>
-noremap! <m-b> <C-Left>
-noremap! <m-f> <C-Right>
-cnoremap <c-a> <Home>
+noremap! <c-b> <left>
+noremap! <c-f> <right>
+noremap! <m-b> <c-left>
+noremap! <m-f> <c-right>
+cnoremap <c-a> <home>
 inoremap <c-a> <c-o>^
 noremap! <c-e> <end>
 inoremap <c-p> <up>
@@ -290,66 +290,66 @@ noremap! <c-d> <del>
 inoremap <c-y> <c-d>
 
 "-- Misc. Leader Mappings -------------------------------------------------
-nnoremap <silent> <leader>v :ed $MYVIMRC<CR>
-nnoremap <silent> <leader>V :so $MYVIMRC<CR>
+nnoremap <silent> <leader>v :ed $MYVIMRC<cr>
+nnoremap <silent> <leader>V :so $MYVIMRC<cr>
 
-nnoremap <silent> <leader>cd :lcd %:h<CR>
-nnoremap <silent> <leader>md :!mkdir -p %:p:h<CR>
+nnoremap <silent> <leader>cd :lcd %:h<cr>
+nnoremap <silent> <leader>md :!mkdir -p %:p:h<cr>
 
 " Un-highlight last search
-nnoremap <silent> <leader>hl :silent set hlsearch!<CR>
+nnoremap <silent> <leader>hl :silent set hlsearch!<cr>
 
 " Trim trailing whitespace
-nnoremap <silent> <leader>w :%s/\s\+$//e<CR>
+nnoremap <silent> <leader>w :%s/\s\+$//e<cr>
 
 " Toggle list characters
-nnoremap <silent> <leader>lc :set list!<CR>
+nnoremap <silent> <leader>lc :set list!<cr>
 
 "-- CtrlP -----------------------------------------------------------------
-nnoremap <silent> <leader>t :CtrlP<CR>
-nnoremap <silent> <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-nnoremap <silent> <leader>r :CtrlPMRU<CR>
-nnoremap <silent> <leader>pbt :CtrlPBufTag<CR>
-nnoremap <silent> <leader>pbT :CtrlPBufTagAll<CR>
-nnoremap <silent> <leader>pc :CtrlPChange<CR>
-nnoremap <silent> <leader>pC :CtrlPChangeAll<CR>
-nnoremap <silent> <leader>pd :CtrlPDir<CR>
+nnoremap <silent> <leader>t :CtrlP<cr>
+nnoremap <silent> <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
+nnoremap <silent> <leader>b :CtrlPBuffer<cr>
+nnoremap <silent> <leader>r :CtrlPMRU<cr>
+nnoremap <silent> <leader>pbt :CtrlPBufTag<cr>
+nnoremap <silent> <leader>pbT :CtrlPBufTagAll<cr>
+nnoremap <silent> <leader>pc :CtrlPChange<cr>
+nnoremap <silent> <leader>pC :CtrlPChangeAll<cr>
+nnoremap <silent> <leader>pd :CtrlPDir<cr>
 nnoremap <silent> <leader>pD :CtrlPDir
-nnoremap <silent> <leader>pk :CtrlPBookmarkDir<CR>
+nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
 nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd
-nnoremap <silent> <leader>pl :CtrlPLine<CR>
-nnoremap <silent> <leader>pm :CtrlPMixed<CR>
-nnoremap <silent> <leader>pq :CtrlPQuickfix<CR>
-nnoremap <silent> <leader>prts :CtrlPRTS<CR>
-nnoremap <silent> <leader>pt :CtrlPTag<CR>
-nnoremap <silent> <leader>pu :CtrlPUndo<CR>
+nnoremap <silent> <leader>pl :CtrlPLine<cr>
+nnoremap <silent> <leader>pm :CtrlPMixed<cr>
+nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
+nnoremap <silent> <leader>prts :CtrlPRTS<cr>
+nnoremap <silent> <leader>pt :CtrlPTag<cr>
+nnoremap <silent> <leader>pu :CtrlPUndo<cr>
 
 "-- FuzzyFinder -----------------------------------------------------------
-nnoremap <silent> <leader>fb :FufBuffer<CR>
-nnoremap <silent> <leader>fc :FufMruCmd<CR>
-nnoremap <silent> <leader>fd :FufDir<CR>
-nnoremap <silent> <leader>ff :FufFile<CR>
-nnoremap <silent> <leader>fh :FufHelp<CR>
-nnoremap <silent> <leader>fl :FufLine<CR>
-nnoremap <silent> <leader>fr :FufMruFile<CR>
-nnoremap <silent> <leader>ft :FufTag<CR>
+nnoremap <silent> <leader>fb :FufBuffer<cr>
+nnoremap <silent> <leader>fc :FufMruCmd<cr>
+nnoremap <silent> <leader>fd :FufDir<cr>
+nnoremap <silent> <leader>ff :FufFile<cr>
+nnoremap <silent> <leader>fh :FufHelp<cr>
+nnoremap <silent> <leader>fl :FufLine<cr>
+nnoremap <silent> <leader>fr :FufMruFile<cr>
+nnoremap <silent> <leader>ft :FufTag<cr>
 
 "-- Fugitive (Git) --------------------------------------------------------
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gr :Gread<CR>
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>
+nnoremap <silent> <leader>gb :Gblame<cr>
+nnoremap <silent> <leader>gc :Gcommit<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gl :Glog<cr>
+nnoremap <silent> <leader>gr :Gread<cr>
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gw :Gwrite<cr>
 
 "-- Gundo -----------------------------------------------------------------
-nnoremap <silent> <leader>u :GundoToggle<CR>
+nnoremap <silent> <leader>u :GundoToggle<cr>
 
 "-- NERDTree --------------------------------------------------------------
-nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
-nnoremap <silent> <leader>N :NERDTreeFind<CR>
+nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<cr>
+nnoremap <silent> <leader>N :NERDTreeFind<cr>
 
 "-- UltiSnips -------------------------------------------------------------
 " See the section under "Plugin Options"
