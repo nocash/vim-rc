@@ -393,6 +393,8 @@ augroup END
 " Functions / Commands                                                  {{{
 "==========================================================================
 
+command! Marked
+      \ silent execute '!open -a "Marked.app"' shellescape(expand('%'), 1) '&' | redraw!
 
 function! StatuslineTrailingSpaceWarning()
   if !exists("b:statusline_trailing_space_warning")
