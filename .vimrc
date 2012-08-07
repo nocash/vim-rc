@@ -112,6 +112,11 @@ set nojoinspaces
 " Plugin Options                                                        {{{
 "==========================================================================
 
+"-- CtrlP -----------------------------------------------------------------
+let g:ctrlp_switch_buffer = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 5000
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co']
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
@@ -293,6 +298,25 @@ nnoremap <silent> <leader>w :%s/\s\+$//e<CR>
 " Toggle list characters
 nnoremap <silent> <leader>lc :set list!<CR>
 
+"-- CtrlP -----------------------------------------------------------------
+nnoremap <silent> <leader>t :CtrlP<CR>
+nnoremap <silent> <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+nnoremap <silent> <leader>r :CtrlPMRU<CR>
+nnoremap <silent> <leader>pbt :CtrlPBufTag<CR>
+nnoremap <silent> <leader>pbT :CtrlPBufTagAll<CR>
+nnoremap <silent> <leader>pc :CtrlPChange<CR>
+nnoremap <silent> <leader>pC :CtrlPChangeAll<CR>
+nnoremap <silent> <leader>pd :CtrlPDir<CR>
+nnoremap <silent> <leader>pD :CtrlPDir
+nnoremap <silent> <leader>pk :CtrlPBookmarkDir<CR>
+nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd
+nnoremap <silent> <leader>pl :CtrlPLine<CR>
+nnoremap <silent> <leader>pm :CtrlPMixed<CR>
+nnoremap <silent> <leader>pq :CtrlPQuickfix<CR>
+nnoremap <silent> <leader>prts :CtrlPRTS<CR>
+nnoremap <silent> <leader>pt :CtrlPTag<CR>
+nnoremap <silent> <leader>pu :CtrlPUndo<CR>
 
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> <leader>fb :FufBuffer<CR>
