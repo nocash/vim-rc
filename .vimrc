@@ -4,17 +4,18 @@
 
 set nocompatible
 
+syntax on
+filetype plugin indent on
+
+" Pathogen initialization
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
+
 " Set platform variable for later conditionals
 if has('unix')
   let s:uname = substitute(system('uname'), '\n', '', '')
 endif
-
-" Pathogen initialization
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
-syntax on
-filetype plugin indent on
 
 "-- Files & Directories ---------------------------------------------------
 " Tell vim to remember certain things when we exit
