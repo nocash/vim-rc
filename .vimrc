@@ -4,6 +4,11 @@
 
 set nocompatible
 
+" Set platform variable for later conditionals
+if has('unix')
+  let s:uname = substitute(system('uname'), '\n', '', '')
+endif
+
 " Pathogen initialization
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -165,6 +170,11 @@ if has("gui_running")
 "                +-> Use console-style drop-downs
 "                |+-> Use Vim icon
   set guioptions=ci
+
+" Set platform-specific fonts
+  if s:uname == 'Darwin'
+    set guifont=Menlo\ Regular:h14
+  endif
 endif
 
 "-- Color Scheme ----------------------------------------------------------
