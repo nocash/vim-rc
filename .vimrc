@@ -33,8 +33,6 @@ set directory=~/.vim/tmp// " store swap files in a single directory
 if version >= 703          " check for version 7.3 or higher
   set undodir=~/.vim/tmp   " list of directory names for undo files
   set undofile             " automatically saves undo history to a file
-else
-  let g:gundo_disable=1    " disable Gundo plugin
 endif
 
 "-- Indenting -------------------------------------------------------------
@@ -136,6 +134,11 @@ let g:fuf_keyPrevPattern='<C-->'
 
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
+
+"-- Gundo -----------------------------------------------------------------
+if version < 703          " check for version lower than 7.3
+  let g:gundo_disable=1   " disable Gundo plugin
+endif
 
 "-- NERDTree --------------------------------------------------------------
 let g:NERDTreeMinimalUI=1
