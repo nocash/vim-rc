@@ -40,9 +40,6 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://github.com/wincent/Command-T.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular.git

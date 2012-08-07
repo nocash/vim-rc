@@ -43,8 +43,6 @@ set softtabstop=2     " indent two spaces by default
 set tabstop=2
 set autoindent
 set smartindent
-" set copyindent
-" set preserveindent
 
 "-- Searching -------------------------------------------------------------
 set nohlsearch        " highlight search results
@@ -114,11 +112,6 @@ set nojoinspaces
 " Plugin Options                                                        {{{
 "==========================================================================
 
-"-- Autojump --------------------------------------------------------------
-" This plugin sounds great, but it's causing a lot of issues for me right now.
-" Leaving it installed, though, in the hopes that it gets fixed or I find the
-" time to do it myself.
-let g:loaded_autojump=1
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
@@ -267,8 +260,6 @@ noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
-noremap <c-tab> gt
-noremap <c-s-tab> gT
 
 " Remap increment/decrement keys
 nnoremap + <C-a>
@@ -302,10 +293,6 @@ nnoremap <silent> <leader>w :%s/\s\+$//e<CR>
 " Toggle list characters
 nnoremap <silent> <leader>lc :set list!<CR>
 
-"-- Command-T -------------------------------------------------------------
-nnoremap <silent> <leader>t :CommandT<CR>
-nnoremap <silent> <leader>T :CommandTFlush<CR>:CommandT<CR>
-nnoremap <silent> <leader>b :CommandTBuffer<CR>
 
 "-- FuzzyFinder -----------------------------------------------------------
 nnoremap <silent> <leader>fb :FufBuffer<CR>
@@ -333,8 +320,6 @@ nnoremap <silent> <leader>u :GundoToggle<CR>
 nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<CR>
 nnoremap <silent> <leader>N :NERDTreeFind<CR>
 
-"-- Tag List --------------------------------------------------------------
-" noremap <silent> <leader>t :TlistToggle<CR>
 
 "-- UltiSnips -------------------------------------------------------------
 " See the section under "Plugin Options"
@@ -372,14 +357,6 @@ augroup END
 " Functions / Commands                                                  {{{
 "==========================================================================
 
-" Use :W to sudo write a file.
-if executable('sudo') && executable('tee')
-  command! W
-        \ execute "w !sudo tee >/dev/null %" |
-        \ e!
-endif
-
-command! SolarizedInvert let &background = &background == 'dark' ? 'light' : 'dark'
 
 function! StatuslineTrailingSpaceWarning()
   if !exists("b:statusline_trailing_space_warning")
