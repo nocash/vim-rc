@@ -270,17 +270,20 @@ noremap <c-h> <c-w>h
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" Emacs style insert/command movement. <C-n> and <C-p> wipe out my command
-" line cycling for things like the wildmenu, but it's well worth it
-" (especially since I primarily use FuzzyFinder).
+" Emacs style insert/command movement
 noremap! <c-b> <Left>
 noremap! <c-f> <Right>
-cnoremap <c-p> <Up>
-cnoremap <c-n> <Down>
 noremap! <m-b> <C-Left>
 noremap! <m-f> <C-Right>
-noremap! <c-a> <Home>
-noremap! <c-e> <End>
+cnoremap <c-a> <Home>
+inoremap <c-a> <c-o>^
+noremap! <c-e> <end>
+inoremap <c-p> <up>
+inoremap <c-n> <down>
+inoremap <c-k> <c-o>D
+noremap! <c-d> <del>
+" switch clobbered <c-d> to <c-y>
+inoremap <c-y> <c-d>
 
 "-- Misc. Leader Mappings -------------------------------------------------
 nnoremap <silent> <leader>v :ed $MYVIMRC<CR>
