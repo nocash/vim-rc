@@ -377,6 +377,12 @@ augroup Miscellaneous
   " Restore cursor to last known position when opening a previously edited
   " file.
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  " Load script that uses Tabularize to assist with aligning Cucumber tables
+  " when editing Cucumber files.
+  autocmd FileType cucumber
+        \ if filereadable(expand('$HOME/.vim/scripts/tabularize-cuke-tables.vim'))
+        \ | source $HOME/.vim/scripts/tabularize-cuke-tables.vim
+        \ | endif
 augroup END
 
 "}}}
