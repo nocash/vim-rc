@@ -210,7 +210,7 @@ set numberwidth=3
 set statusline=%f\ %h%y%r%m%=
 
 " Warn on syntax errors
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*
+set statusline+=%#warningmsg#%*
 
 " Warn if fileformat isn't Unix
 set statusline+=%#warningmsg#%{&ff!='unix'?'['.&ff.']':''}%*
