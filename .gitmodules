@@ -49,9 +49,6 @@
 [submodule "bundle/js-syntax"]
 	path = bundle/js-syntax
 	url = git://github.com/vim-scripts/JavaScript-syntax.git
-[submodule "bundle/tcomment"]
-	path = bundle/tcomment
-	url = git://github.com/tomtom/tcomment_vim.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
@@ -70,3 +67,6 @@
 [submodule "bundle/taskpaper"]
 	path = bundle/taskpaper
 	url = git://github.com/davidoc/taskpaper.vim.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
