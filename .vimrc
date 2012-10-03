@@ -23,11 +23,11 @@ endif
 "           |   +-> Remember global marks
 "           |   |  +-> Save up to # lines for each register
 "           |   |  |    +-> Remember up to # lines of command-line history
-"           |   |  |    |   +-> Number of lines to save from the input line history
-"           |   |  |    |   |   +-> Number of lines to save from the search history
-"           |   |  |    |   |   |   +-> Disable 'hlsearch' highlighting when starting
-"           |   |  |    |   |   |   | +-> Where to save the viminfo files
-set viminfo='10,f1,<100,:20,@20,/20,h,n~/.vim/.viminfo
+"           |   |  |    |     +-> Number of lines to save from the input line history
+"           |   |  |    |     |    +-> Number of lines to save from the search history
+"           |   |  |    |     |    |    +-> Disable 'hlsearch' highlighting when starting
+"           |   |  |    |     |    |    | +-> Where to save the viminfo files
+set viminfo='10,f1,<100,:1000,@100,/100,h,n~/.vim/.viminfo
 set nobackup               " do not make backups
 set directory=~/.vim/tmp// " store swap files in a single directory
 
