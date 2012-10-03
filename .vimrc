@@ -114,10 +114,11 @@ set nojoinspaces
 "==========================================================================
 
 "-- CtrlP -----------------------------------------------------------------
-let g:ctrlp_switch_buffer = 1
+let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 5000
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co']
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co']
+let g:ctrlp_follow_symlinks = 1
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
@@ -139,6 +140,9 @@ if version < 703          " check for version lower than 7.3
   let g:gundo_disable=1   " disable Gundo plugin
 endif
 
+"-- NERDCommenter ---------------------------------------------------------
+let g:NERDSpaceDelims=1
+
 "-- NERDTree --------------------------------------------------------------
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeShowBookmarks=1
@@ -159,10 +163,11 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['cucumber'] }
 
 "-- UltiSnips -------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<nul>" " aka <c-space>
-" let g:UltiSnipsListSnippets=""
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
+let g:UltiSnipsJumpForwardTrigger="<c-space>"
+let g:UltiSnipsJumpBackwardTrigger="<c-s-space>" " won't work in terminal
+" let g:UltiSnipsListSnippets="<s-nul>"
+let g:UltiSnipsEditSplit='horizontal'
 
 "}}}
 "==========================================================================
