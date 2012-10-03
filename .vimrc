@@ -249,6 +249,10 @@ let mapleader=","
 noremap <space> :
 nnoremap <leader><tab> :tab sp<cr>
 
+" Fix <c-space> in terminal vim (primarily for UltiSnips)
+imap <nul> <c-space>
+smap <nul> <c-space>
+
 " Make Y behave consistently with D and C
 nnoremap Y y$
 
