@@ -1,0 +1,19 @@
+snippet [] "Insert a link" !
+[${1:here}][$2] $0
+[${3:$2}]: ${4:http://google.com}
+
+endsnippet
+
+snippet () "Insert a link" !
+[${1:here}]($2) $0
+endsnippet
+
+snippet == "H1 heading" !b
+${1:Heading}
+${1/./=/g}
+endsnippet
+
+snippet -- "H2 heading" !b
+${1:Heading}
+${1/./-/g}
+endsnippet
