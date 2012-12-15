@@ -114,11 +114,10 @@ set nojoinspaces
 "==========================================================================
 
 "-- CtrlP -----------------------------------------------------------------
-let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_files = 5000
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co']
 let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_max_files = 5000
+let g:ctrlp_switch_buffer = 0
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
