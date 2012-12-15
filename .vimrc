@@ -383,7 +383,7 @@ augroup Miscellaneous
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
-  autocmd BufNewFile,BufReadPost .autotest,.watchr setfiletype ruby
+  autocmd BufNewFile,BufReadPost .autotest,*.watchr setfiletype ruby
   " Automatically detect tmux config
   autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
   " Restore cursor to last known position when opening a previously edited
