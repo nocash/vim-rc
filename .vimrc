@@ -360,6 +360,9 @@ nnoremap <silent> <leader>u :GundoToggle<cr>
 nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<cr>
 nnoremap <silent> <leader>N :NERDTreeFind<cr>
 
+"-- Solarized -------------------------------------------------------------
+call togglebg#map("<F5>")
+
 "-- UltiSnips -------------------------------------------------------------
 " See the section under "Plugin Options"
 
