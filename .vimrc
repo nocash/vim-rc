@@ -175,7 +175,7 @@ let g:UltiSnipsEditSplit='horizontal'
 
 "-- GUI Options -----------------------------------------------------------
 if has("gui_running")
-" Clobber all GUI settings except for one...
+" Keep the GUI, but disable most features.
 "                +-> Use console-style drop-downs
 "                |+-> Use Vim icon
   set guioptions=ci
