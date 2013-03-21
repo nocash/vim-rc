@@ -327,9 +327,9 @@ nnoremap <silent> <leader>pbT :CtrlPBufTagAll<cr>
 nnoremap <silent> <leader>pc :CtrlPChange<cr>
 nnoremap <silent> <leader>pC :CtrlPChangeAll<cr>
 nnoremap <silent> <leader>pd :CtrlPDir<cr>
-nnoremap <silent> <leader>pD :CtrlPDir
+nnoremap <leader>pD :CtrlPDir
 nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
-nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd
+nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> <leader>pl :CtrlPLine<cr>
 nnoremap <silent> <leader>pm :CtrlPMixed<cr>
 nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
