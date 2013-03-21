@@ -272,6 +272,9 @@ map <leader>y "+y
 map <leader>Y "+Y
 map <leader>p "+p
 map <leader>P "+P
+map <c-s-insert> "+P
+map <s-insert> "+p
+imap <s-insert> <c-r>+
 
 " Easier window/tab navigation
 noremap <c-j> <c-w>j
