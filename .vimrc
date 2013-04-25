@@ -94,6 +94,7 @@ set matchtime=5
 set mouse=nv " allow mouse in normal and visual mode
 set mousehide
 set noerrorbells
+set nojoinspaces
 set nostartofline
 set novisualbell
 set printoptions=paper:letter
@@ -106,7 +107,6 @@ set showmatch
 set title
 set ttyfast
 set virtualedit=block
-set nojoinspaces
 
 "}}}
 "==========================================================================
