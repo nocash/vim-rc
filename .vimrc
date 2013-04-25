@@ -350,6 +350,7 @@ nnoremap <silent> <leader>ft :FufTag<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>ge :Gedit<cr>
 nnoremap <silent> <leader>gl :Glog<cr>
 nnoremap <silent> <leader>gr :Gread<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
