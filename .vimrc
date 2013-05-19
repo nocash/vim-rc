@@ -182,7 +182,7 @@ if has("gui_running")
 
 " Set platform-specific fonts
   if s:uname == 'Darwin'
-    set guifont=Menlo\ Regular:h14
+    set guifont=Menlo\ Regular:h15
   endif
 endif
 
