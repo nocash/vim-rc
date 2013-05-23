@@ -117,6 +117,7 @@ set virtualedit=block
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 5000
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
 
 "-- CSApprox --------------------------------------------------------------
