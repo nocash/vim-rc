@@ -57,9 +57,10 @@ set foldenable        " enable folding
 set foldmethod=manual " use syntax to determine folds
 
 "-- Wildmenu --------------------------------------------------------------
+set wildcharm=<c-z>
+set wildignore+=*/error_pages/*,*/tmp/cache/*
 set wildmenu
 set wildmode=longest:list
-set wildcharm=<c-z>
 
 "-- Scrolling -------------------------------------------------------------
 set scrolloff=2
