@@ -73,3 +73,6 @@
 [submodule "bundle/nginx"]
 	path = bundle/nginx
 	url = git@github.com:vim-scripts/nginx.vim.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = git@github.com:mileszs/ack.vim.git
