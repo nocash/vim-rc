@@ -114,6 +114,9 @@ set virtualedit=block
 " Plugin Options                                                        {{{
 "==========================================================================
 
+"-- Ack -------------------------------------------------------------------
+let g:ackprg = 'ag --nogroup --nocolor --coloumn'
+
 "-- CtrlP -----------------------------------------------------------------
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_follow_symlinks = 1
