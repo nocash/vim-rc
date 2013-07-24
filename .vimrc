@@ -58,7 +58,6 @@ set foldmethod=manual " use syntax to determine folds
 
 "-- Wildmenu --------------------------------------------------------------
 set wildcharm=<c-z>
-set wildignore+=*/error_pages/*,*/tmp/cache/*
 set wildmenu
 set wildmode=longest:list
 
@@ -123,6 +122,9 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 5000
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
+  \ }
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
