@@ -407,6 +407,8 @@ augroup Miscellaneous
   autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
   autocmd BufNewFile,BufReadPost .autotest,*.watchr,Guardfile,Capfile,Cheffile setfiletype ruby
+  " Set HAML filetype
+  autocmd BufNewFile,BufReadPost *.hamlc setfiletype haml
   " Automatically detect tmux config
   autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
   " Restore cursor to last known position when opening a previously edited
