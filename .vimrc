@@ -65,6 +65,13 @@ set wildmode=longest:list
 set scrolloff=2
 set sidescrolloff=10
 
+"-- Windows ---------------------------------------------------------------
+" https://github.com/aaronjensen/vimfiles/blob/8e79bc/vimrc#L539
+" set winwidth=84
+" set winheight=5
+" set winminheight=5
+" set winheight=999
+
 "-- Wrapping --------------------------------------------------------------
 "                 +-> Auto-wrap comments using textwidth
 "                 |+-> Allow formatting of comments with 'gq'.
