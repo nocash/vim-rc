@@ -122,6 +122,7 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_max_files = 5000
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_switch_buffer = 0
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
   \ }
@@ -324,8 +325,8 @@ nnoremap <silent> <leader>w :%s/\s\+$//e<cr>
 nnoremap <silent> <leader>lc :set list!<cr>
 
 "-- CtrlP -----------------------------------------------------------------
-nnoremap <silent> <leader>t :CtrlP<cr>
-nnoremap <silent> <leader>T :CtrlPClearCache<cr>:CtrlP<cr>
+nnoremap <silent> <leader>t :CtrlPMixed<cr>
+nnoremap <silent> <leader>T :CtrlPClearCache<cr>:CtrlPMixed<cr>
 nnoremap <silent> <leader>b :CtrlPBuffer<cr>
 nnoremap <silent> <leader>r :CtrlPMRU<cr>
 nnoremap <silent> <leader>pbt :CtrlPBufTag<cr>
@@ -333,7 +334,9 @@ nnoremap <silent> <leader>pbT :CtrlPBufTagAll<cr>
 nnoremap <silent> <leader>pc :CtrlPChange<cr>
 nnoremap <silent> <leader>pC :CtrlPChangeAll<cr>
 nnoremap <silent> <leader>pd :CtrlPDir<cr>
-nnoremap <leader>pD :CtrlPDir
+nnoremap          <leader>pD :CtrlPDir
+nnoremap <silent> <leader>pf :CtrlP<cr>
+nnoremap <silent> <leader>pF :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
 nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> <leader>pl :CtrlPLine<cr>
