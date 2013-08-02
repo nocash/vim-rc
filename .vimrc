@@ -332,6 +332,17 @@ nnoremap <silent> <leader>w :%s/\s\+$//e<cr>
 " Toggle list characters
 nnoremap <silent> <leader>lc :set list!<cr>
 
+" Promote variable to RSpec let
+function! PromoteToLet()
+  " :silent exe "normal! dd"
+  " :silent exe "normal! P"
+  " :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :silent exe "normal =="
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:nnoremap <silent> <leader>let :PromoteToLet<cr>
+
 "-- CtrlP -----------------------------------------------------------------
 nnoremap <silent> <leader>t :CtrlPMixed<cr>
 nnoremap <silent> <leader>T :CtrlPClearCache<cr>:CtrlPMixed<cr>
@@ -481,6 +492,7 @@ endfunction
 "
 " Miscellaneous leechery:
 " - https://github.com/gmarik/vimfiles/blob/f956c7d4c684a04f0e876209a1b31b8774871470/vimrc
+" - https://github.com/aaronjensen/vimfiles
 "
 "}}}
 "==========================================================================
