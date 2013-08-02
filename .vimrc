@@ -491,6 +491,7 @@ endfunction
 " Miscellaneous leechery:
 " - https://github.com/gmarik/vimfiles/blob/f956c7d4c684a04f0e876209a1b31b8774871470/vimrc
 " - https://github.com/aaronjensen/vimfiles
+" - https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 "
 "}}}
 "==========================================================================
