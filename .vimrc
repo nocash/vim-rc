@@ -272,8 +272,8 @@ smap <nul> <c-space>
 nnoremap Y y$
 
 " Re-select visual area after indenting
-vnoremap > >gv
-vnoremap < <gv
+" vnoremap > >gv
+" vnoremap < <gv
 
 " Simpler movement in wrapped buffers
 nnoremap <silent> j gj
