@@ -189,7 +189,8 @@ let g:UltiSnipsEditSplit='horizontal'
 "==========================================================================
 
 "-- GUI Options -----------------------------------------------------------
-if has("gui_running")
+if has("gui_running") && !exists("g:vimrc_gui_options_set")
+  let g:vimrc_gui_options_set=1
 " Keep the GUI, but disable most features.
 "                +-> Use console-style drop-downs
 "                |+-> Use Vim icon
