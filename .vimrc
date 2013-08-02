@@ -344,8 +344,6 @@ endfunction
 :nnoremap <silent> <leader>let :PromoteToLet<cr>
 
 "-- CtrlP -----------------------------------------------------------------
-nnoremap <silent> <leader>t :CtrlPMixed<cr>
-nnoremap <silent> <leader>T :CtrlPClearCache<cr>:CtrlPMixed<cr>
 nnoremap <silent> <leader>b :CtrlPBuffer<cr>
 nnoremap <silent> <leader>r :CtrlPMRU<cr>
 nnoremap <silent> <leader>pbt :CtrlPBufTag<cr>
