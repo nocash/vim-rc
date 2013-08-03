@@ -176,6 +176,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['cucumber'] }
 
+
+"-- TMUX Navigator --------------------------------------------------------
+let g:tmux_navigator_no_mappings = 1
+
 "-- UltiSnips -------------------------------------------------------------
 let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
 let g:UltiSnipsJumpForwardTrigger="<c-space>"
@@ -292,10 +296,36 @@ map <s-insert> "+gP
 map! <s-insert> <c-r>+
 
 " Easier window/tab navigation
-noremap <c-j> <c-w>j
-noremap <c-k> <c-w>k
-noremap <c-l> <c-w>l
-noremap <c-h> <c-w>h
+" noremap <c-j> <c-w>j
+" noremap <c-k> <c-w>k
+" noremap <c-l> <c-w>l
+" noremap <c-h> <c-w>h
+if exists('$TMUX')
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      " The sleep and & gives time to get back to vim so tmux's focus tracking
+      " can kick in and send us our ^[[O
+      execute "silent !sh -c 'sleep 0.01; tmux select-pane -" . a:tmuxdir . "' &"
+      redraw!
+    endif
+  endfunction
+
+  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-l> <c-w>l
+endif
 
 " Remap increment/decrement keys
 nnoremap + <c-a>
@@ -474,6 +504,18 @@ function! StatuslineTabWarning()
 
   return b:statusline_tab_warning
 endfunction
+
+" don't seem to have $ITERM_PROFILE, but do this anyway.
+if exists('$ITERM_PROFILE') || 1
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+end
+
 
 "}}}
 "==========================================================================
