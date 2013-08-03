@@ -3,14 +3,52 @@
 "==========================================================================
 
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" required!
+Bundle 'gmarik/vundle'
+
+Bundle 'SirVer/ultisnips'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'davidoc/taskpaper.vim'
+Bundle 'ervandew/supertab'
+Bundle 'gmarik/vundle'
+Bundle 'godlygeek/tabular'
+Bundle 'int3/vim-extradite'
+Bundle 'kana/vim-textobj-user'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'rking/ag.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
+Bundle 'skalnik/vim-vroom'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-pathogen'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-scripts/CSApprox'
+Bundle 'vim-scripts/JavaScript-syntax'
+Bundle 'vim-scripts/nginx.vim'
+Bundle 'wgibbs/vim-irblack'
 
 syntax on
 filetype plugin indent on
-
-" Pathogen initialization
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
 
 " Set platform variable for later conditionals
 if has('unix')

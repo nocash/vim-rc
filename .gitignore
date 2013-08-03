@@ -1,4 +1,5 @@
 .netrwhist
+.viminfo
+bundle
 tags
 tags-ja
-.viminfo
