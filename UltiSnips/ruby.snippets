@@ -1,9 +1,32 @@
-snippet #! "#!/usr/bin/env ruby" !b
-#!/usr/bin/env ruby
-
+snippet req "require" !b
+require '$1'
 $0
 endsnippet
 
-snippet require "require" !b
-require '$1'$0
+snippet desc "describe (rspec)" !b
+describe "$1" do
+	it "$0"
+end
+endsnippet
+
+snippet it "it (rspec)" !b
+it "$1" do
+	$0
+end
+endsnippet
+
+snippet { "{ |arg| ... }" !
+{ |$1| $0 }
+endsnippet
+
+snippet {{ "do |arg| ... end" !
+do |$1|
+	$0
+end
+endsnippet
+
+snippet def "def ... end" !b
+def $1
+	$0
+end
 endsnippet
