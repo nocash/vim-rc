@@ -332,16 +332,20 @@ nnoremap <silent> <leader>w :%s/\s\+$//e<cr>
 " Toggle list characters
 nnoremap <silent> <leader>lc :set list!<cr>
 
+" Visual select changed text
+nnoremap <silent> <leader>vc `[v`]
+
+" Rails.vim mappings
+nnoremap <silent> <leader>av :AV<cr>
+nnoremap <silent> <leader>as :AS<cr>
+
 " Promote variable to RSpec let
 function! PromoteToLet()
-  " :silent exe "normal! dd"
-  " :silent exe "normal! P"
-  " :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :silent exe "normal =="
+  substitute/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  silent exe "normal =="
 endfunction
-:command! PromoteToLet :call PromoteToLet()
-:nnoremap <silent> <leader>let :PromoteToLet<cr>
+command! PromoteToLet :call PromoteToLet()
+nnoremap <silent> <leader>let :PromoteToLet<cr>
 
 "-- CtrlP -----------------------------------------------------------------
 nnoremap <silent> <leader>b :CtrlPBuffer<cr>
