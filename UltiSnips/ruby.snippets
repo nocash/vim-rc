@@ -1,11 +1,16 @@
 snippet req "require" !b
-require '$1'
-$0
+require '$1'$0
 endsnippet
 
 snippet desc "describe (rspec)" !b
 describe "$1" do
-	it "$0"
+	it "$2"$0
+end
+endsnippet
+
+snippet cont "context (rspec)" !b
+context "$1" do
+	it "$2"$0
 end
 endsnippet
 
@@ -16,7 +21,7 @@ end
 endsnippet
 
 snippet { "{ |arg| ... }" !
-{ |$1| $0 }
+{ |$1| $2 }$0
 endsnippet
 
 snippet {{ "do |arg| ... end" !
@@ -25,8 +30,6 @@ do |$1|
 end
 endsnippet
 
-snippet def "def ... end" !b
-def $1
-	$0
-end
+snippet pry "binding.pry w/ require" !
+require 'pry'; binding.pry
 endsnippet
