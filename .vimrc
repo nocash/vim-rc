@@ -224,7 +224,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-space>"
 let g:UltiSnipsJumpBackwardTrigger="<c-s-space>" " won't work in terminal
 " let g:UltiSnipsListSnippets="<s-nul>"
 let g:UltiSnipsEditSplit='horizontal'
-let g:UltiSnipsSnippetDirectories=["snippets"]
 
 "}}}
 "==========================================================================
