@@ -347,11 +347,12 @@ noremap <silent> <f12> :cclose<cr>
 " Yank and paste from system clipboard
 map <leader>y "+y
 map <leader>Y "+Y
-" map <leader>p "+p
-" map <leader>P "+P
+map <leader>gp "+p
+map <leader>gP "+P
 map <s-insert> "+gP
 map! <s-insert> <c-r>+
 
+" Copy file location to clipboard
 nnoremap <leader>"% :redir @*> \| echon @% \| redir END<cr>
 
 " Easier window/tab navigation
