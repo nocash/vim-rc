@@ -134,8 +134,8 @@ set cscopetag
 set cscopetagorder=0
 
 "-- Non-Printing Characters -----------------------------------------------
-set nolist
-set listchars=tab:·\ ,eol:¶,trail:·,extends:»,precedes:«
+set list
+set listchars=tab:·\ ,trail:·,extends:»,precedes:«
 
 "-- Other / Unsorted ------------------------------------------------------
 set autoread
