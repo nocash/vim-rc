@@ -169,7 +169,7 @@ set virtualedit=block
 "==========================================================================
 
 "-- CtrlP -----------------------------------------------------------------
-let g:ctrlp_clear_cache_on_exit=0
+" let g:ctrlp_clear_cache_on_exit=0
 " let g:ctrlp_cmd='CtrlPMixed'
 let g:ctrlp_custom_ignore={
   \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
@@ -179,6 +179,7 @@ let g:ctrlp_match_func={'match' : 'matcher#cmatch' }
 let g:ctrlp_max_files=15000
 let g:ctrlp_show_hidden=1
 let g:ctrlp_switch_buffer=0
+let g:ctrlp_user_command=['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
