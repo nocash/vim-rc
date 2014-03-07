@@ -154,6 +154,7 @@ set shortmess+=I
 set showcmd
 set showmatch
 set title
+set ttimeoutlen=5
 set ttyfast
 set virtualedit=block
 
@@ -162,31 +163,29 @@ set virtualedit=block
 " Plugin Options                                                        {{{
 "==========================================================================
 
-"-- Ack -------------------------------------------------------------------
-let g:ackprg = 'ag --nogroup --nocolor --coloumn'
-
 "-- CtrlP -----------------------------------------------------------------
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_max_files = 10000
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_custom_ignore = {
+let g:ctrlp_clear_cache_on_exit=0
+" let g:ctrlp_cmd='CtrlPMixed'
+let g:ctrlp_custom_ignore={
   \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
   \ }
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_func={'match' : 'matcher#cmatch' }
+let g:ctrlp_max_files=15000
+let g:ctrlp_show_hidden=1
+let g:ctrlp_switch_buffer=0
 
 "-- CSApprox --------------------------------------------------------------
 " Hide warnings when terminal does not support enough colors to use CSApprox.
 " let g:CSApprox_verbose_level=0
 
 "-- FuzzyFinder -----------------------------------------------------------
-let g:fuf_modesDisable=[]
-let g:fuf_keyOpenSplit='<c-s>'
-let g:fuf_keyOpenVsplit='<c-v>'
-let g:fuf_keyOpenTabpage='<c-t>'
 let g:fuf_keyNextMode='<c-e>'
+let g:fuf_keyOpenSplit='<c-s>'
+let g:fuf_keyOpenTabpage='<c-t>'
+let g:fuf_keyOpenVsplit='<c-v>'
 let g:fuf_keyPrevPattern='<c-->'
+let g:fuf_modesDisable=[]
 
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
@@ -196,38 +195,42 @@ if version < 703          " check for version lower than 7.3
   let g:gundo_disable=1   " disable Gundo plugin
 endif
 
-"-- NERDCommenter ---------------------------------------------------------
-let g:NERDSpaceDelims=1
-
 "-- NERDTree --------------------------------------------------------------
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMapOpenSplit='s'
 let g:NERDTreeMapOpenVSplit='v'
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeShowBookmarks=1
 
 "-- Solarized -------------------------------------------------------------
-let g:solarized_termcolors=256
 let g:solarized_italic=0
+let g:solarized_termcolors=256
 
 "-- Syntastic -------------------------------------------------------------
-let g:syntastic_enable_signs=0
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=0
+let g:syntastic_mode_map={
+    \ 'mode': 'active',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': ['cucumber'] }
 let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['cucumber'] }
 
-
-"-- TMUX Navigator --------------------------------------------------------
-let g:tmux_navigator_no_mappings = 1
+"-- TComment --------------------------------------------------------------
+let g:tcommentMaps=1
 
 "-- UltiSnips -------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
-let g:UltiSnipsJumpForwardTrigger="<c-space>"
-let g:UltiSnipsJumpBackwardTrigger="<c-s-space>" " won't work in terminal
-" let g:UltiSnipsListSnippets="<s-nul>"
 let g:UltiSnipsEditSplit='horizontal'
+" let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
+" let g:UltiSnipsJumpBackwardTrigger="<c-s-space>" " won't work in terminal
+" let g:UltiSnipsJumpForwardTrigger="<c-space>"
+" let g:UltiSnipsListSnippets="<s-nul>"
+
+"-- Vroom -----------------------------------------------------------------
+let g:vroom_clear_screen=0
+let g:vroom_map_keys=0
+let g:vroom_use_dispatch=0
+let g:vroom_use_vimux=1
+let g:vroom_use_zeus=1
 
 "}}}
 "==========================================================================
@@ -256,10 +259,17 @@ if !exists("g:colors_name")
     colorscheme solarized
   elseif &t_Co >= 88
     " Might be better to check if CSApprox is available. Or both.
-    colorscheme ir_black
+    colorscheme molokai
   else
     colorscheme default
   endif
+endif
+
+" disable Background Color Erase (BCE) so that color schemes render properly
+" when inside 256-color tmux and GNU screen. see also
+" http://snk.tuxfamily.org/log/vim-256color-bce.html
+if &term =~ '256color'
+  set t_ut=
 endif
 
 "-- Line Numbers ----------------------------------------------------------
@@ -308,7 +318,6 @@ let mapleader=","
 
 "-- Misc. Non-Leader Mappings ---------------------------------------------
 noremap <space> :
-nnoremap <leader><tab> :tab sp<cr>
 
 " Fix <c-space> in terminal vim (primarily for UltiSnips)
 imap <nul> <c-space>
@@ -337,37 +346,14 @@ map <leader>Y "+Y
 map <s-insert> "+gP
 map! <s-insert> <c-r>+
 
+nnoremap <leader>"% :redir @*> \| echon @% \| redir END<cr>
+
 " Easier window/tab navigation
-" noremap <c-j> <c-w>j
-" noremap <c-k> <c-w>k
-" noremap <c-l> <c-w>l
-" noremap <c-h> <c-w>h
-if exists('$TMUX')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      " The sleep and & gives time to get back to vim so tmux's focus tracking
-      " can kick in and send us our ^[[O
-      execute "silent !sh -c 'sleep 0.01; tmux select-pane -" . a:tmuxdir . "' &"
-      redraw!
-    endif
-  endfunction
-
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
-
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  nnoremap <c-h> <c-w>h
-  nnoremap <c-j> <c-w>j
-  nnoremap <c-k> <c-w>k
-  nnoremap <c-l> <c-w>l
-endif
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
+nnoremap <c-n> gt
 
 " Remap increment/decrement keys
 nnoremap + <c-a>
@@ -395,6 +381,8 @@ nnoremap <silent> <leader>V :so $MYVIMRC<cr>
 nnoremap <silent> <leader>cd :lcd %:h<cr>
 nnoremap <silent> <leader>md :!mkdir -p %:p:h<cr>
 
+nnoremap <leader>gt :tab sp<cr>
+
 " Un-highlight last search
 nnoremap <silent> <leader>hl :silent set hlsearch!<cr>
 
@@ -405,22 +393,20 @@ nnoremap <silent> <leader>w :%s/\s\+$//e<cr>
 nnoremap <silent> <leader>lc :set list!<cr>
 
 " Visual select changed text
-nnoremap <silent> <leader>vc `[v`]
+nnoremap <silent> <leader>gc `[v`]
 
 " Rails.vim mappings
 nnoremap <silent> <leader>av :AV<cr>
 nnoremap <silent> <leader>as :AS<cr>
 
 " Promote variable to RSpec let
-function! PromoteToLet()
-  substitute/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  silent exe "normal =="
-endfunction
-command! PromoteToLet :call PromoteToLet()
-nnoremap <silent> <leader>let :PromoteToLet<cr>
+nnoremap <silent> <leader><leader>let :PromoteToLet<cr>
 
 " Toggle window resizing
 nnoremap <silent> <leader><leader>win :ToggleWindowResizing<cr>
+
+" Open a temporary file with autosave
+nnoremap <leader><leader>temp :NCVTempFile<cr>
 
 "-- CtrlP -----------------------------------------------------------------
 nnoremap <silent> <leader>b :CtrlPBuffer<cr>
@@ -435,7 +421,8 @@ nnoremap <silent> <leader>pf :CtrlP<cr>
 nnoremap <silent> <leader>pF :CtrlPClearCache<cr>:CtrlP<cr>
 nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
 nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
-nnoremap <silent> <leader>pl :CtrlPLine<cr>
+nnoremap <silent> <leader>pl :CtrlPLine %<cr>
+nnoremap <silent> <leader>pL :CtrlPLine<cr>
 nnoremap <silent> <leader>pm :CtrlPMixed<cr>
 nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
 nnoremap <silent> <leader>prts :CtrlPRTS<cr>
@@ -475,6 +462,26 @@ call togglebg#map("<F5>")
 "-- UltiSnips -------------------------------------------------------------
 " See the section under "Plugin Options"
 
+"-- Vroom -----------------------------------------------------------------
+nnoremap <silent> <leader>t :VroomRunTestFile<cr>
+nnoremap <silent> <leader>T :VroomRunNearestTest<cr>
+
+"--------------------------------------------------------------------------
+" Make Vim recognize XTerm escape sequences for Page and Arrow
+" keys combined with modifiers such as Shift, Control, and Alt.
+" See http://www.reddit.com/r/vim/comments/1a29vk/_/c8tze8p
+if &term =~ '^screen'
+  " Page keys http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ
+  execute "set t_kP=\e[5;*~"
+  execute "set t_kN=\e[6;*~"
+
+  " Arrow keys http://unix.stackexchange.com/a/34723
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
+
 "}}}
 "==========================================================================
 " Autocommands                                                          {{{
@@ -483,29 +490,37 @@ call togglebg#map("<F5>")
 augroup ResetStatuslineWarnings
   au!
   " Recalculate the trailing whitespace warning when idle and after saving
-  autocmd CursorHold,BufWritePost * unlet! b:statusline_trailing_space_warning
+  au CursorHold,BufWritePost * unlet! b:statusline_trailing_space_warning
   " Recalculate the tab warning flag when idle and after writing
-  autocmd CursorHold,BufWritePost * unlet! b:statusline_tab_warning
+  au CursorHold,BufWritePost * unlet! b:statusline_tab_warning
   " Recalculate the long line warning when idle and after saving
-  autocmd CursorHold,BufWritePost * unlet! b:statusline_long_line_warning
+  au CursorHold,BufWritePost * unlet! b:statusline_long_line_warning
+augroup END
+
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
 augroup END
 
 augroup Miscellaneous
   au!
+  " Ruby
+  au BufNewFile,BufReadPost *.rb set keywordprg=ruby-doc
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
-  autocmd BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
+  au BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
-  autocmd BufNewFile,BufReadPost .autotest,*.watchr,Guardfile,Capfile,Cheffile setfiletype ruby
+  au BufNewFile,BufReadPost .autotest,Guardfile,Capfile,Cheffile setfiletype ruby
   " Set HAML filetype
-  autocmd BufNewFile,BufReadPost *.hamlc setfiletype haml
+  au BufNewFile,BufReadPost *.hamlc setfiletype haml
   " Automatically detect tmux config
-  autocmd BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
+  au BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
   " Restore cursor to last known position when opening a previously edited
   " file.
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   " Load script that uses Tabularize to assist with aligning Cucumber tables
   " when editing Cucumber files.
-  autocmd FileType cucumber
+  au FileType cucumber
         \ if filereadable(expand('$HOME/.vim/scripts/tabularize-cuke-tables.vim'))
         \ | source $HOME/.vim/scripts/tabularize-cuke-tables.vim
         \ | endif
@@ -517,7 +532,7 @@ augroup END
 "==========================================================================
 
 command! Marked
-      \ silent execute '!open -a "Marked.app"' shellescape(expand('%'), 1) '&' | redraw!
+  \ silent execute '!open -a "Marked.app"' shellescape(expand('%'), 1) '&' | redraw!
 
 function! StatuslineTrailingSpaceWarning()
   if !exists("b:statusline_trailing_space_warning")
@@ -550,7 +565,23 @@ function! StatuslineTabWarning()
   return b:statusline_tab_warning
 endfunction
 
-" don't seem to have $ITERM_PROFILE, but do this anyway.
+function! NCVCamelCaseToUnderscore()
+  substitute#\(\<\u\l\+\|\l\+\)\(\u\)#\l\1_\l\2#g
+endfunction
+command! NCVCamelCaseToUnderscore :call NCVCamelCaseToUnderscore()
+
+function! NCVGithubUrlToVundleBundle()
+  substitute/\v.*github\.com\/(.*)\.git?/Bundle '\1'/
+  '{+,'}-sort i
+endfunction
+command! NCVGithubUrlToVundleBundle :call NCVGithubUrlToVundleBundle()
+
+" TODO: accept flags
+function! NCVSortInnerParagraph()
+  '{+,'}-sort
+endfunction
+
+" don't seem to have $ITERM_PROFILE, but do this anyway?
 if exists('$ITERM_PROFILE') || 1
   if exists('$TMUX')
     let &t_SI = "\<Esc>[3 q"
@@ -576,6 +607,20 @@ function! ToggleWindowResizing()
 endfunction
 command! ToggleWindowResizing :call ToggleWindowResizing()
 
+function! PromoteToLet()
+  substitute/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  silent exe "normal =="
+endfunction
+command! PromoteToLet :call PromoteToLet()
+
+function! NCVTempFile()
+  let syncdir = "$HOME/Dropbox/tmp"
+  let syncfile = syncdir.'/'.substitute(tempname(), '/', '_', 'g')
+  execute 'edit '.syncfile
+  au CursorHold <buffer> update
+endfunction
+command! NCVTempFile :call NCVTempFile()
+
 "}}}
 "==========================================================================
 " Acknowledgements                                                      {{{
@@ -600,5 +645,5 @@ command! ToggleWindowResizing :call ToggleWindowResizing()
 "
 "}}}
 "==========================================================================
-" Scared by folding? Use 'zR' to open everything up.
+" Scared by folding? Use 'zi' to temporarily disable it.
 " vim:et:sts=2:sw=2:tw=78:fdm=marker:fdls=0
