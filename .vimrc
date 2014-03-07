@@ -109,10 +109,10 @@ set sidescrolloff=10
 
 "-- Windows ---------------------------------------------------------------
 " https://github.com/aaronjensen/vimfiles/blob/8e79bc/vimrc#L539
-" set winwidth=84
-" set winheight=5
-" set winminheight=5
-" set winheight=999
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winheight=999
 
 "-- Wrapping --------------------------------------------------------------
 "                 +-> Auto-wrap comments using textwidth
@@ -419,6 +419,9 @@ endfunction
 command! PromoteToLet :call PromoteToLet()
 nnoremap <silent> <leader>let :PromoteToLet<cr>
 
+" Toggle window resizing
+nnoremap <silent> <leader><leader>win :ToggleWindowResizing<cr>
+
 "-- CtrlP -----------------------------------------------------------------
 nnoremap <silent> <leader>b :CtrlPBuffer<cr>
 nnoremap <silent> <leader>r :CtrlPMRU<cr>
@@ -558,6 +561,20 @@ if exists('$ITERM_PROFILE') || 1
   endif
 end
 
+function! ToggleWindowResizing()
+  if &winwidth == '84'
+    set winwidth&
+    set winheight=5
+    set winminheight&
+    set winheight&
+  else
+    set winwidth=84
+    set winheight=5
+    set winminheight=5
+    set winheight=999
+  endif
+endfunction
+command! ToggleWindowResizing :call ToggleWindowResizing()
 
 "}}}
 "==========================================================================
