@@ -387,11 +387,11 @@ noremap! <c-d> <del>
 inoremap <c-y> <c-d>
 
 "-- Misc. Leader Mappings -------------------------------------------------
-nnoremap <silent> <leader>v :ed $MYVIMRC<cr>
+nnoremap <silent> <leader>v :tabe $MYVIMRC<cr>
 nnoremap <silent> <leader>V :so $MYVIMRC<cr>
 
 nnoremap <silent> <leader>cd :lcd %:h<cr>
-nnoremap <silent> <leader>md :!mkdir -p %:p:h<cr>
+nnoremap <silent> <leader>md :silent execute '!mkdir -p %:p:h' \| redraw!<cr>
 
 nnoremap <leader>gt :tab sp<cr>
 
