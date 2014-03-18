@@ -190,14 +190,6 @@ let g:ctrlp_user_command=['.git', 'cd %s && git ls-files . -co --exclude-standar
 " Hide warnings when terminal does not support enough colors to use CSApprox.
 " let g:CSApprox_verbose_level=0
 
-"-- FuzzyFinder -----------------------------------------------------------
-let g:fuf_keyNextMode='<c-e>'
-let g:fuf_keyOpenSplit='<c-s>'
-let g:fuf_keyOpenTabpage='<c-t>'
-let g:fuf_keyOpenVsplit='<c-v>'
-let g:fuf_keyPrevPattern='<c-->'
-let g:fuf_modesDisable=[]
-
 "-- Gist ------------------------------------------------------------------
 let g:gist_detect_filetype=1
 
@@ -205,12 +197,6 @@ let g:gist_detect_filetype=1
 if version < 703          " check for version lower than 7.3
   let g:gundo_disable=1   " disable Gundo plugin
 endif
-
-"-- NERDTree --------------------------------------------------------------
-let g:NERDTreeMapOpenSplit='s'
-let g:NERDTreeMapOpenVSplit='v'
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeShowBookmarks=1
 
 "-- Solarized -------------------------------------------------------------
 let g:solarized_italic=0
