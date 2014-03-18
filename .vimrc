@@ -158,6 +158,7 @@ set novisualbell
 set printoptions=paper:letter
 set report=0
 set ruler
+set shell=/bin/bash
 set shellslash
 set shortmess+=I
 set showcmd
