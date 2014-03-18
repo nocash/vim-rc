@@ -536,6 +536,12 @@ augroup Miscellaneous
         \ if filereadable(expand('$HOME/.vim/scripts/tabularize-cuke-tables.vim'))
         \ | source $HOME/.vim/scripts/tabularize-cuke-tables.vim
         \ | endif
+  " Automatically remove fugitive buffers
+  au BufReadPost fugitive://* set bufhidden=delete
+  " Start in insert mode for commit
+  au BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
+  " Do not create undo files for certain files
+  au BufWritePre *.git/COMMIT_EDITMSG setlocal noundofile
 augroup END
 
 "}}}
@@ -632,6 +638,14 @@ function! NCVTempFile()
   au CursorHold <buffer> update
 endfunction
 command! NCVTempFile :call NCVTempFile()
+
+" Start in insert mode for commit
+function! BufEnterCommit()
+  normal gg0
+  if getline('.') == ''
+    start
+  end
+endfunction
 
 "}}}
 "==========================================================================
