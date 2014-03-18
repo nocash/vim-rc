@@ -119,6 +119,10 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
+"-- Splits ----------------------------------------------------------------
+set splitbelow
+set splitright
+
 "-- Wrapping --------------------------------------------------------------
 "                 +-> Auto-wrap comments using textwidth
 "                 |+-> Allow formatting of comments with 'gq'.
