@@ -483,8 +483,6 @@ augroup END
 
 augroup Miscellaneous
   au!
-  " Ruby
-  au BufNewFile,BufReadPost *.rb set keywordprg=ruby-doc
   " Cucumber (The ft detection in the plugin doesn't seem to work for me)
   au BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
@@ -612,6 +610,15 @@ function! BufEnterCommit()
     start
   end
 endfunction
+
+" WIP
+function! DashSearch()
+  let query = expand("<cword>")
+  silent execute "!open dash://".shellescape(query)
+  redraw!
+endfunction
+command! Dash :call DashSearch()
+nnoremap K :Dash<cr>
 
 "}}}
 "==========================================================================
