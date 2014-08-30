@@ -389,7 +389,7 @@ nnoremap <silent> <leader>hl :silent set hlsearch!<cr>
 nnoremap <silent> <leader>lc :set list!<cr>
 
 " Visual select changed text
-nnoremap <silent> <leader>gc `[v`]
+nnoremap <silent> <leader>cv `[v`]
 
 " Promote variable to RSpec let
 nnoremap <silent> <leader><leader>let :PromoteToLet<cr>
