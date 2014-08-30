@@ -602,7 +602,7 @@ function! NCVTempFile()
   let syncdir = "$HOME/Dropbox/tmp"
   let syncfile = syncdir.'/'.substitute(tempname(), '/', '_', 'g')
   execute 'edit '.syncfile
-  au CursorHold <buffer> update
+  au CursorHold,WinLeave,VimLeave <buffer> update
 endfunction
 command! NCVTempFile :call NCVTempFile()
 
