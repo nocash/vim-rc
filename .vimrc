@@ -32,6 +32,7 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'nocash/bufkill.vim'
+Bundle 'rizzatti/dash.vim'
 Bundle 'rking/ag.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'sjl/gundo.vim'
@@ -362,6 +363,9 @@ noremap! <c-d> <del>
 " switch clobbered <c-d> to <c-y>
 inoremap <c-y> <c-d>
 
+" Lookup words using Dash
+nmap K <Plug>DashSearch
+
 " Miscelaneous
 cnoremap %% %:h/
 
@@ -617,15 +621,6 @@ function! BufEnterCommit()
     start
   end
 endfunction
-
-" WIP
-function! DashSearch()
-  let query = expand("<cword>")
-  silent execute "!open dash://".shellescape(query)
-  redraw!
-endfunction
-command! Dash :call DashSearch()
-nnoremap K :Dash<cr>
 
 "}}}
 "==========================================================================
