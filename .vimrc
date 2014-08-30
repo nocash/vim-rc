@@ -441,8 +441,8 @@ nnoremap <silent> <leader>u :GundoToggle<cr>
 " See the section under "Plugin Options"
 
 "-- Vroom -----------------------------------------------------------------
-nnoremap <silent> <leader>t :VroomRunTestFile<cr>
-nnoremap <silent> <leader>T :VroomRunNearestTest<cr>
+nnoremap <silent> <leader>R :VroomRunTestFile<cr>
+nnoremap <silent> <leader>r :VroomRunNearestTest<cr>
 
 "--------------------------------------------------------------------------
 " Make Vim recognize XTerm escape sequences for Page and Arrow
