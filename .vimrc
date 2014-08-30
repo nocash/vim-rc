@@ -314,10 +314,6 @@ let mapleader=","
 "-- Misc. Non-Leader Mappings ---------------------------------------------
 noremap <space> :
 
-" Fix <c-space> in terminal vim (primarily for UltiSnips)
-imap <nul> <c-space>
-smap <nul> <c-space>
-
 " Make Y behave consistently with D and C
 nnoremap Y y$
 
