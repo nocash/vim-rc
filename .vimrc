@@ -385,18 +385,11 @@ nnoremap <leader>gt :tab sp<cr>
 " Un-highlight last search
 nnoremap <silent> <leader>hl :silent set hlsearch!<cr>
 
-" Trim trailing whitespace
-nnoremap <silent> <leader>w :%s/\s\+$//e<cr>
-
 " Toggle list characters
 nnoremap <silent> <leader>lc :set list!<cr>
 
 " Visual select changed text
 nnoremap <silent> <leader>gc `[v`]
-
-" Rails.vim mappings
-nnoremap <silent> <leader>av :AV<cr>
-nnoremap <silent> <leader>as :AS<cr>
 
 " Promote variable to RSpec let
 nnoremap <silent> <leader><leader>let :PromoteToLet<cr>
