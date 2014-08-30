@@ -220,6 +220,10 @@ let g:UltiSnipsEditSplit='horizontal'
 " let g:UltiSnipsJumpForwardTrigger="<c-space>"
 " let g:UltiSnipsListSnippets="<s-nul>"
 
+"-- Vimux -----------------------------------------------------------------
+let g:VimuxHeight = "40"
+let g:VimuxOrientation = "h"
+
 "-- Vroom -----------------------------------------------------------------
 let g:vroom_clear_screen=0
 let g:vroom_map_keys=0
