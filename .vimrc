@@ -332,17 +332,6 @@ nnoremap k gk
 nnoremap <silent> <f5> :checktime<cr>
 noremap <silent> <f12> :cclose<cr>
 
-" Yank and paste from system clipboard
-map <leader>y "+y
-map <leader>Y "+Y
-map <leader>gp "+p
-map <leader>gP "+P
-map <s-insert> "+gP
-map! <s-insert> <c-r>+
-
-" Copy file location to clipboard
-nnoremap <leader>"% :redir @*> \| echon @% \| redir END<cr>
-
 " Easier window/tab navigation
 noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
@@ -376,6 +365,18 @@ nnoremap <silent> <leader>V :so $MYVIMRC<cr>
 nnoremap <silent> <leader>cd :lcd %:h<cr>
 nnoremap <silent> <leader>md :silent execute '!mkdir -p %:p:h' \| redraw!<cr>
 
+" Yank and paste from system clipboard
+map <leader>y "+y
+map <leader>Y "+Y
+map <leader>gp "+p
+map <leader>gP "+P
+map <s-insert> "+gP
+map! <s-insert> <c-r>+
+
+" Copy file location to clipboard
+nnoremap <leader>"% :redir @*> \| echon @% \| redir END<cr>
+
+" Open buffer in new tab
 nnoremap <leader>gt :tab sp<cr>
 
 " Un-highlight last search
