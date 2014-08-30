@@ -506,6 +506,9 @@ augroup Miscellaneous
   au BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
   " Do not create undo files for certain files
   au BufWritePre *.git/COMMIT_EDITMSG setlocal noundofile
+  " Remove trailing whitespace
+  au FileType coffee,eruby,haml,javascript,php,ruby,sass,scss,sh,xml
+    \ au BufWritePre <buffer> exe '%s/\s\+$//e'
 augroup END
 
 "}}}
