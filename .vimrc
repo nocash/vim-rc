@@ -358,6 +358,9 @@ noremap! <c-d> <del>
 " switch clobbered <c-d> to <c-y>
 inoremap <c-y> <c-d>
 
+" Miscelaneous
+cnoremap %% %:h/
+
 "-- Misc. Leader Mappings -------------------------------------------------
 nnoremap <silent> <leader>v :tabe $MYVIMRC<cr>
 nnoremap <silent> <leader>V :so $MYVIMRC<cr>
