@@ -76,9 +76,9 @@ set viminfo='10,f1,<100,:1000,@100,/100,h,n~/.vim/.viminfo
 set nobackup               " do not make backups
 set noswapfile             " do not make swapfiles
 
-if version >= 703          " check for version 7.3 or higher
-  set undodir=~/.vim/tmp   " list of directory names for undo files
-  set undofile             " automatically saves undo history to a file
+if version >= 703                     " check for version 7.3 or higher
+  set undodir=$TMPDIR,/tmp,~/.vim/tmp " list of directory names for undo files
+  set undofile                        " automatically saves undo history to a file
 endif
 
 "-- Indenting -------------------------------------------------------------
