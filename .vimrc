@@ -325,8 +325,8 @@ nnoremap Y y$
 " vnoremap < <gv
 
 " Simpler movement in wrapped buffers
-nnoremap <silent> j gj
-nnoremap <silent> k gk
+nnoremap j gj
+nnoremap k gk
 
 " Function Key Mappings
 noremap <f3> :Rgrep<cr>
