@@ -421,16 +421,6 @@ nnoremap <silent> <leader>prts :CtrlPRTS<cr>
 nnoremap <silent> <leader>pt :CtrlPTag<cr>
 nnoremap <silent> <leader>pu :CtrlPUndo<cr>
 
-"-- FuzzyFinder -----------------------------------------------------------
-nnoremap <silent> <leader>fb :FufBuffer<cr>
-nnoremap <silent> <leader>fc :FufMruCmd<cr>
-nnoremap <silent> <leader>fd :FufDir<cr>
-nnoremap <silent> <leader>ff :FufFile<cr>
-nnoremap <silent> <leader>fh :FufHelp<cr>
-nnoremap <silent> <leader>fl :FufLine<cr>
-nnoremap <silent> <leader>fr :FufMruFile<cr>
-nnoremap <silent> <leader>ft :FufTag<cr>
-
 "-- Fugitive (Git) --------------------------------------------------------
 nnoremap <silent> <leader>gb :Gblame<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
@@ -443,10 +433,6 @@ nnoremap <silent> <leader>gw :Gwrite<cr>
 
 "-- Gundo -----------------------------------------------------------------
 nnoremap <silent> <leader>u :GundoToggle<cr>
-
-"-- NERDTree --------------------------------------------------------------
-nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<cr>
-nnoremap <silent> <leader>N :NERDTreeFind<cr>
 
 "-- Solarized -------------------------------------------------------------
 " call togglebg#map("<F5>")
