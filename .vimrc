@@ -329,7 +329,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Function Key Mappings
-noremap <f3> :Rgrep<cr>
+nnoremap <silent> <f5> :checktime<cr>
 noremap <silent> <f12> :cclose<cr>
 
 " Yank and paste from system clipboard
@@ -452,7 +452,7 @@ nnoremap <silent> <leader>n :execute 'NERDTreeToggle ' . getcwd()<cr>
 nnoremap <silent> <leader>N :NERDTreeFind<cr>
 
 "-- Solarized -------------------------------------------------------------
-call togglebg#map("<F5>")
+" call togglebg#map("<F5>")
 
 "-- UltiSnips -------------------------------------------------------------
 " See the section under "Plugin Options"
