@@ -1,5 +1,5 @@
 "==========================================================================
-" Main / Behavior                                                       {{{
+" Plugins & Configuration                                               {{{
 "==========================================================================
 
 set nocompatible
@@ -11,37 +11,140 @@ call vundle#rc()
 " required!
 Plugin 'gmarik/vundle'
 
+"-- CtrlP -----------------------------------------------------------------
+Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'kien/ctrlp.vim'
+
+" let g:ctrlp_clear_cache_on_exit=0
+" let g:ctrlp_cmd='CtrlPMixed'
+let g:ctrlp_custom_ignore={
+  \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
+  \ }
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_func={'match' : 'matcher#cmatch' }
+let g:ctrlp_max_files=15000
+let g:ctrlp_show_hidden=1
+let g:ctrlp_switch_buffer=0
+let g:ctrlp_user_command=['.git', 'cd %s && git ls-files . -co --exclude-standard']
+
+" :'<,'>sort i /<leader>/
+nnoremap <silent> <leader>b :CtrlPBuffer<cr>
+nnoremap <silent> <leader>f :CtrlP<cr>
+nnoremap <silent> <leader>pbt :CtrlPBufTag<cr>
+nnoremap <silent> <leader>pbT :CtrlPBufTagAll<cr>
+nnoremap <silent> <leader>pc :CtrlPChange<cr>
+nnoremap <silent> <leader>pC :CtrlPChangeAll<cr>
+nnoremap          <leader>pD :CtrlPDir
+nnoremap <silent> <leader>pd :CtrlPDir<cr>
+nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
+nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
+nnoremap <silent> <leader>pl :CtrlPLine %<cr>
+nnoremap <silent> <leader>pL :CtrlPLine<cr>
+nnoremap <silent> <leader>pm :CtrlPMixed<cr>
+nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
+nnoremap <silent> <leader>pr :CtrlPMRU<cr>
+nnoremap <silent> <leader>pt :CtrlPTag<cr>
+nnoremap <silent> <leader>pu :CtrlPUndo<cr>
+nnoremap <silent> <leader>pw :CtrlP %:h<cr>
+
+"-- Fugitive (Git) --------------------------------------------------------
+Plugin 'tpope/vim-fugitive'
+
+nnoremap <silent> <leader>gb :Gblame<cr>
+nnoremap <silent> <leader>gc :Gcommit<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>ge :Gedit<cr>
+nnoremap <silent> <leader>gl :Glog<cr>
+nnoremap <silent> <leader>gr :Gread<cr>
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gw :Gwrite<cr>
+
+"-- Gist ------------------------------------------------------------------
+Plugin 'mattn/gist-vim'
+
+let g:gist_detect_filetype=1
+
+nnoremap <silent> <leader>u :GundoToggle<cr>
+
+"-- Gundo -----------------------------------------------------------------
+Plugin 'sjl/gundo.vim'
+
+if version < 703          " check for version lower than 7.3
+  let g:gundo_disable=1   " disable Gundo plugin
+endif
+
+"-- Solarized -------------------------------------------------------------
+Plugin 'altercation/vim-colors-solarized'
+
+let g:solarized_italic=0
+let g:solarized_termcolors=256
+
+" call togglebg#map("<F5>")
+
+"-- Syntastic -------------------------------------------------------------
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=0
+let g:syntastic_mode_map={
+    \ 'mode': 'active',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': ['cucumber'] }
+let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+"-- TComment --------------------------------------------------------------
+Plugin 'tomtom/tcomment_vim'
+
+let g:tcommentMaps=1
+
+"-- UltiSnips -------------------------------------------------------------
+Plugin 'SirVer/ultisnips'
+
+" let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
+" let g:UltiSnipsJumpBackwardTrigger="<c-s-space>" " won't work in terminal
+" let g:UltiSnipsJumpForwardTrigger="<c-space>"
+" let g:UltiSnipsListSnippets="<s-nul>"
+let g:UltiSnipsEditSplit='horizontal'
+
+"-- Vimux -----------------------------------------------------------------
+Plugin 'benmills/vimux'
+
+let g:VimuxHeight = "40"
+let g:VimuxOrientation = "h"
+
+"-- Vroom -----------------------------------------------------------------
+Plugin 'skalnik/vim-vroom'
+
+let g:vroom_clear_screen=0
+let g:vroom_map_keys=0
+let g:vroom_use_dispatch=0
+let g:vroom_use_vimux=1
+let g:vroom_use_zeus=1
+
+nnoremap <silent> <leader>r :VroomRunNearestTest<cr>
+nnoremap <silent> <leader>R :VroomRunTestFile<cr>
+
+"-- Other Plugins ---------------------------------------------------------
 " Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-pathogen'
 Plugin 'aaronjensen/vim-autocomplpop'
 Plugin 'aaronjensen/vim-recentcomplete'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'benmills/vimux'
 Plugin 'dirkwallenstein/vim-localcomplete'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'int3/vim-extradite'
-Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'jnurmine/Zenburn'
 Plugin 'kana/vim-textobj-indent'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'nocash/bufkill.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'sjl/gundo.vim'
-Plugin 'skalnik/vim-vroom'
 Plugin 'tomasr/molokai'
-Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-rails'
@@ -53,6 +156,11 @@ Plugin 'vim-scripts/JavaScript-syntax'
 Plugin 'vim-scripts/L9'
 Plugin 'vim-scripts/nginx.vim'
 Plugin 'wgibbs/vim-irblack'
+
+" }}}
+"==========================================================================
+" Vim Settings                                                          {{{
+"==========================================================================
 
 syntax on
 filetype plugin indent on
@@ -168,71 +276,6 @@ set virtualedit=block
 
 "}}}
 "==========================================================================
-" Plugin Options                                                        {{{
-"==========================================================================
-
-"-- CtrlP -----------------------------------------------------------------
-" let g:ctrlp_clear_cache_on_exit=0
-" let g:ctrlp_cmd='CtrlPMixed'
-let g:ctrlp_custom_ignore={
-  \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
-  \ }
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_match_func={'match' : 'matcher#cmatch' }
-let g:ctrlp_max_files=15000
-let g:ctrlp_show_hidden=1
-let g:ctrlp_switch_buffer=0
-let g:ctrlp_user_command=['.git', 'cd %s && git ls-files . -co --exclude-standard']
-
-"-- CSApprox --------------------------------------------------------------
-" Hide warnings when terminal does not support enough colors to use CSApprox.
-" let g:CSApprox_verbose_level=0
-
-"-- Gist ------------------------------------------------------------------
-let g:gist_detect_filetype=1
-
-"-- Gundo -----------------------------------------------------------------
-if version < 703          " check for version lower than 7.3
-  let g:gundo_disable=1   " disable Gundo plugin
-endif
-
-"-- Solarized -------------------------------------------------------------
-let g:solarized_italic=0
-let g:solarized_termcolors=256
-
-"-- Syntastic -------------------------------------------------------------
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=0
-let g:syntastic_mode_map={
-    \ 'mode': 'active',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': ['cucumber'] }
-let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-
-"-- TComment --------------------------------------------------------------
-let g:tcommentMaps=1
-
-"-- UltiSnips -------------------------------------------------------------
-let g:UltiSnipsEditSplit='horizontal'
-" let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
-" let g:UltiSnipsJumpBackwardTrigger="<c-s-space>" " won't work in terminal
-" let g:UltiSnipsJumpForwardTrigger="<c-space>"
-" let g:UltiSnipsListSnippets="<s-nul>"
-
-"-- Vimux -----------------------------------------------------------------
-let g:VimuxHeight = "40"
-let g:VimuxOrientation = "h"
-
-"-- Vroom -----------------------------------------------------------------
-let g:vroom_clear_screen=0
-let g:vroom_map_keys=0
-let g:vroom_use_dispatch=0
-let g:vroom_use_vimux=1
-let g:vroom_use_zeus=1
-
-"}}}
-"==========================================================================
 " Appearance                                                            {{{
 "==========================================================================
 
@@ -324,10 +367,6 @@ noremap <space> :
 " Make Y behave consistently with D and C
 nnoremap Y y$
 
-" Re-select visual area after indenting
-" vnoremap > >gv
-" vnoremap < <gv
-
 " Simpler movement in wrapped buffers
 nnoremap j gj
 nnoremap k gk
@@ -406,50 +445,6 @@ nnoremap <silent> <leader><leader>win :ToggleWindowResizing<cr>
 
 " Open a temporary file with autosave
 nnoremap <leader><leader>temp :NCVTempFile<cr>
-
-"-- CtrlP -----------------------------------------------------------------
-" :'<,'>sort i /<leader>/
-nnoremap <silent> <leader>b :CtrlPBuffer<cr>
-nnoremap <silent> <leader>f :CtrlP<cr>
-nnoremap <silent> <leader>pbt :CtrlPBufTag<cr>
-nnoremap <silent> <leader>pbT :CtrlPBufTagAll<cr>
-nnoremap <silent> <leader>pc :CtrlPChange<cr>
-nnoremap <silent> <leader>pC :CtrlPChangeAll<cr>
-nnoremap          <leader>pD :CtrlPDir
-nnoremap <silent> <leader>pd :CtrlPDir<cr>
-nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
-nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
-nnoremap <silent> <leader>pl :CtrlPLine %<cr>
-nnoremap <silent> <leader>pL :CtrlPLine<cr>
-nnoremap <silent> <leader>pm :CtrlPMixed<cr>
-nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
-nnoremap <silent> <leader>pr :CtrlPMRU<cr>
-nnoremap <silent> <leader>pt :CtrlPTag<cr>
-nnoremap <silent> <leader>pu :CtrlPUndo<cr>
-nnoremap <silent> <leader>pw :CtrlP %:h<cr>
-
-"-- Fugitive (Git) --------------------------------------------------------
-nnoremap <silent> <leader>gb :Gblame<cr>
-nnoremap <silent> <leader>gc :Gcommit<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>ge :Gedit<cr>
-nnoremap <silent> <leader>gl :Glog<cr>
-nnoremap <silent> <leader>gr :Gread<cr>
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gw :Gwrite<cr>
-
-"-- Gundo -----------------------------------------------------------------
-nnoremap <silent> <leader>u :GundoToggle<cr>
-
-"-- Solarized -------------------------------------------------------------
-" call togglebg#map("<F5>")
-
-"-- UltiSnips -------------------------------------------------------------
-" See the section under "Plugin Options"
-
-"-- Vroom -----------------------------------------------------------------
-nnoremap <silent> <leader>R :VroomRunTestFile<cr>
-nnoremap <silent> <leader>r :VroomRunNearestTest<cr>
 
 "--------------------------------------------------------------------------
 " Make Vim recognize XTerm escape sequences for Page and Arrow
