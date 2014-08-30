@@ -401,25 +401,25 @@ nnoremap <silent> <leader><leader>win :ToggleWindowResizing<cr>
 nnoremap <leader><leader>temp :NCVTempFile<cr>
 
 "-- CtrlP -----------------------------------------------------------------
+" :'<,'>sort i /<leader>/
 nnoremap <silent> <leader>b :CtrlPBuffer<cr>
-nnoremap <silent> <leader>r :CtrlPMRU<cr>
+nnoremap <silent> <leader>f :CtrlP<cr>
 nnoremap <silent> <leader>pbt :CtrlPBufTag<cr>
 nnoremap <silent> <leader>pbT :CtrlPBufTagAll<cr>
 nnoremap <silent> <leader>pc :CtrlPChange<cr>
 nnoremap <silent> <leader>pC :CtrlPChangeAll<cr>
-nnoremap <silent> <leader>pd :CtrlPDir<cr>
 nnoremap          <leader>pD :CtrlPDir
-nnoremap <silent> <leader>pf :CtrlP<cr>
-nnoremap <silent> <leader>pF :CtrlPClearCache<cr>:CtrlP<cr>
+nnoremap <silent> <leader>pd :CtrlPDir<cr>
 nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
 nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> <leader>pl :CtrlPLine %<cr>
 nnoremap <silent> <leader>pL :CtrlPLine<cr>
 nnoremap <silent> <leader>pm :CtrlPMixed<cr>
 nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
-nnoremap <silent> <leader>prts :CtrlPRTS<cr>
+nnoremap <silent> <leader>pr :CtrlPMRU<cr>
 nnoremap <silent> <leader>pt :CtrlPTag<cr>
 nnoremap <silent> <leader>pu :CtrlPUndo<cr>
+nnoremap <silent> <leader>pw :CtrlP %:h<cr>
 
 "-- Fugitive (Git) --------------------------------------------------------
 nnoremap <silent> <leader>gb :Gblame<cr>
