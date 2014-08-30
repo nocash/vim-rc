@@ -99,7 +99,7 @@ set wrapscan          " wrap around the file when searching
 
 " -- Folding ---------------------------------------------------------------
 set foldenable        " enable folding
-set foldmethod=manual " use syntax to determine folds
+set foldmethod=manual
 
 "-- Wildmenu --------------------------------------------------------------
 set wildcharm=<c-z>
@@ -111,7 +111,7 @@ set scrolloff=2
 set sidescrolloff=10
 
 "-- Windows ---------------------------------------------------------------
-" https://github.com/aaronjensen/vimfiles/blob/8e79bc/vimrc#L539
+" https://github.com/aaronjensen/vimfiles/blob/8e79bc/vimrc#L539-L547
 set winwidth=84
 set winheight=5
 set winminheight=5
@@ -119,18 +119,18 @@ set winheight=999
 
 "-- Splits ----------------------------------------------------------------
 set splitbelow
-set splitright
+" set splitright
 
 "-- Wrapping --------------------------------------------------------------
 "                 +-> Auto-wrap comments using textwidth
 "                 |+-> Allow formatting of comments with 'gq'.
 set formatoptions=cq
-set textwidth=78
-set nowrap
 set linebreak
+set nowrap
+set textwidth=78
 
 "-- Tags ------------------------------------------------------------------
-set tags=./tags;     " search recursively upwards for tags file
+set tags=./tags;     " search up tree for tags file
 set showfulltag
 set cscopetag
 set cscopetagorder=0
@@ -253,8 +253,11 @@ if !exists("g:colors_name")
   if has("gui_running")
     colorscheme solarized
   elseif &t_Co >= 88
-    " Might be better to check if CSApprox is available. Or both.
-    colorscheme molokai
+    if &diff
+      colorscheme ir_black
+    else
+      colorscheme molokai
+    endif
   else
     colorscheme default
   endif
@@ -513,9 +516,9 @@ augroup Miscellaneous
   " Load script that uses Tabularize to assist with aligning Cucumber tables
   " when editing Cucumber files.
   au FileType cucumber
-        \ if filereadable(expand('$HOME/.vim/scripts/tabularize-cuke-tables.vim'))
-        \ | source $HOME/.vim/scripts/tabularize-cuke-tables.vim
-        \ | endif
+    \ if filereadable(expand('$HOME/.vim/scripts/tabularize-cuke-tables.vim'))
+    \ | source $HOME/.vim/scripts/tabularize-cuke-tables.vim
+    \ | endif
   " Automatically remove fugitive buffers
   au BufReadPost fugitive://* set bufhidden=delete
   " Start in insert mode for commit
