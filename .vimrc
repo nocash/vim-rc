@@ -220,6 +220,10 @@ set tabstop=2
 set autoindent
 set smartindent
 
+"-- Line Numbers ----------------------------------------------------------
+set number
+set numberwidth=3
+
 "-- Searching -------------------------------------------------------------
 set nohlsearch        " highlight search results
 set ignorecase        " case-insensitive searching by default
@@ -338,10 +342,6 @@ endif
 if &term =~ '256color'
   set t_ut=
 endif
-
-"-- Line Numbers ----------------------------------------------------------
-set number
-set numberwidth=3
 
 "-- Status Line -----------------------------------------------------------
 "               +-> Relative file path
