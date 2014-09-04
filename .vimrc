@@ -79,8 +79,6 @@ Plugin 'mattn/gist-vim'
 
 let g:gist_detect_filetype=1
 
-nnoremap <silent> <leader>u :GundoToggle<cr>
-
 "}}}
 "-- Gundo --------------------------------------------------------------{{{
 Plugin 'sjl/gundo.vim'
@@ -88,6 +86,8 @@ Plugin 'sjl/gundo.vim'
 if version < 703          " check for version lower than 7.3
   let g:gundo_disable=1   " disable Gundo plugin
 endif
+
+nnoremap <silent> <leader>u :GundoToggle<cr>
 
 "}}}
 "-- Solarized ----------------------------------------------------------{{{
