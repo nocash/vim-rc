@@ -12,6 +12,13 @@ call vundle#rc()
 " required!
 Plugin 'gmarik/vundle'
 
+"-- Ag -----------------------------------------------------------------{{{
+Plugin 'rking/ag.vim'
+
+nnoremap <leader>A :Ag!<space>
+nnoremap <leader>a :Ag!<cr>
+
+" }}}
 "-- CtrlP --------------------------------------------------------------{{{
 Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'kien/ctrlp.vim'
@@ -152,7 +159,6 @@ Plugin 'mattn/webapi-vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'nocash/bufkill.vim'
 Plugin 'rizzatti/dash.vim'
-Plugin 'rking/ag.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-endwise'
