@@ -23,8 +23,7 @@ nnoremap <leader>a :Ag!<cr>
 Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'kien/ctrlp.vim'
 
-" let g:ctrlp_clear_cache_on_exit=0
-" let g:ctrlp_cmd='CtrlPMixed'
+let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_custom_ignore={
   \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
   \ }
@@ -54,6 +53,12 @@ nnoremap <silent> <leader>pr :CtrlPMRU<cr>
 nnoremap <silent> <leader>pt :CtrlPTag<cr>
 nnoremap <silent> <leader>pu :CtrlPUndo<cr>
 nnoremap <silent> <leader>pw :CtrlP %:h<cr>
+
+"}}}
+"-- Dash ---------------------------------------------------------------{{{
+Plugin 'rizzatti/dash.vim'
+
+nmap K <Plug>DashGlobalSearch
 
 "}}}
 "-- Fugitive (Git) -----------------------------------------------------{{{
@@ -115,10 +120,10 @@ let g:tcommentMaps=1
 Plugin 'SirVer/ultisnips'
 
 " let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
-" let g:UltiSnipsJumpBackwardTrigger="<c-s-space>" " won't work in terminal
-" let g:UltiSnipsJumpForwardTrigger="<c-space>"
 " let g:UltiSnipsListSnippets="<s-nul>"
 let g:UltiSnipsEditSplit='horizontal'
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 "}}}
 "-- Vimux --------------------------------------------------------------{{{
@@ -143,11 +148,12 @@ nnoremap <silent> <leader>R :VroomRunTestFile<cr>
 "}}}
 "-- Other Plugins ------------------------------------------------------{{{
 
+" Plugin 'aaronjensen/vim-autocomplpop'
+" Plugin 'aaronjensen/vim-recentcomplete'
+" Plugin 'dirkwallenstein/vim-localcomplete'
 " Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-pathogen'
-Plugin 'aaronjensen/vim-autocomplpop'
-Plugin 'aaronjensen/vim-recentcomplete'
-Plugin 'dirkwallenstein/vim-localcomplete'
+" Plugin 'vim-scripts/L9'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'int3/vim-extradite'
@@ -158,7 +164,6 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/webapi-vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'nocash/bufkill.vim'
-Plugin 'rizzatti/dash.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-endwise'
@@ -171,7 +176,6 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'vim-scripts/JavaScript-syntax'
-Plugin 'vim-scripts/L9'
 Plugin 'vim-scripts/nginx.vim'
 Plugin 'wgibbs/vim-irblack'
 
@@ -421,9 +425,6 @@ inoremap <c-k> <c-o>D
 noremap! <c-d> <del>
 " switch clobbered <c-d> to <c-y>
 inoremap <c-y> <c-d>
-
-" Lookup words using Dash
-nmap K <Plug>DashSearch
 
 " Miscelaneous
 cnoremap %% %:h/
