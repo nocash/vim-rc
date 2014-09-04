@@ -3,8 +3,9 @@
 "==========================================================================
 
 set nocompatible
-filetype off
+let mapleader=","
 
+filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -356,13 +357,16 @@ set statusline+=\ %c,%l\ %P
 " Key Mapping                                                           {{{
 "==========================================================================
 
-"-- Leader Key ------------------------------------------------------------
+"-- Command-line Mode -----------------------------------------------------
+noremap <space> :
+
+"-- Leader Remap ----------------------------------------------------------
+" Since we use <space> to enter command-line mode we can map our lost comma
+" behavior onto colon.
 nnoremap : ,
 vnoremap : ,
-let mapleader=","
 
 "-- Misc. Non-Leader Mappings ---------------------------------------------
-noremap <space> :
 
 " Make Y behave consistently with D and C
 nnoremap Y y$
