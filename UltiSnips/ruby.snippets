@@ -1,16 +1,29 @@
 snippet req "require" !b
-require '$1'$0
+require '$1'
+$0
+endsnippet
+
+snippet scen "scenario (rspec)" !b
+scenario "$1" do
+	$0
+end
+endsnippet
+
+snippet feat "feature (rspec)" !b
+feature "$1" do
+	$0
+end
 endsnippet
 
 snippet desc "describe (rspec)" !b
 describe "$1" do
-	it "$2"$0
+	$0
 end
 endsnippet
 
 snippet cont "context (rspec)" !b
 context "$1" do
-	it "$2"$0
+	$0
 end
 endsnippet
 
@@ -32,4 +45,8 @@ endsnippet
 
 snippet pry "binding.pry w/ require" !
 require 'pry'; binding.pry
+endsnippet
+
+snippet soap "save_and_open_page" !
+save_and_open_page
 endsnippet
