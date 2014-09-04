@@ -231,7 +231,7 @@ set incsearch         " search as I type
 set smartcase         " case-sensitive if I use a capital letter
 set wrapscan          " wrap around the file when searching
 
-" -- Folding ---------------------------------------------------------------
+"-- Folding ---------------------------------------------------------------
 set foldenable        " enable folding
 set foldmethod=manual
 
