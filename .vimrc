@@ -12,7 +12,7 @@ call vundle#rc()
 " required!
 Plugin 'gmarik/vundle'
 
-"-- CtrlP -----------------------------------------------------------------
+"-- CtrlP --------------------------------------------------------------{{{
 Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'kien/ctrlp.vim'
 
@@ -48,7 +48,8 @@ nnoremap <silent> <leader>pt :CtrlPTag<cr>
 nnoremap <silent> <leader>pu :CtrlPUndo<cr>
 nnoremap <silent> <leader>pw :CtrlP %:h<cr>
 
-"-- Fugitive (Git) --------------------------------------------------------
+"}}}
+"-- Fugitive (Git) -----------------------------------------------------{{{
 Plugin 'tpope/vim-fugitive'
 
 nnoremap <silent> <leader>gb :Gblame<cr>
@@ -60,21 +61,24 @@ nnoremap <silent> <leader>gr :Gread<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gw :Gwrite<cr>
 
-"-- Gist ------------------------------------------------------------------
+"}}}
+"-- Gist ---------------------------------------------------------------{{{
 Plugin 'mattn/gist-vim'
 
 let g:gist_detect_filetype=1
 
 nnoremap <silent> <leader>u :GundoToggle<cr>
 
-"-- Gundo -----------------------------------------------------------------
+"}}}
+"-- Gundo --------------------------------------------------------------{{{
 Plugin 'sjl/gundo.vim'
 
 if version < 703          " check for version lower than 7.3
   let g:gundo_disable=1   " disable Gundo plugin
 endif
 
-"-- Solarized -------------------------------------------------------------
+"}}}
+"-- Solarized ----------------------------------------------------------{{{
 Plugin 'altercation/vim-colors-solarized'
 
 let g:solarized_italic=0
@@ -82,7 +86,8 @@ let g:solarized_termcolors=256
 
 " call togglebg#map("<F5>")
 
-"-- Syntastic -------------------------------------------------------------
+"}}}
+"-- Syntastic ----------------------------------------------------------{{{
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=0
@@ -92,12 +97,14 @@ let g:syntastic_mode_map={
     \ 'passive_filetypes': ['cucumber'] }
 let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
-"-- TComment --------------------------------------------------------------
+"}}}
+"-- TComment -----------------------------------------------------------{{{
 Plugin 'tomtom/tcomment_vim'
 
 let g:tcommentMaps=1
 
-"-- UltiSnips -------------------------------------------------------------
+"}}}
+"-- UltiSnips ----------------------------------------------------------{{{
 Plugin 'SirVer/ultisnips'
 
 " let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
@@ -106,13 +113,15 @@ Plugin 'SirVer/ultisnips'
 " let g:UltiSnipsListSnippets="<s-nul>"
 let g:UltiSnipsEditSplit='horizontal'
 
-"-- Vimux -----------------------------------------------------------------
+"}}}
+"-- Vimux --------------------------------------------------------------{{{
 Plugin 'benmills/vimux'
 
 let g:VimuxHeight = "40"
 let g:VimuxOrientation = "h"
 
-"-- Vroom -----------------------------------------------------------------
+"}}}
+"-- Vroom --------------------------------------------------------------{{{
 Plugin 'skalnik/vim-vroom'
 
 let g:vroom_clear_screen=0
@@ -124,7 +133,9 @@ let g:vroom_use_zeus=1
 nnoremap <silent> <leader>r :VroomRunNearestTest<cr>
 nnoremap <silent> <leader>R :VroomRunTestFile<cr>
 
-"-- Other Plugins ---------------------------------------------------------
+"}}}
+"-- Other Plugins ------------------------------------------------------{{{
+
 " Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-pathogen'
 Plugin 'aaronjensen/vim-autocomplpop'
@@ -158,7 +169,7 @@ Plugin 'vim-scripts/L9'
 Plugin 'vim-scripts/nginx.vim'
 Plugin 'wgibbs/vim-irblack'
 
-" }}}
+" }}}}}}
 "==========================================================================
 " Vim Settings                                                          {{{
 "==========================================================================
