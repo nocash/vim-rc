@@ -15,8 +15,22 @@ Plugin 'gmarik/vundle'
 "-- Ag -----------------------------------------------------------------{{{
 Plugin 'rking/ag.vim'
 
+let g:ag_highlight=1
+
 nnoremap <leader>A :Ag!<space>
 nnoremap <leader>a :Ag!<cr>
+
+" }}}
+"-- Auto Pairs ---------------------------------------------------------{{{
+Plugin 'jiangmiao/auto-pairs'
+
+" }}}
+"-- AutoSave -----------------------------------------------------------{{{
+" Plugin '907th/vim-auto-save'
+
+let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_in_insert_mode = 0
 
 " }}}
 "-- CtrlP --------------------------------------------------------------{{{
@@ -90,6 +104,24 @@ endif
 nnoremap <silent> <leader>u :GundoToggle<cr>
 
 "}}}
+"-- JavsScript ---------------------------------------------------------{{{
+Plugin 'pangloss/vim-javascript'
+
+"}}}
+"-- JSX ----------------------------------------------------------------{{{
+Plugin 'mxw/vim-jsx'
+
+let g:jsx_ext_required = 0
+
+"}}}
+"-- MatchIndent --------------------------------------------------------{{{
+Plugin 'conormcd/matchindent.vim'
+
+"}}}
+"-- Paredit ------------------------------------------------------------{{{
+Plugin 'vim-scripts/paredit.vim'
+
+"}}}
 "-- Solarized ----------------------------------------------------------{{{
 Plugin 'altercation/vim-colors-solarized'
 
@@ -131,6 +163,15 @@ Plugin 'benmills/vimux'
 
 let g:VimuxHeight = "40"
 let g:VimuxOrientation = "h"
+
+nnoremap <leader>t!! :call VimuxRunCommand("!!")<cr>
+nnoremap <leader>tC :call VimuxSendKeys("C-c")<cr>
+nnoremap <leader>td :call VimuxSendKeys("C-d")<cr>
+nnoremap <leader>tgs :call VimuxRunCommand("gs")<cr>
+nnoremap <leader>tpl :call VimuxRunCommand(getline('.'))<cr>
+nnoremap <leader>tpx :call VimuxRunCommand("!!!")<cr>
+nnoremap <leader>tr :call VimuxRunCommand("stty sane")<cr>
+nnoremap <leader>tt :VimuxPromptCommand<cr>
 
 "}}}
 "-- Vroom --------------------------------------------------------------{{{
@@ -220,9 +261,12 @@ set tabstop=2
 set autoindent
 set smartindent
 
-"-- Line Numbers ----------------------------------------------------------
+"-- Lines & Columns -------------------------------------------------------
+set colorcolumn=80
 set number
 set numberwidth=3
+set scrolloff=2
+set sidescrolloff=10
 
 "-- Searching -------------------------------------------------------------
 set nohlsearch        " highlight search results
@@ -240,10 +284,6 @@ set wildcharm=<c-z>
 set wildmenu
 set wildmode=longest:list
 
-"-- Scrolling -------------------------------------------------------------
-set scrolloff=2
-set sidescrolloff=10
-
 "-- Windows ---------------------------------------------------------------
 " https://github.com/aaronjensen/vimfiles/blob/8e79bc/vimrc#L539-L547
 set winwidth=84
@@ -256,9 +296,6 @@ set splitbelow
 " set splitright
 
 "-- Wrapping --------------------------------------------------------------
-"                 +-> Auto-wrap comments using textwidth
-"                 |+-> Allow formatting of comments with 'gq'.
-set formatoptions=cq
 set linebreak
 set nowrap
 set textwidth=78
@@ -315,7 +352,7 @@ if has("gui_running") && !exists("g:vimrc_gui_options_set")
 
 " Set platform-specific fonts
   if s:uname == 'Darwin'
-    set guifont=Menlo\ Regular:h15
+    set guifont=Inconsolata-g:h14,\ Menlo\ Regular:h15
   endif
 endif
 
@@ -445,7 +482,7 @@ map <s-insert> "+gP
 map! <s-insert> <c-r>+
 
 " Copy file location to clipboard
-nnoremap <leader>"% :redir @*> \| echon @% \| redir END<cr>
+nnoremap <leader>%% :redir @*> \| echon @% \| redir END<cr>
 
 " Open buffer in new tab
 nnoremap <leader>gt :tab sp<cr>
@@ -532,7 +569,17 @@ augroup Miscellaneous
   au BufWritePre *.git/COMMIT_EDITMSG setlocal noundofile
   " Remove trailing whitespace
   au FileType coffee,eruby,haml,javascript,php,ruby,sass,scss,sh,xml
-    \ au BufWritePre <buffer> exe '%s/\s\+$//e'
+    \ au BufWritePre <buffer>
+      \ let pos = getpos('.')
+      \ | execute '%s/\s\+$//e'
+      \ | call setpos('.', pos)
+"                                 +-> Auto-wrap comments using textwidth
+"                                 |+-> Allow formatting of comments with 'gq'
+"                                 ||+-> Remove comment leader when joining lines
+"                                 |||     +-> Do no reinsert comment leader on <enter> in insert mode
+"                                 |||     |+-> Do not reinsert comment leader when pressing 'o'
+  au BufNewFile,BufReadPost *
+        \ setlocal formatoptions+=cqj fo-=ro
 augroup END
 
 "}}}
@@ -579,16 +626,16 @@ function! NCVCamelCaseToUnderscore()
 endfunction
 command! NCVCamelCaseToUnderscore :call NCVCamelCaseToUnderscore()
 
-function! NCVGithubUrlToVundleBundle()
-  substitute/\v.*github\.com\/(.*)\.git?/Bundle '\1'/
-  '{+,'}-sort i
+function! NCVGithubUrlToVundle()
+  substitute/\v.*github\.com\/(.*)\.git?/Plugin '\1'/
 endfunction
-command! NCVGithubUrlToVundleBundle :call NCVGithubUrlToVundleBundle()
+command! NCVGithubUrlToVundle :call NCVGithubUrlToVundle()
 
-" TODO: accept flags
-function! NCVSortInnerParagraph()
-  '{+,'}-sort
+function! NCVOpenSpec()
+  let spec_file = substitute(expand("%:r"), '^app/' , 'spec/', '') . '_spec.' . expand("%:e")
+  execute "edit " . spec_file
 endfunction
+command! NCVOpenSpec :call NCVOpenSpec()
 
 " don't seem to have $ITERM_PROFILE, but do this anyway?
 if exists('$ITERM_PROFILE') || 1
@@ -627,6 +674,7 @@ function! NCVTempFile()
   let syncfile = syncdir.'/'.substitute(tempname(), '/', '_', 'g')
   execute 'edit '.syncfile
   au CursorHold,WinLeave,VimLeave <buffer> update
+  " setlocal formatoptions+=ta
 endfunction
 command! NCVTempFile :call NCVTempFile()
 
@@ -636,6 +684,36 @@ function! BufEnterCommit()
   if getline('.') == ''
     start
   end
+endfunction
+
+function! StripTrailingRestoreCursor()
+  let pos = getpos('.')
+  execute '%s/\s\+$//e'
+  call setpos('.', pos)
+endfunction
+
+function! RuinVimEnable()
+  unmap :
+  nnoremap <silent> <leader>T :VroomRunNearestTest<cr>
+  nnoremap <silent> <leader>t :VroomRunTestFile<cr>
+endfunction
+
+function! RestoreVimToGlory()
+  nnoremap : ,
+  vnoremap : ,
+  unmap <leader>t
+  unmap <leader>T
+endfunction
+
+" Date,Payee,Category,Memo,Outflow,Inflow
+function! YNAB_MungeCsv()
+  %s/-\(\d\+\.\d\d\)/\1
+  g/^Payment/s/,\d\+\.\d\d$/,&
+  g/^Sale/s/.*/&,
+  %s%\(Sale\|Payment\),\(\d\d/\d\d/\d\d\d\d\),\d\d/\d\d/\d\d\d\d%\2
+  %s/"//g
+  %s/,\d\+\.\d\d/,,&
+  normal ggdd
 endfunction
 
 "}}}
