@@ -3,7 +3,8 @@
 "==========================================================================
 
 set nocompatible
-let mapleader=","
+let mapleader=" "
+" let maplocalleader=","
 
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -76,7 +77,7 @@ nmap K <Plug>DashGlobalSearch
 
 "}}}
 "-- Fugitive (Git) -----------------------------------------------------{{{
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
 nnoremap <silent> <leader>gb :Gblame<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
@@ -89,7 +90,7 @@ nnoremap <silent> <leader>gw :Gwrite<cr>
 
 "}}}
 "-- Gist ---------------------------------------------------------------{{{
-Plugin 'mattn/gist-vim'
+" Plugin 'mattn/gist-vim'
 
 let g:gist_detect_filetype=1
 
@@ -123,7 +124,7 @@ Plugin 'vim-scripts/paredit.vim'
 
 "}}}
 "-- Solarized ----------------------------------------------------------{{{
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 
 let g:solarized_italic=0
 let g:solarized_termcolors=256
@@ -149,7 +150,7 @@ let g:tcommentMaps=1
 
 "}}}
 "-- UltiSnips ----------------------------------------------------------{{{
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 
 " let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
 " let g:UltiSnipsListSnippets="<s-nul>"
@@ -159,7 +160,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 "}}}
 "-- Vimux --------------------------------------------------------------{{{
-Plugin 'benmills/vimux'
+" Plugin 'benmills/vimux'
 
 let g:VimuxHeight = "40"
 let g:VimuxOrientation = "h"
@@ -175,7 +176,7 @@ nnoremap <leader>tt :VimuxPromptCommand<cr>
 
 "}}}
 "-- Vroom --------------------------------------------------------------{{{
-Plugin 'skalnik/vim-vroom'
+" Plugin 'skalnik/vim-vroom'
 
 let g:vroom_clear_screen=0
 let g:vroom_map_keys=0
@@ -415,15 +416,6 @@ set statusline+=\ %c,%l\ %P
 " Key Mapping                                                           {{{
 "==========================================================================
 
-"-- Command-line Mode -----------------------------------------------------
-noremap <space> :
-
-"-- Leader Remap ----------------------------------------------------------
-" Since we use <space> to enter command-line mode we can map our lost comma
-" behavior onto colon.
-nnoremap : ,
-vnoremap : ,
-
 "-- Misc. Non-Leader Mappings ---------------------------------------------
 
 " Make Y behave consistently with D and C
@@ -504,6 +496,11 @@ nnoremap <silent> <leader><leader>win :ToggleWindowResizing<cr>
 
 " Open a temporary file with autosave
 nnoremap <leader><leader>temp :NCVTempFile<cr>
+
+"-- Spacemacs Analogs -----------------------------------------------------
+nnoremap <silent> <leader>feR :so $MYVIMRC<cr>
+nnoremap <silent> <leader>fed :tabe $MYVIMRC<cr>
+nnoremap <silent> <leader>fs :w<cr>
 
 "--------------------------------------------------------------------------
 " Make Vim recognize XTerm escape sequences for Page and Arrow
@@ -690,30 +687,6 @@ function! StripTrailingRestoreCursor()
   let pos = getpos('.')
   execute '%s/\s\+$//e'
   call setpos('.', pos)
-endfunction
-
-function! RuinVimEnable()
-  unmap :
-  nnoremap <silent> <leader>T :VroomRunNearestTest<cr>
-  nnoremap <silent> <leader>t :VroomRunTestFile<cr>
-endfunction
-
-function! RestoreVimToGlory()
-  nnoremap : ,
-  vnoremap : ,
-  unmap <leader>t
-  unmap <leader>T
-endfunction
-
-" Date,Payee,Category,Memo,Outflow,Inflow
-function! YNAB_MungeCsv()
-  %s/-\(\d\+\.\d\d\)/\1
-  g/^Payment/s/,\d\+\.\d\d$/,&
-  g/^Sale/s/.*/&,
-  %s%\(Sale\|Payment\),\(\d\d/\d\d/\d\d\d\d\),\d\d/\d\d/\d\d\d\d%\2
-  %s/"//g
-  %s/,\d\+\.\d\d/,,&
-  normal ggdd
 endfunction
 
 "}}}
