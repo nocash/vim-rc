@@ -77,7 +77,7 @@ nmap K <Plug>DashGlobalSearch
 
 "}}}
 "-- Fugitive (Git) -----------------------------------------------------{{{
-" Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 nnoremap <silent> <leader>gb :Gblame<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
@@ -90,7 +90,7 @@ nnoremap <silent> <leader>gw :Gwrite<cr>
 
 "}}}
 "-- Gist ---------------------------------------------------------------{{{
-" Plugin 'mattn/gist-vim'
+Plugin 'mattn/gist-vim'
 
 let g:gist_detect_filetype=1
 
@@ -160,7 +160,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 "}}}
 "-- Vimux --------------------------------------------------------------{{{
-" Plugin 'benmills/vimux'
+Plugin 'benmills/vimux'
 
 let g:VimuxHeight = "40"
 let g:VimuxOrientation = "h"
@@ -176,7 +176,7 @@ nnoremap <leader>tt :VimuxPromptCommand<cr>
 
 "}}}
 "-- Vroom --------------------------------------------------------------{{{
-" Plugin 'skalnik/vim-vroom'
+Plugin 'skalnik/vim-vroom'
 
 let g:vroom_clear_screen=0
 let g:vroom_map_keys=0
