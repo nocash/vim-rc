@@ -25,58 +25,47 @@ nnoremap <leader>a :Ag!<cr>
 "-- Auto Pairs ---------------------------------------------------------{{{
 Plugin 'jiangmiao/auto-pairs'
 
-" }}}
-"-- AutoSave -----------------------------------------------------------{{{
+"-- AutoSave -----------------------------------------------------------
 " Plugin '907th/vim-auto-save'
 
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
 
-" }}}
-"-- CtrlP --------------------------------------------------------------{{{
+"-- CSS3 Syntax --------------------------------------------------------
+Plugin 'hail2u/vim-css3-syntax'
+
+"-- CtrlP --------------------------------------------------------------
 Plugin 'JazzCore/ctrlp-cmatcher'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_custom_ignore={
   \ 'dir': '\v[\/](bundle|error_pages|tmp[\/]cache)',
   \ }
 let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_current_file=1
 let g:ctrlp_match_func={'match' : 'matcher#cmatch' }
-let g:ctrlp_max_files=15000
+let g:ctrlp_max_depth=5
+let g:ctrlp_max_files=1500
 let g:ctrlp_show_hidden=1
-let g:ctrlp_switch_buffer=0
-let g:ctrlp_user_command=['.git', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_switch_buffer='e'
+let g:ctrlp_use_caching=0
+let g:ctrlp_user_command={
+  \ 'types': {
+  \   1: ['.git', 'git ls-files --cached --others --exclude-standard --full-name -- %s']
+  \   }
+  \ }
 
-" :'<,'>sort i /<leader>/
-nnoremap <silent> <leader>b :CtrlPBuffer<cr>
-nnoremap <silent> <leader>f :CtrlP<cr>
-nnoremap <silent> <leader>pbt :CtrlPBufTag<cr>
-nnoremap <silent> <leader>pbT :CtrlPBufTagAll<cr>
-nnoremap <silent> <leader>pc :CtrlPChange<cr>
-nnoremap <silent> <leader>pC :CtrlPChangeAll<cr>
-nnoremap          <leader>pD :CtrlPDir
-nnoremap <silent> <leader>pd :CtrlPDir<cr>
-nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
-nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
-nnoremap <silent> <leader>pl :CtrlPLine %<cr>
-nnoremap <silent> <leader>pL :CtrlPLine<cr>
-nnoremap <silent> <leader>pm :CtrlPMixed<cr>
-nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
-nnoremap <silent> <leader>pr :CtrlPMRU<cr>
-nnoremap <silent> <leader>pt :CtrlPTag<cr>
-nnoremap <silent> <leader>pu :CtrlPUndo<cr>
-nnoremap <silent> <leader>pw :CtrlP %:h<cr>
 
-"}}}
-"-- Dash ---------------------------------------------------------------{{{
+"-- Dash ---------------------------------------------------------------
 Plugin 'rizzatti/dash.vim'
 
 nmap K <Plug>DashGlobalSearch
+nnoremap <silent> <leader>dd <Plug>DashGlobalSearch
 
-"}}}
-"-- Fugitive (Git) -----------------------------------------------------{{{
+
+"-- Fugitive (Git) -----------------------------------------------------
 Plugin 'tpope/vim-fugitive'
 
 nnoremap <silent> <leader>gb :Gblame<cr>
@@ -88,14 +77,18 @@ nnoremap <silent> <leader>gr :Gread<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gw :Gwrite<cr>
 
-"}}}
-"-- Gist ---------------------------------------------------------------{{{
+
+"-- Gist ---------------------------------------------------------------
 Plugin 'mattn/gist-vim'
 
 let g:gist_detect_filetype=1
 
-"}}}
-"-- Gundo --------------------------------------------------------------{{{
+
+"-- GitGutter-----------------------------------------------------------
+Plugin 'airblade/vim-gitgutter'
+
+
+"-- Gundo --------------------------------------------------------------
 Plugin 'sjl/gundo.vim'
 
 if version < 703          " check for version lower than 7.3
@@ -104,35 +97,39 @@ endif
 
 nnoremap <silent> <leader>u :GundoToggle<cr>
 
-"}}}
-"-- JavsScript ---------------------------------------------------------{{{
+
+"-- JavsScript ---------------------------------------------------------
 Plugin 'pangloss/vim-javascript'
 
-"}}}
-"-- JSX ----------------------------------------------------------------{{{
+
+"-- JSX ----------------------------------------------------------------
 Plugin 'mxw/vim-jsx'
 
+" By default, JSX syntax highlighting and indenting will be enabled only for
+" files with the .jsx extension.
 let g:jsx_ext_required = 0
 
-"}}}
-"-- MatchIndent --------------------------------------------------------{{{
-Plugin 'conormcd/matchindent.vim'
 
-"}}}
-"-- Paredit ------------------------------------------------------------{{{
+"-- MatchIndent --------------------------------------------------------
+" Disabled because it occasionally messes up the indentation of a file and I
+" can't yet be bothered to figure out how to override it.
+" Plugin 'conormcd/matchindent.vim'
+
+
+"-- Paredit ------------------------------------------------------------
 Plugin 'vim-scripts/paredit.vim'
 
-"}}}
-"-- Solarized ----------------------------------------------------------{{{
-" Plugin 'altercation/vim-colors-solarized'
+"-- Rhubarb ------------------------------------------------------------
+Plugin 'tpope/vim-rhubarb'
 
-let g:solarized_italic=0
-let g:solarized_termcolors=256
+"-- Splitjoin ----------------------------------------------------------
+Plugin 'AndrewRadev/splitjoin.vim'
 
-" call togglebg#map("<F5>")
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
 
-"}}}
-"-- Syntastic ----------------------------------------------------------{{{
+
+"-- Syntastic ----------------------------------------------------------
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=0
@@ -142,14 +139,14 @@ let g:syntastic_mode_map={
     \ 'passive_filetypes': ['cucumber'] }
 let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
-"}}}
-"-- TComment -----------------------------------------------------------{{{
+
+"-- TComment -----------------------------------------------------------
 Plugin 'tomtom/tcomment_vim'
 
 let g:tcommentMaps=1
 
-"}}}
-"-- UltiSnips ----------------------------------------------------------{{{
+
+"-- UltiSnips ----------------------------------------------------------
 " Plugin 'SirVer/ultisnips'
 
 " let g:UltiSnipsExpandTrigger="<c-space>" " aka <c-space>
@@ -158,8 +155,8 @@ let g:UltiSnipsEditSplit='horizontal'
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 
-"}}}
-"-- Vimux --------------------------------------------------------------{{{
+
+"-- Vimux --------------------------------------------------------------
 Plugin 'benmills/vimux'
 
 let g:VimuxHeight = "40"
@@ -174,8 +171,12 @@ nnoremap <leader>tpx :call VimuxRunCommand("!!!")<cr>
 nnoremap <leader>tr :call VimuxRunCommand("stty sane")<cr>
 nnoremap <leader>tt :VimuxPromptCommand<cr>
 
-"}}}
-"-- Vroom --------------------------------------------------------------{{{
+
+"-- Vinegar ------------------------------------------------------------
+Plugin 'tpope/vim-vinegar'
+
+
+"-- Vroom --------------------------------------------------------------
 Plugin 'skalnik/vim-vroom'
 
 let g:vroom_clear_screen=0
@@ -187,8 +188,8 @@ let g:vroom_use_zeus=1
 nnoremap <silent> <leader>r :VroomRunNearestTest<cr>
 nnoremap <silent> <leader>R :VroomRunTestFile<cr>
 
-"}}}
-"-- Other Plugins ------------------------------------------------------{{{
+
+"-- Other Plugins ------------------------------------------------------
 
 " Plugin 'aaronjensen/vim-autocomplpop'
 " Plugin 'aaronjensen/vim-recentcomplete'
@@ -196,6 +197,10 @@ nnoremap <silent> <leader>R :VroomRunTestFile<cr>
 " Plugin 'tpope/vim-dispatch'
 " Plugin 'tpope/vim-pathogen'
 " Plugin 'vim-scripts/L9'
+"" Plugin 'pelodelfuego/vim-swoop'
+"" Plugin 'tpope/vim-projectionist'
+"" Plugin 'wellle/targets.vim'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'int3/vim-extradite'
@@ -221,9 +226,9 @@ Plugin 'vim-scripts/JavaScript-syntax'
 Plugin 'vim-scripts/nginx.vim'
 Plugin 'wgibbs/vim-irblack'
 
-" }}}}}}
+" 
 "==========================================================================
-" Vim Settings                                                          {{{
+" Vim Settings                                                          
 "==========================================================================
 
 syntax on
@@ -234,6 +239,9 @@ if has('unix')
   let s:uname = substitute(system('uname'), '\n', '', '')
 endif
 
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 "-- Files & Directories ---------------------------------------------------
 " Tell vim to remember certain things when we exit
 "           +-> Remember marks for up to # previously edited files
@@ -243,8 +251,8 @@ endif
 "           |   |  |    |     +-> Number of lines to save from the input line history
 "           |   |  |    |     |    +-> Number of lines to save from the search history
 "           |   |  |    |     |    |    +-> Disable 'hlsearch' highlighting when starting
-"           |   |  |    |     |    |    | +-> Where to save the viminfo files
-set viminfo='10,f1,<100,:1000,@100,/100,h,n~/.vim/.viminfo
+"           |   |  |    |     |    |    |
+set viminfo='10,f1,<100,:1000,@100,/100,h
 set nobackup               " do not make backups
 set noswapfile             " do not make swapfiles
 
@@ -314,12 +322,13 @@ set listchars=tab:·\ ,trail:·,extends:»,precedes:«
 "-- Other / Unsorted ------------------------------------------------------
 set autoread
 set backspace=indent,eol,start
+set clipboard=unnamed,unnamedplus
 set fileformats=unix,dos,mac
 set hidden
 set history=100
 set laststatus=2
 set matchtime=5
-set mouse=nv " allow mouse in normal and visual mode
+set mouse=a
 set mousehide
 set noerrorbells
 set nojoinspaces
@@ -338,9 +347,9 @@ set ttimeoutlen=5
 set ttyfast
 set virtualedit=block
 
-"}}}
+
 "==========================================================================
-" Appearance                                                            {{{
+" Appearance                                                            
 "==========================================================================
 
 "-- GUI Options -----------------------------------------------------------
@@ -353,6 +362,8 @@ if has("gui_running") && !exists("g:vimrc_gui_options_set")
 
 " Set platform-specific fonts
   if s:uname == 'Darwin'
+    " set macligatures
+    " set guifont=Fira\ Code:h14
     set guifont=Inconsolata-g:h14,\ Menlo\ Regular:h15
   endif
 endif
@@ -362,7 +373,7 @@ if !exists("g:colors_name")
   set background=dark
 
   if has("gui_running")
-    colorscheme solarized
+    colorscheme molokai
   elseif &t_Co >= 88
     if &diff
       colorscheme ir_black
@@ -411,9 +422,9 @@ set statusline+=%#warningmsg#%{&paste?'[paste]':''}%*
 "                  |  |   +-> Percentage through file
 set statusline+=\ %c,%l\ %P
 
-"}}}
+
 "==========================================================================
-" Key Mapping                                                           {{{
+" Key Mapping                                                           
 "==========================================================================
 
 "-- Misc. Non-Leader Mappings ---------------------------------------------
@@ -434,11 +445,10 @@ noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
-nnoremap <c-n> gt
 
 " Remap increment/decrement keys
-nnoremap + <c-a>
-nnoremap - <c-x>
+" nnoremap + <c-a>
+" nnoremap - <c-x>
 
 " Emacs style insert/command movement
 noremap! <c-b> <left>
@@ -458,32 +468,87 @@ inoremap <c-y> <c-d>
 " Miscelaneous
 cnoremap %% %:h/
 
+"-- Spacemacs Analogs -----------------------------------------------------
+" :'<,'>sort i /<leader>/
+
+" [b]uffer
+nnoremap <silent> <leader>bb :CtrlPBuffer<cr>
+nnoremap <silent> <leader>bd :bd<cr>
+nnoremap <silent> <leader>bt :CtrlPBufTag<cr>
+nnoremap <silent> <leader>bT :CtrlPBufTagAll<cr>
+
+" [d]
+nnoremap <silent> <leader>dd :Dash<cr>
+
+" [f]ile
+nnoremap <silent> <leader>ff :CtrlP<cr>
+nnoremap <silent> <leader>fd :NCVEditCwd<cr>
+nnoremap <silent> <leader>fr :CtrlPMRU<cr>
+nnoremap <silent> <leader>fs :w<cr>
+nnoremap <silent> <leader>fS :wa<cr>
+nnoremap <silent> <leader>fu :CtrlPUndo<cr>
+" Copy file location to clipboard
+nnoremap          <leader>fy :redir @*> \| echon @% \| redir END<cr>
+
+" [fe] file edit
+nnoremap <silent> <leader>fed :tabe $MYVIMRC<cr>
+nnoremap <silent> <leader>feR :so $MYVIMRC<cr>
+
+" [g]it
+nnoremap          <leader>gb :Gblame<cr>
+nnoremap          <leader>gcd :Gcd<cr>
+
+" [j]ump
+nnoremap <silent> <leader>jc :CtrlPChange<cr>
+nnoremap <silent> <leader>jC :CtrlPChangeAll<cr>
+nnoremap <silent> <leader>jl :CtrlPLine %<cr>
+nnoremap <silent> <leader>jL :CtrlPLine<cr>
+nnoremap <silent> <leader>jt :CtrlPTag<cr>
+
+" [p]roject
+nnoremap          <leader>pD :CtrlPDir
+nnoremap <silent> <leader>pd :CtrlPDir<cr>
+nnoremap <silent> <leader>pf :CtrlP<cr>
+nnoremap <silent> <leader>pk :CtrlPBookmarkDir<cr>
+nnoremap <silent> <leader>pK :CtrlPBookmarkDirAdd<cr>
+nnoremap <silent> <leader>pm :CtrlPMixed<cr>
+nnoremap <silent> <leader>pq :CtrlPQuickfix<cr>
+nnoremap <silent> <leader>pw :CtrlP %:h<cr>
+
+" [t]oggle
+nnoremap <silent> <leader>th :silent set hlsearch!<cr>
+nnoremap <silent> <leader>tl :set list!<cr>
+
+" [q]uit
+nnoremap <silent> <leader>qq :qa<cr>
+
+" [w]indow
+nnoremap <silent> <leader>wd :quit<cr>
+
+" [x] transform
+" [xa] align
+noremap <silent> <leader>xa\ :Tab /\\<cr>
+noremap <silent> <leader>xjj :SplitjoinJoin<cr>
+noremap <silent> <leader>xjk :SplitjoinSplit<cr>
+noremap <silent> <leader>xs :sort i<cr>
+map     <silent> <leader>xv vii<leader>xs
+map     <silent> <leader>xx <leader>xs
+
+" [/]
+nnoremap          <leader>/ :Ag! 
+
 "-- Misc. Leader Mappings -------------------------------------------------
-nnoremap <silent> <leader>v :tabe $MYVIMRC<cr>
-nnoremap <silent> <leader>V :so $MYVIMRC<cr>
+" nnoremap <silent> <leader>v :tabe $MYVIMRC<cr>
+" nnoremap <silent> <leader>V :so $MYVIMRC<cr>
 
 nnoremap <silent> <leader>cd :lcd %:h<cr>
 nnoremap <silent> <leader>md :silent execute '!mkdir -p %:p:h' \| redraw!<cr>
 
-" Yank and paste from system clipboard
-map <leader>y "+y
-map <leader>Y "+Y
-map <leader>gp "+p
-map <leader>gP "+P
-map <s-insert> "+gP
-map! <s-insert> <c-r>+
-
-" Copy file location to clipboard
-nnoremap <leader>%% :redir @*> \| echon @% \| redir END<cr>
+map <s-insert> gP
+map! <s-insert> <c-r>"
 
 " Open buffer in new tab
 nnoremap <leader>gt :tab sp<cr>
-
-" Un-highlight last search
-nnoremap <silent> <leader>hl :silent set hlsearch!<cr>
-
-" Toggle list characters
-nnoremap <silent> <leader>lc :set list!<cr>
 
 " Visual select changed text
 nnoremap <silent> <leader>cv `[v`]
@@ -496,11 +561,6 @@ nnoremap <silent> <leader><leader>win :ToggleWindowResizing<cr>
 
 " Open a temporary file with autosave
 nnoremap <leader><leader>temp :NCVTempFile<cr>
-
-"-- Spacemacs Analogs -----------------------------------------------------
-nnoremap <silent> <leader>feR :so $MYVIMRC<cr>
-nnoremap <silent> <leader>fed :tabe $MYVIMRC<cr>
-nnoremap <silent> <leader>fs :w<cr>
 
 "--------------------------------------------------------------------------
 " Make Vim recognize XTerm escape sequences for Page and Arrow
@@ -518,9 +578,9 @@ if &term =~ '^screen'
   execute "set <xLeft>=\e[1;*D"
 endif
 
-"}}}
+
 "==========================================================================
-" Autocommands                                                          {{{
+" Autocommands                                                          
 "==========================================================================
 
 augroup ResetStatuslineWarnings
@@ -539,31 +599,30 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-augroup Miscellaneous
+augroup FileTypeDetection
   au!
-  " Cucumber (The ft detection in the plugin doesn't seem to work for me)
-  au BufNewFile,BufReadPost *.feature,*.story setfiletype cucumber
   " Set Ruby for certain non .rb files
   au BufNewFile,BufReadPost .autotest,Guardfile,Capfile,Cheffile setfiletype ruby
   " Set HAML filetype
   au BufNewFile,BufReadPost *.hamlc setfiletype haml
   " Automatically detect tmux config
   au BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
-  " Restore cursor to last known position when opening a previously edited
-  " file.
+augroup END
+
+augroup Miscellaneous
+  au!
+  " Restore cursor to last known position when opening previously edited file.
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-  " Load script that uses Tabularize to assist with aligning Cucumber tables
-  " when editing Cucumber files.
-  au FileType cucumber
-    \ if filereadable(expand('$HOME/.vim/scripts/tabularize-cuke-tables.vim'))
-    \ | source $HOME/.vim/scripts/tabularize-cuke-tables.vim
-    \ | endif
   " Automatically remove fugitive buffers
   au BufReadPost fugitive://* set bufhidden=delete
   " Start in insert mode for commit
   au BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
   " Do not create undo files for certain files
   au BufWritePre *.git/COMMIT_EDITMSG setlocal noundofile
+  " Align case|default within swtich statement
+  " au FileType javascript set cinoptions+=:0
+  " Improve syntax highlighting in CSS files.
+  autocmd FileType css,sass,scss setlocal iskeyword+=-
   " Remove trailing whitespace
   au FileType coffee,eruby,haml,javascript,php,ruby,sass,scss,sh,xml
     \ au BufWritePre <buffer>
@@ -573,15 +632,16 @@ augroup Miscellaneous
 "                                 +-> Auto-wrap comments using textwidth
 "                                 |+-> Allow formatting of comments with 'gq'
 "                                 ||+-> Remove comment leader when joining lines
-"                                 |||     +-> Do no reinsert comment leader on <enter> in insert mode
-"                                 |||     |+-> Do not reinsert comment leader when pressing 'o'
+"                                 |||+-> Do not auto-wrap existing long lines
+"                                 ||||     +-> Do no reinsert comment leader on <enter> in insert mode
+"                                 ||||     |+-> Do not reinsert comment leader when pressing 'o'
   au BufNewFile,BufReadPost *
-        \ setlocal formatoptions+=cqj fo-=ro
+        \ setlocal formatoptions+=cqjl fo-=ro
 augroup END
 
-"}}}
+
 "==========================================================================
-" Functions / Commands                                                  {{{
+" Functions / Commands                                                  
 "==========================================================================
 
 command! Marked
@@ -679,7 +739,7 @@ command! NCVTempFile :call NCVTempFile()
 function! BufEnterCommit()
   normal gg0
   if getline('.') == ''
-    start
+    startinsert
   end
 endfunction
 
@@ -689,9 +749,20 @@ function! StripTrailingRestoreCursor()
   call setpos('.', pos)
 endfunction
 
-"}}}
+function! NCVEditCwd()
+  let editdir = expand('%:h')
+  if editdir == ''
+    let editdir = getcwd()
+  endif
+  execute 'edit '.editdir
+endfunction
+command! NCVEditCwd :call NCVEditCwd()
+
+" Macro for making Markdown === header:
+" mq:.,+g/^[=-]\+$/d\\`qyyp:s/./=/g\`q
+
 "==========================================================================
-" Acknowledgements                                                      {{{
+" Acknowledgements                                                      
 "==========================================================================
 "
 " Derek Wyatt for Vim and .vimrc tips
@@ -711,7 +782,7 @@ endfunction
 " - https://github.com/aaronjensen/vimfiles
 " - https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 "
-"}}}
+
 "==========================================================================
 " Scared by folding? Use 'zi' to temporarily disable it.
 " vim:et:sts=2:sw=2:tw=78:fdm=marker:fdls=0
