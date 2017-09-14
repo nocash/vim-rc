@@ -1,5 +1,5 @@
 "==========================================================================
-" Plugins & Configuration                                               {{{
+" Plugins & Configuration
 "==========================================================================
 
 set nocompatible
@@ -13,7 +13,7 @@ call vundle#rc()
 " required!
 Plugin 'gmarik/vundle'
 
-"-- Ag -----------------------------------------------------------------{{{
+"-- Ag -----------------------------------------------------------------
 Plugin 'rking/ag.vim'
 
 let g:ag_highlight=1
@@ -21,8 +21,8 @@ let g:ag_highlight=1
 nnoremap <leader>A :Ag!<space>
 nnoremap <leader>a :Ag!<cr>
 
-" }}}
-"-- Auto Pairs ---------------------------------------------------------{{{
+" 
+"-- Auto Pairs ---------------------------------------------------------
 Plugin 'jiangmiao/auto-pairs'
 
 "-- AutoSave -----------------------------------------------------------
@@ -115,6 +115,9 @@ let g:jsx_ext_required = 0
 " can't yet be bothered to figure out how to override it.
 " Plugin 'conormcd/matchindent.vim'
 
+
+"-- NERDTree -----------------------------------------------------------
+Plugin 'scrooloose/nerdtree'
 
 "-- Paredit ------------------------------------------------------------
 Plugin 'vim-scripts/paredit.vim'
@@ -321,6 +324,7 @@ set listchars=tab:·\ ,trail:·,extends:»,precedes:«
 
 "-- Other / Unsorted ------------------------------------------------------
 set autoread
+set autowrite
 set backspace=indent,eol,start
 set clipboard=unnamed,unnamedplus
 set fileformats=unix,dos,mac
@@ -470,6 +474,8 @@ cnoremap %% %:h/
 
 "-- Spacemacs Analogs -----------------------------------------------------
 " :'<,'>sort i /<leader>/
+
+nnoremap <silent> <leader>\ :NERDTreeToggle<cr>
 
 " [b]uffer
 nnoremap <silent> <leader>bb :CtrlPBuffer<cr>
