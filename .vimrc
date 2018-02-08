@@ -4,7 +4,6 @@
 
 set nocompatible
 let mapleader=" "
-" let maplocalleader=","
 
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -21,7 +20,19 @@ let g:ag_highlight=1
 nnoremap <leader>A :Ag!<space>
 nnoremap <leader>a :Ag!<cr>
 
-" 
+"
+"-- ALE ----------------------------------------------------------------
+Plugin 'w0rp/ale'
+
+let g:ale_javascript_eslint_executable = 'eslint_d'
+" let g:ale_javascript_eslint_use_global = 1
+let g:ale_lint_on_insert_leave = 1
+
+let g:ale_fixers = {
+      \ 'javascript': ['eslint'],
+      \ }
+
+"
 "-- Auto Pairs ---------------------------------------------------------
 Plugin 'jiangmiao/auto-pairs'
 
@@ -33,7 +44,7 @@ let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
 
 "-- CSS3 Syntax --------------------------------------------------------
-Plugin 'hail2u/vim-css3-syntax'
+" Plugin 'hail2u/vim-css3-syntax'
 
 "-- CtrlP --------------------------------------------------------------
 Plugin 'JazzCore/ctrlp-cmatcher'
@@ -64,6 +75,8 @@ Plugin 'rizzatti/dash.vim'
 nmap K <Plug>DashGlobalSearch
 nnoremap <silent> <leader>dd <Plug>DashGlobalSearch
 
+"-- Editorconfig -------------------------------------------------------
+Plugin 'editorconfig/editorconfig-vim'
 
 "-- Fugitive (Git) -----------------------------------------------------
 Plugin 'tpope/vim-fugitive'
@@ -99,11 +112,11 @@ nnoremap <silent> <leader>u :GundoToggle<cr>
 
 
 "-- JavsScript ---------------------------------------------------------
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 
 
 "-- JSX ----------------------------------------------------------------
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
 
 " By default, JSX syntax highlighting and indenting will be enabled only for
 " files with the .jsx extension.
@@ -115,6 +128,8 @@ let g:jsx_ext_required = 0
 " can't yet be bothered to figure out how to override it.
 " Plugin 'conormcd/matchindent.vim'
 
+"-- Neoformat ----------------------------------------------------------
+" Plugin 'sbdchd/neoformat'
 
 "-- NERDTree -----------------------------------------------------------
 Plugin 'scrooloose/nerdtree'
@@ -122,25 +137,29 @@ Plugin 'scrooloose/nerdtree'
 "-- Paredit ------------------------------------------------------------
 Plugin 'vim-scripts/paredit.vim'
 
+"-- Polyglot -----------------------------------------------------------
+Plugin 'sheerun/vim-polyglot'
+
+
+"-- Prettier -----------------------------------------------------------
+Plugin 'prettier/vim-prettier'
+
+let g:prettier#autoformat = 0
+let g:prettier#exec_cmd_async = 1
+let g:prettier#quickfix_enabled = 0
+
+" cli-override|file-override|prefer-file
+let g:prettier#config#config_precedence = 'prefer-file'
+
 "-- Rhubarb ------------------------------------------------------------
 Plugin 'tpope/vim-rhubarb'
+
 
 "-- Splitjoin ----------------------------------------------------------
 Plugin 'AndrewRadev/splitjoin.vim'
 
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
-
-
-"-- Syntastic ----------------------------------------------------------
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=0
-let g:syntastic_mode_map={
-    \ 'mode': 'active',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': ['cucumber'] }
-let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
 
 "-- TComment -----------------------------------------------------------
@@ -210,7 +229,7 @@ Plugin 'int3/vim-extradite'
 Plugin 'jnurmine/Zenburn'
 Plugin 'kana/vim-textobj-indent'
 Plugin 'kana/vim-textobj-user'
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/webapi-vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'nocash/bufkill.vim'
@@ -218,15 +237,15 @@ Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-markdown'
+" Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/CSApprox'
-Plugin 'vim-scripts/JavaScript-syntax'
-Plugin 'vim-scripts/nginx.vim'
+" Plugin 'vim-scripts/JavaScript-syntax'
+" Plugin 'vim-scripts/nginx.vim'
 Plugin 'wgibbs/vim-irblack'
 
 " 
@@ -505,6 +524,8 @@ nnoremap          <leader>gb :Gblame<cr>
 nnoremap          <leader>gcd :Gcd<cr>
 
 " [j]ump
+nnoremap <silent> <leader>jap <Plug>(ale_previous)
+nnoremap <silent> <leader>jan <Plug>(ale_next)
 nnoremap <silent> <leader>jc :CtrlPChange<cr>
 nnoremap <silent> <leader>jC :CtrlPChangeAll<cr>
 nnoremap <silent> <leader>jl :CtrlPLine %<cr>
@@ -605,15 +626,16 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-augroup FileTypeDetection
-  au!
-  " Set Ruby for certain non .rb files
-  au BufNewFile,BufReadPost .autotest,Guardfile,Capfile,Cheffile setfiletype ruby
-  " Set HAML filetype
-  au BufNewFile,BufReadPost *.hamlc setfiletype haml
-  " Automatically detect tmux config
-  au BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
-augroup END
+" All rules temporarily disabled while testing vim-polyglot plugin.
+" augroup FileTypeDetection
+"   au!
+"   " Set Ruby for certain non .rb files
+"   au BufNewFile,BufReadPost .autotest,Guardfile,Capfile,Cheffile setfiletype ruby
+"   " Set HAML filetype
+"   au BufNewFile,BufReadPost *.hamlc setfiletype haml
+"   " Automatically detect tmux config
+"   au BufNewFile,BufReadPost .tmux.conf*,tmux.conf* setfiletype tmux
+" augroup END
 
 augroup Miscellaneous
   au!
@@ -623,6 +645,8 @@ augroup Miscellaneous
   au BufReadPost fugitive://* set bufhidden=delete
   " Start in insert mode for commit
   au BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
+  " Format files on save.
+  au BufWritePre *.js,*.jsx,*.json,*.sass,*.scss,*.css PrettierAsync
   " Do not create undo files for certain files
   au BufWritePre *.git/COMMIT_EDITMSG setlocal noundofile
   " Align case|default within swtich statement
@@ -639,10 +663,11 @@ augroup Miscellaneous
 "                                 |+-> Allow formatting of comments with 'gq'
 "                                 ||+-> Remove comment leader when joining lines
 "                                 |||+-> Do not auto-wrap existing long lines
-"                                 ||||     +-> Do no reinsert comment leader on <enter> in insert mode
-"                                 ||||     |+-> Do not reinsert comment leader when pressing 'o'
+"                                 ||||     +-> Disable wrapping non-comments.
+"                                 ||||     |+-> Do no reinsert comment leader on <enter> in insert mode
+"                                 ||||     ||+-> Do not reinsert comment leader when pressing 'o'
   au BufNewFile,BufReadPost *
-        \ setlocal formatoptions+=cqjl fo-=ro
+        \ setlocal formatoptions+=cqjl fo-=tro
 augroup END
 
 
